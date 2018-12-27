@@ -1,0 +1,11 @@
+<div class="container-fluid">
+  <div class="row head-menu">
+    <ul class="menu fr">
+      <li *ngFor="let item of pages">
+        <a (click)="highlightPage(item)" [class.active]="item.IsSelected" [target]="item.Target">
+          {{item.Name}}
+        </a>
+      </li>
+    </ul>
+  </div>
+</div>

@@ -1,0 +1,64 @@
+<nav class="navbar navbar-default" style="background-color:transparent;border: none;">
+  <div class="container-fluid">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" class="btn navbar-toggle collapsed" (click)="isCollapsed = !isCollapsed"
+        [attr.aria-expanded]="!isCollapsed" aria-controls="collapseBasic">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="#"><img src="../assets/img/Tour To logo.png" alt="" class="logo"></a>
+    </div>
+    <div class="col-md-12" style="margin-top:50px;">
+
+      <div id="collapseBasic" [collapse]="!isCollapsed" class="card card-block card-header">
+        <ul class="mobile-menu">
+          <li>
+            <div class="btn-group " dropdown>
+              <a id="button-basic" dropdownToggle type="button" class="mobile-link  dropdown-toggle" aria-controls="dropdown-basic">
+                EN <span class="caret"></span>
+              </a>
+              <ul id="dropdown-basic" *dropdownMenu class="dropdown-menu dropdown-menu2 " role="menu" aria-labelledby="button-basic">
+                <li role="menuitem"><a class="dropdown-item" href="#">EN</a></li>
+                <li role="menuitem"><a class="dropdown-item" href="#">AR</a>
+                </li>
+              </ul>
+            </div>
+          </li>
+          <li>
+         <div class="btn-group bord" dropdown>
+            <a id="button-basic" dropdownToggle type="button" class="lang dropdown-toggle" aria-controls="dropdown-basic">
+              {{languageService.currentLanguageNativeName}} <span class="caret"></span>
+            </a>
+            <ul id="dropdown-basic" *dropdownMenu class="dropdown-menu dropdown-menu2" role="menu" aria-labelledby="button-basic">
+              <li role="menuitem" *ngFor="let item of languages">
+                <a class="dropdown-item" (click)="setLanguage(item)">{{item.NativeName}}</a>
+              </li>
+            </ul>
+          </div>
+          </li>
+          <li>
+
+            <a>
+                <img src="../assets/img/avt8.jpg" alt="" class="mobile-profile-pic float-left">Mohamed Ahmed
+            </a>
+          </li>
+          <li>
+            <a>
+              Login with another account
+            </a>
+          </li>
+          <li>
+            <a>
+              Sign out
+            </a>
+          </li>
+
+        </ul>
+      </div>
+    </div>
+
+  </div><!-- /.container-fluid -->
+</nav>

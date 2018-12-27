@@ -1,0 +1,101 @@
+<div class="">
+  <div class="row">
+    <div class="col-md-10">
+      <div class="row">
+        <div class="col-md-8">
+          <h3 class="dark-gray">Select your departure to Cairo Fri, Nov 16</h3>
+          <p class="blue">Prices are roundtrip per person, include al taxes and fees, but do not include baggage fees.
+          </p>
+
+        </div>
+
+        
+        <div class="col-sm-4">
+          <div class="form-group">
+            <label class="blue" for="exampleInputEmail1">Sort by</label>
+            <select class="form-control ">
+              <option>Recommanded</option>
+              <option>lowest price</option>
+              <option>best price</option>
+
+            </select>
+          </div>
+        </div>
+
+      </div>
+      <div class="col-md-12 visible-sm visible-xs">
+        <button type="button" class="btn btn-blue btn-block" (click)="openModal(template)">Filter & Map</button>
+
+        <ng-template #template>
+          <div class="modal-header">
+            <button type="button" class="close pull-right" aria-label="Close" (click)="modalRef.hide()">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <app-hotels-filter></app-hotels-filter>
+          </div>
+        </ng-template>
+      </div>
+
+
+
+      <div class="result-container border-top-orange" style="margin-top:15px;">
+        <div class="row margin-0 overflow ">
+
+          <div class="col-md-3 padding-0 hotel-pic-container">
+            <img src="../assets/img/hotel-1.jpg" class="hotel-result-pic">
+          </div>
+          <div class="col-md-7  borderd-right">
+            <h4 class="blue">AC Hotel Columbus Dublin</h4>
+            <div class="orange">
+              <rating name="rate" [(ngModel)]="rate" max="5" [readonly]="isReadonly"></rating>
+
+              <span class="dark-gray" style="margin-left:50px;">Wonderful 392 reviews</span>
+            </div>
+
+            <h5> <b>Dublin – Show on map <span style="margin-left:50px;">(2.9 km from center)</span></b></h5>
+            <p>Located off Interstate 270, this hotel in Dublin, Ohio is 15 miles
+              from central Columbus. Facilities include an indoor-outdoor
+              swimming pool and free WiFi access.</p>
+            <div id="collapseBasic" [collapse]="!isCollapsed" class="card card-block card-header">
+
+              <p>.A flat-screen satellite TV and seating area are included
+                in each room at Hyatt Place Columbus/Dublin. There is also
+                a refrigerator and coffee machine. Private bathrooms are
+                equipped with a hairdryer and free toiletries.
+                <br><br>
+                Guests at Hyatt Place Columbus/Dublin can enjoy access
+                to the outdoor swimming pool and fitness facilities.
+                <br><br>
+                The Mall at Tuttle Crossing is just a short drive from Hyatt Place </p>
+
+            </div>
+            <a type="button" class="orange more-details" (click)="isCollapsed = !isCollapsed" [attr.aria-expanded]="!isCollapsed"
+              aria-controls="collapseBasic">
+              More details
+            </a>
+
+
+          </div>
+          <div class="col-md-2 ">
+            <div class="item-price">
+              <h3 class="dark-gray"> $ 450</h3>
+              <div _ngcontent-c5="" class="form-group "><button _ngcontent-c5="" class="btn btn-orange" type="submit">Select</button></div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+
+      <div class="row">
+        <pagination [totalItems]="totalItems" [(ngModel)]="currentPage" class="fr"></pagination>
+      </div>
+    </div>
+    <div class="col-md-2 hidden-sm hidden-xs">
+      <img src="../assets/img/Ad - 120X600.jpg" class="ads">
+    </div>
+  </div>
+
+</div>

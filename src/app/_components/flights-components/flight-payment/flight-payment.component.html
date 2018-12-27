@@ -1,0 +1,314 @@
+<div class="home-img">
+
+  <app-menu-links></app-menu-links>
+  <app-header></app-header>
+
+</div>
+
+
+
+<div class="row" style="margin-top:30px;">
+
+  <div id="left-details">
+    <div class="row">
+      <div class="col-md-2">
+
+      </div>
+      <div class="col-md-10">
+        <h3 class="dark-gray">Review your trip</h3>
+        <p class="blue">Nice Job! You picked one of our cheapest flights </p>
+        <div class="result-container">
+          <div class="row">
+            <div class="col-md-12">
+              <a type="button" class="btn " (click)="isCollapsed = !isCollapsed" [attr.aria-expanded]="!isCollapsed"
+                aria-controls="collapseBasic" style="width:100%; padding: 15px;"><span class="fl blue"> <b>Passenger
+                    1</b></span> <span class="glyphicon fr drop-arrow" [class.glyphicon-menu-up]="!isCollapsed"
+                  [class.glyphicon-menu-down]="isCollapsed" aria-hidden="true"></span>
+              </a>
+
+              <div id="collapseBasic" [collapse]="isCollapsed" class="card card-block card-header">
+                <div class="form-group col-md-4">
+                  <input type="email" class="form-control" id="exampleInputEmail1" placeholder="First name">
+                </div>
+                <div class="form-group col-md-4">
+                  <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Middle name">
+                </div>
+                <div class="form-group col-md-4">
+                  <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Last name">
+                </div>
+                <div class="form-group col-md-12">
+                  <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Phone number">
+                </div>
+                <div class="form-group col-md-12">
+                  <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Passport">
+                </div>
+
+              </div>
+            </div>
+            <div class="col-md-12">
+              <a type="button" class="btn " (click)="isCollapsed2 = !isCollapsed2" [attr.aria-expanded]="!isCollapsed2"
+                aria-controls="collapseBasic" style="width:100%; padding: 15px;"><span class="fl blue"> <b>Passenger
+                    2</b></span> <span class="glyphicon fr drop-arrow" [class.glyphicon-menu-up]="isCollapsed"
+                  [class.glyphicon-menu-down]="!isCollapsed" aria-hidden="true"></span>
+              </a>
+
+              <div id="collapseBasic" [collapse]="!isCollapsed2" class="card card-block card-header">
+                <div class="form-group col-md-4">
+                  <input type="email" class="form-control" id="exampleInputEmail1" placeholder="First name">
+                </div>
+                <div class="form-group col-md-4">
+                  <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Middle name">
+                </div>
+                <div class="form-group col-md-4">
+                  <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Last name">
+                </div>
+                <div class="form-group col-md-12">
+                  <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Phone number">
+                </div>
+                <div class="form-group col-md-12">
+                  <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Passport">
+                </div>
+
+              </div>
+            </div>
+          </div>
+          <div class="row" style="padding:15px;">
+            <div class="col-md-12">
+              <h5>Seat selections are requested from the airline, but cannot be guaranteed.</h5>
+
+              <button type="button" class="btn btn-orange" (click)="openModalWithClass(template)">Seat preference</button>
+              <br>
+
+              <ng-template #template>
+                <div class="modal-header">
+                  <h4 class="modal-title pull-left">Seat preference</h4>
+                  <button type="button" class="close pull-right" aria-label="Close" (click)="modalRef.hide()">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+                <div class="modal-body">
+                  <div class="row">
+                    <div class="col-md-8">
+                      <h4 class="blue">Select your Seat</h4>
+                      <div class="form-group">
+                        <select class="form-control ">
+                          <option>Any seat</option>
+                          <option>Window</option>
+                          <option>Aisle</option>
+
+                        </select>
+                      </div>
+                      <div class="plane-iframe"></div>
+                    </div>
+                    <div class="col-md-4 borderd-left">
+                      <h4 class="blue">Passenger 1</h4>
+                      <p>When you're traveling with a companion. Airlines often book middle seats last, so there's a
+                        better chance of ending up with an open middle seat when one of you is booked on the window and
+                        the other on the aisle. If you don't want to get bumped by </p>
+                      <button type="button" class="btn btn-orange btn-block">
+                        Next
+                      </button>
+                      <button type="button" class="btn btn-orange btn-block">
+                        Next
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </ng-template>
+
+              <div class="clearfix"></div>
+              <h4 class="fl dark-gray"><b>DXB</b> to <b>AMS</b></h4>
+              <h4 class="fr orange"><b>Any</b> </h4>
+
+
+
+            </div>
+          </div>
+          <div class="row" style="padding:15px;">
+            <div class="col-md-12">
+              <button type="button" class="btn btn-orange">
+                Select meal
+              </button>
+              <div class="clearfix"></div>
+              <h4 class="fl dark-gray"><b>PASSENGER 1</b> </h4>
+              <h4 class="fr orange"><b>Vegan</b> </h4>
+
+
+
+
+
+
+            </div>
+          </div>
+          <div class="row" style="padding:15px;">
+
+            <div class="col-md-12">
+              <h4 class="blue"><b>Frequent flight </b></h4>
+              <div class="form-group">
+                <select class="form-control ">
+                  <option>Egypt Air</option>
+                  <option>KLM</option>
+                  <option>Nile Air</option>
+
+                </select>
+              </div>
+              <div class="form-group">
+                <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Frequent number">
+              </div>
+
+            </div>
+          </div>
+          <div class="row" style="padding:15px;">
+
+            <div class="col-md-12">
+              <h4 class="blue"><b>Special assistance </b></h4>
+              <div class="form-group">
+                <select class="form-control ">
+                  <option>Blind with guide dog</option>
+                  <option>Blind with guide dog</option>
+                  <option>Blind with guide dog</option>
+
+                </select>
+              </div>
+              <p>Please contact the airline to confirm special assistance requests.</p>
+            </div>
+          </div>
+
+          <div class="row" style="padding:15px;">
+
+            <div class="col-md-12">
+              <label class="check">
+                <p class="dark-gray">
+                  By selecting to complete this booking I acknowledge that I have read and accept the <a class="orange">Terms
+                    of Use</a> Opens in a new window. and <a class="orange">Privacy Policy</a> Opens in a new window.
+                  and Government Travel Advice Opens in a new window..
+
+                </p>
+                <input type="checkbox" checked="checked">
+                <span class="checkmark"></span>
+              </label>
+
+            </div>
+          </div>
+
+          <div class="row borderd-top" style="padding:15px;">
+
+            <div class="col-md-12">
+              <h4 class="blue"><b>How would you like to pay? </b></h4>
+
+              <div class="form-group">
+                <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Cardholder name*">
+              </div>
+              <div class="form-group">
+                <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Debit/Credit card number*">
+              </div>
+
+            </div>
+          </div>
+          <div class="row">
+
+            <div class="col-md-12">
+              <h4 class="blue" style="padding:0 15px;"><b>Expiration date* </b></h4>
+              <div class="form-group col-md-6">
+                <select class="form-control ">
+                  <option>1</option>
+                  <option>2</option>
+                  <option>3</option>
+
+                </select>
+              </div>
+              <div class="form-group col-md-6">
+                <select class="form-control ">
+                  <option>2018</option>
+                  <option>2019</option>
+                  <option>2020</option>
+
+                </select>
+              </div>
+              <div class="col-lg-11">
+                <div class="form-group">
+                  <input type="email" class="form-control " id="exampleInputEmail1" placeholder="Debit/Credit card number*">
+                </div>
+              </div>
+              <div class="col-lg-1">
+                <img src="../assets/img/card.png" style="width:45px;">
+              </div>
+
+
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+
+
+  </div>
+  <div id="right-details" class="text-center">
+    <div class="filter-container">
+      <div>
+        <h2 class="text-center blue ">
+          Trip Summary
+        </h2>
+        <div class="border-bottom row"></div>
+        <div class="row">
+          <h5 class="fl blue"><b>Roundtrip Flight</b></h5>
+          <p class="fr dark-gray" style="margin-top: 8px;">1 ticket:<span> 1 adult</span></p>
+        </div>
+        <div class="row">
+          <h5 class="fl blue"><b>Dubai (DXB) to London (LCY)</b></h5>
+          <p class="fr dark-gray" style="margin-top: 8px;">Airline:<span> KLM</span></p>
+        </div>
+        <div class="row">
+          <h5 class="fl dark-gray"><b>Fri, Nov 16 - Fri, Nov 23</b></h5>
+          <p class="fr dark-gray" style="margin-top: 8px;">Class: <span> Economy</span></p>
+        </div>
+        <div class="row">
+          <h5 class="fl dark-gray"><b>Baggage allowance:</b> 30 Kg(s)</h5>
+        </div>
+        <div class="border-bottom row"></div>
+
+        <div class="row">
+          <h5 class="fl blue"><b>Traveler 1: Adult </b></h5>
+        </div>
+        <div class="row">
+          <h5 class="fl dark-gray"><b>Flight</b></h5>
+          <p class="fr dark-gray" style="margin-top: 8px;">$276.00</p>
+        </div>
+        <div class="row">
+          <h5 class="fl dark-gray"><b>Taxes &amp; Fees</b></h5>
+          <p class="fr dark-gray" style="margin-top: 8px;">$272.43</p>
+        </div>
+        <div class="row">
+          <h5 class="fl dark-gray"><b>Booking Fee</b></h5>
+          <p class="fr dark-gray" style="margin-top: 8px;">$2.78</p>
+        </div>
+        <div class="border-bottom row"></div>
+        <div class="row">
+          <h3 class="fl dark-gray"><b>Total trip</b></h3>
+          <h3 class="fr dark-gray">$551.19</h3>
+        </div>
+        <div class="row">
+          <h5 class="dark-gray"><b>Rates ar.e quoted in US dollars</b></h5>
+          <h5 class="orange"> THIS BOOKING WILL GIVE YOU 130 POINTS</h5>
+
+        </div>
+
+        <div class="border-bottom row"></div>
+        <p class="dark-gray">
+          Your flight is a combination of two one-way fares, each subject to its own rules and restrictions. If one of
+          your flights is changed or cancelled, it will not automatically alter the other flight. Changes to the other
+          flight may incur a charge.
+        </p>
+
+        <div class="row text-center">
+          <button class="btn btn-orange" type="submit">Continue Booking</button>
+
+        </div>
+
+
+      </div>
+    </div>
+  </div>
+</div>

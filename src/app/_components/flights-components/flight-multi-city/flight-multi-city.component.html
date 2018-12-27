@@ -1,0 +1,132 @@
+<div class="container ">
+  <div class="row radio-home">
+    <label class="radio-inline check">
+      <input name="inlineRadioOptions" id="inlineRadio1" type="radio" checked="" value="option1"> Round Trip
+      <span class="radio2"></span>
+    </label>
+    <label class="radio-inline check">
+      <input name="inlineRadioOptions" id="inlineRadio2" type="radio" value="option2"> One Way
+      <span class="radio2"></span>
+    </label>
+    <label class="radio-inline check">
+      <input name="inlineRadioOptions" id="inlineRadio3" type="radio" value="option3"> Multi City
+      <span class="radio2"></span>
+    </label>
+  </div>
+<div class="row">
+  <div class="col-md-10">
+    <div class="row">
+      <div class="form-group  col-md-3 padding-rl5">
+        <input type="text" class="form-control" id="exampleInputName2" placeholder="From">
+        <span class="from form-control-feedback " aria-hidden="true"> </span>
+      </div>
+      <div class="form-group  col-md-3 padding-rl5">
+        <input type="email" class="form-control" id="exampleInputEmail2" placeholder="To">
+      </div>
+      <div class="form-group  col-md-3 padding-rl5">
+        <input type="text" placeholder="Departing / Arrival Time" class="form-control" bsDaterangepicker>
+      </div>
+      <div class="form-group  col-md-3 padding-rl5">
+        <input type="email" class="form-control" id="exampleInputEmail2" placeholder="1 Adult / Economy" placement="bottom"
+          [popover]="popTemplate" popoverTitle="Dynamic html inside">
+        <ng-template #popTemplate>
+          <div class="form-group">
+            <label for="exampleInputEmail1">Adult</label>
+            <input type="number" class="form-control plus" id="exampleInputEmail1" placeholder="0">
+          </div>
+          <div class="form-group">
+            <label for="exampleInputEmail1">Children</label>
+            <input type="number" class="form-control plus" id="exampleInputEmail1" placeholder="0">
+          </div>
+          <div [innerHtml]="html"></div>
+        </ng-template>
+  
+      </div>
+      
+    </div>
+    <div class="row">
+      <div class="form-group  col-md-3 padding-rl5">
+        <input type="text" class="form-control" id="exampleInputName2" placeholder="From">
+        <span class="from form-control-feedback " aria-hidden="true"> </span>
+      </div>
+      <div class="form-group  col-md-3 padding-rl5">
+        <input type="email" class="form-control" id="exampleInputEmail2" placeholder="To">
+      </div>
+      <div class="form-group  col-md-3 padding-rl5">
+        <input type="text" placeholder="Departing / Arrival Time" class="form-control" bsDaterangepicker>
+      </div>
+  
+  
+    </div>
+    <div class="row">
+      <div class="form-group  col-md-3 padding-rl5">
+        <input type="text" class="form-control" id="exampleInputName2" placeholder="From">
+        <span class="from form-control-feedback " aria-hidden="true"> </span>
+      </div>
+      <div class="form-group  col-md-3 padding-rl5">
+        <input type="email" class="form-control" id="exampleInputEmail2" placeholder="To">
+      </div>
+      <div class="form-group  col-md-3 padding-rl5">
+        <input type="text" placeholder="Departing / Arrival Time" class="form-control" bsDaterangepicker>
+      </div>
+      <div class="form-group  col-md-3 padding-rl5">
+        <a class="white"><span class="glyphicon glyphicon-remove" aria-hidden="true" style="margin-top: 7px;"></span></a>
+      </div>
+  
+    </div>
+    <div class="row">
+      <div class="form-group  col-md-3 padding-rl5">
+        <input type="text" class="form-control" id="exampleInputName2" placeholder="From">
+        <span class="from form-control-feedback " aria-hidden="true"> </span>
+      </div>
+      <div class="form-group  col-md-3 padding-rl5">
+        <input type="email" class="form-control" id="exampleInputEmail2" placeholder="To">
+      </div>
+      <div class="form-group  col-md-3 padding-rl5">
+        <input type="text" placeholder="Departing / Arrival Time" class="form-control" bsDaterangepicker>
+      </div>
+      <div class="form-group  col-md-3 padding-rl5">
+        <a class="white"><span class="glyphicon glyphicon-remove" aria-hidden="true" style="margin-top: 7px;"></span></a>
+      </div>
+  
+    </div>
+    <div class="row">
+      <div class="form-group  col-md-3 padding-rl5">
+        <input type="text" class="form-control" id="exampleInputName2" placeholder="From">
+        <span class="from form-control-feedback " aria-hidden="true"> </span>
+      </div>
+      <div class="form-group  col-md-3 padding-rl5">
+        <input type="email" class="form-control" id="exampleInputEmail2" placeholder="To">
+      </div>
+      <div class="form-group  col-md-3 padding-rl5">
+        <input type="text" placeholder="Departing / Arrival Time" class="form-control" bsDaterangepicker>
+      </div>
+      <div class="form-group  col-md-3 padding-rl5">
+        <a class="white"><span class="glyphicon glyphicon-remove" aria-hidden="true" style="margin-top: 7px;"></span></a>
+      </div>
+  
+    </div>
+  </div>
+  <div class="col-md-2 ">
+    <button type="submit" class="btn btn-orange" style="width:100%;">Search</button>
+  </div>
+</div>
+  <div class="row">
+
+    <div class="form-group  col-md-2 padding-rl5">
+      <button type="submit" class="btn btn-blue" style="width:100%;">Add flight <span class="glyphicon glyphicon-plus"
+          aria-hidden="true"></span> </button>
+    </div>
+  </div>
+
+
+
+  <div class="row" style="padding:15px;">
+    <label class="check">
+      None stop flight
+      <input type="checkbox" checked="checked">
+      <span class="checkmark"></span>
+    </label>
+
+  </div>
+</div>

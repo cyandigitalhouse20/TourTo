@@ -1,0 +1,63 @@
+<div class="foot">
+
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-sm-3">
+        <img src="../assets/img/Tour To logo.png" alt="" class="logo">
+      </div>
+      <div class="col-sm-2" *ngFor="let itemModel of model; let i=index">
+        <ul class="footer-list">
+          <li *ngFor="let item of itemModel.Items">
+            <a (click)="highlightPage(item)" [class.active]="item.IsSelected" [target]="item.Target">
+              {{item.Name}}
+            </a>
+          </li>
+        </ul>
+      </div>
+      <div class="col-sm-3">
+        <h4 class="orange"><b>Follow us</b></h4>
+        <div class="social">
+          <a href="#"><img src="../assets/img/face-gray.png" alt=""></a>
+          <a href="#"><img src="../assets/img/twitt-gray.png" alt=""></a>
+          <a href="#"><img src="../assets/img/inst-gray.png" alt=""></a>
+          <a href="#"><img src="../assets/img/pint-gray.png" alt=""></a>
+
+        </div>
+        <h4 class="orange"><b>Subscribe to newsletter</b></h4>
+        <div class="form-group ">
+          <div class="input-group">
+            <input type="text" class="form-control" id="inputGroupSuccess4" aria-describedby="inputGroupSuccess4Status">
+            <span class="input-group-addon btn subscribe"><span class="glyphicon glyphicon-envelope" aria-hidden="true"></span></span>
+          </div>
+
+        </div>
+      </div>
+    </div>
+    <div class="row text-center" style="margin-bottom:160px;">
+      <div class="col-xs-12" style="margin:30px 0 20px 0;">
+        <h3 class="orange">Awesome partners</h3>
+        <a href="#" class="dark-gray h4">View all partners</a>
+      </div>
+      <div class="col-md-2 col-sm-6 col-xs-6 col-sm-offset-1 text-center" style="padding:15px;">
+        <img src="../assets/img/logo1.png" alt="" style="width:100%;">
+      </div>
+      <div class="col-md-2 col-sm-6 col-xs-6 text-center" style="padding:15px;">
+        <img src="../assets/img/logo2.png" alt="" style="width:100%;">
+      </div>
+      <div class="col-md-2 col-sm-6 col-xs-6 text-center" style="padding:15px;">
+        <img src="../assets/img/logo3.png" alt="" style="width:100%;">
+      </div>
+      <div class="col-md-2 col-sm-6 col-xs-6 text-center" style="padding:15px;">
+        <img src="../assets/img/logo4.png" alt="" style="width:100%;">
+      </div>
+      <div class="col-md-2 col-sm-6 col-xs-6 text-center" style="padding:15px;">
+        <img src="../assets/img/logo5.png" alt="" style="width:100%;">
+      </div>
+
+    </div>
+    <div class="copy">
+      © 2019 Tour to / Designed & Developed By CYAN DIGITAL HOUSE
+    </div>
+
+
+  </div>

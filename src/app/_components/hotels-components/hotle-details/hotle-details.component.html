@@ -1,0 +1,260 @@
+<div class="home-img">
+
+    <app-menu-links></app-menu-links>
+    <app-header></app-header>
+
+</div>
+
+
+
+<div class="row" style="margin-top:70px;">
+
+    <div id="left-details">
+        <div class="row">
+            <div class="col-md-2">
+
+            </div>
+            <div class="col-md-10">
+                    <h3 class="dark-gray">Review your trip</h3>
+                    <p class="blue">Nice Job! You picked one of our cheapest flights </p>
+                <div class="row">
+                    <carousel>
+                        <slide>
+                            <img src="../assets/img/slider.jpg" alt="first slide" style="display: block; width: 100%;">
+                        </slide>
+                        <slide>
+                            <img src="../assets/img/slider-2.jpg" alt="first slide" style="display: block; width: 100%;">
+                        </slide>
+                        <slide>
+                            <img src="../assets/img/slider-3.jpg" alt="first slide" style="display: block; width: 100%;">
+                        </slide>
+                    </carousel>
+                </div>
+
+
+                <div class="result-container">
+                    <div class="row">
+                        <h4 class="blue col-sm-12" style="margin:15px 0;">Choose your room</h4>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <select class="form-control ">
+                                    <option>Royal suite</option>
+                                    <option>single room</option>
+                                    <option>double roome</option>
+                                    <option>Triple room</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group ">
+                                <input type="email" class="form-control" id="exampleInputEmail2" placeholder="1 Adult / Economy"
+                                    placement="bottom" [popover]="popTemplate" popoverTitle="Dynamic html inside">
+                                <ng-template #popTemplate>
+                                    <div class="form-group">
+                                        <label for="exampleInputEmail1">Adult</label>
+                                        <input type="number" class="form-control plus" id="exampleInputEmail1"
+                                            placeholder="0">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="exampleInputEmail1">Children</label>
+                                        <input type="number" class="form-control plus" id="exampleInputEmail1"
+                                            placeholder="0">
+                                    </div>
+                                    <div [innerHtml]="html"></div>
+                                </ng-template>
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <h4 class="dark-gray col-sm-12" style="margin:15px 0;">Ages of children ( Discounts may apply )</h4>
+                        <div class="row">
+                            <div class="col-md-2 col-sm-3 ">
+                                <b>Room 1</b>
+                            </div>
+                            <div class="form-group col-md-2 col-sm-3 col-xs-6 ">
+                                <label for="exampleInputEmail1">Child 1</label>
+                                <select class="form-control">
+                                    <option>1</option>
+                                    <option>2</option>
+                                    <option>3</option>
+                                    <option>4</option>
+                                </select>
+                            </div>
+                            <div class="form-group col-md-2 col-sm-3 col-xs-6 ">
+                                <label for="exampleInputEmail1">Child 2</label>
+                                <select class="form-control">
+                                    <option>1</option>
+                                    <option>2</option>
+                                    <option>3</option>
+                                    <option>4</option>
+                                </select>
+                            </div>
+                            <div class="form-group col-md-2 col-sm-3 col-xs-6 ">
+                                <label for="exampleInputEmail1">Child 2</label>
+                                <select class="form-control">
+                                    <option>1</option>
+                                    <option>2</option>
+                                    <option>3</option>
+                                    <option>4</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-2  col-sm-3 ">
+                                <b>Room 2</b>
+                            </div>
+                            <div class="form-group col-md-2 col-sm-3 col-xs-6 ">
+                                <label for="exampleInputEmail1">Child 1</label>
+                                <select class="form-control">
+                                    <option>1</option>
+                                    <option>2</option>
+                                    <option>3</option>
+                                    <option>4</option>
+                                </select>
+                            </div>
+                            <div class="form-group col-md-2 col-sm-3  col-xs-6">
+                                <label for="exampleInputEmail1">Child 2</label>
+                                <select class="form-control">
+                                    <option>1</option>
+                                    <option>2</option>
+                                    <option>3</option>
+                                    <option>4</option>
+                                </select>
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="row" style="margin-bottom: 20px;">
+                        <div class="col-sm-12">
+                            <button class="btn btn-orange fr" style="padding: 6px 50px;" type="submit">Update</button>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="row hidden-lg hidden-md" style="margin:15px">
+                    <h4 class="blue text-center">
+                        <span class="glyphicon glyphicon-menu-left" aria-hidden="true" style="margin:0 30px"></span>
+                        Swap to Scroll table
+                        <span class="glyphicon glyphicon-menu-right" aria-hidden="true" style="margin:0 30px"></span>
+                    </h4>
+                </div>
+                <div class="row table-responsive table-res">
+                    <table class="table table-bordered ">
+                        <thead>
+                            <th class="blue th bg-white">Choose your room</th>
+                            <th class="blue th">Options</th>
+                            <th class="blue th">Nightly price per room</th>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td class="bg-white td" rowspan="3">
+                                    <img src="../assets/img/hotel-table.jpg" style="width: 100%;">
+                                    <h4 class="dark-gray">Deluxe Room, 2 Double Beds</h4>
+                                    <p class="orange"><b> Room with view</b></p>
+                                    <p>2 Double Beds</p>
+                                    <p>Room sleeps 4 guests</p>
+                                    <p>(up to 3 children)</p>
+                                    <p><b>Room cleanliness:</b> excellent! 4.5 </p>
+                                    <p>2 Double Beds</p>
+
+
+
+
+                                    <div id="collapseBasic" [collapse]="!isCollapsed" class="card card-block card-header"
+                                        style="max-width: 300px;">
+                                        <p>Internet - WiFi </p>
+                                        <p>Entertainment - 49 - inch Smart TV with<br />
+                                            premium channels and Netflix</p>
+                                        <p>Food & Drink - Coffee/tea maker, minibar,<br />
+                                            and 24 - hour room service</p>
+                                        <p>Sleep - Pillowtop bed and hypo-allergenic<br />
+                                            bedding Bathroom - Private bathroom,<br />
+                                            shower / tub combination, free toiletries,<br />
+                                            and a hair dryer Practical - Safe,<br />
+                                            free newspaper, and iron/ironing board<br />
+                                            Comfort - Air conditioning and daily<br />
+                                            housekeeping </p>
+                                        <p>Need to Know - No cribs (infant beds)</p>
+                                        <p>available Non-Smoking</p>
+                                    </div>
+
+                                    <a class="orange" (click)="isCollapsed = !isCollapsed" [attr.aria-expanded]="!isCollapsed"
+                                        aria-controls="collapseBasic">More Details
+                                    </a>
+
+                                </td>
+                                <td class=" td">
+                                    <h4 class="dark-gray"> Option 1 <img src="../assets/img/man.png"><img src="../assets/img/wonman.png"><img
+                                            src="../assets/img/child.png"></h4>
+                                    <h4><b>Non-Refundable</b></h4>
+                                    <p>Breakfast optional - £15.75 per person, per night</p>
+                                    <p>No Expedia booking or credit card fees</p>
+                                </td>
+                                <td class=" td">
+                                    <div class="item-price">
+                                        <h4 class="row">We have 5 rooms left</h4>
+                                        <div class="clearfix"></div>
+                                        <h3 class="dark-gray row"> $ 450</h3>
+                                        <div class="clearfix"></div>
+                                        <button class="btn btn-orange" type="submit">Reserve</button>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class=" td">
+                                    <h4 class="dark-gray"> Option 1 <img src="../assets/img/man.png"><img src="../assets/img/wonman.png"><img
+                                            src="../assets/img/child.png"></h4>
+                                    <h4><b>Non-Refundable</b></h4>
+                                    <p>Breakfast optional - £15.75 per person, per night</p>
+                                    <p>No Expedia booking or credit card fees</p>
+                                </td>
+                                <td class=" td">
+                                    <div class="item-price">
+                                        <h4 class="row">We have 5 rooms left</h4>
+                                        <div class="clearfix"></div>
+                                        <h3 class="dark-gray row"> $ 450</h3>
+                                        <div class="clearfix"></div>
+                                        <button class="btn btn-orange" type="submit">Reserve</button>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class=" td">
+                                    <h4 class="dark-gray"> Option 1 <img src="../assets/img/man.png"><img src="../assets/img/wonman.png"><img
+                                            src="../assets/img/child.png"></h4>
+                                    <h4><b>Non-Refundable</b></h4>
+                                    <p>Breakfast optional - £15.75 per person, per night</p>
+                                    <p>No Expedia booking or credit card fees</p>
+                                </td>
+                                <td class=" td">
+                                    <div class="item-price">
+                                        <h4 class="row">We have 5 rooms left</h4>
+                                        <div class="clearfix"></div>
+                                        <h3 class="dark-gray row"> $ 450</h3>
+                                        <div class="clearfix"></div>
+                                        <button class="btn btn-orange" type="submit">Reserve</button>
+                                    </div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+            </div>
+        </div>
+
+
+
+    </div>
+    <div id="right-details" class="text-center">
+        <div class="filter-container">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m10!1m8!1m3!1d13811.209223515241!2d31.35145115!3d30.071200749999996!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sar!2seg!4v1543940380753"
+                width="100%" height="200px" frameborder="0" style="border:0" allowfullscreen></iframe>
+
+
+        </div>
+        <img src="../assets/img/Ad - 120X600.jpg" class="ads">
+
+    </div>
+</div>

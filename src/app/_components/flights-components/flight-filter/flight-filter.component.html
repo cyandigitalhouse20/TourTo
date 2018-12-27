@@ -1,0 +1,68 @@
+<div class="filter-container">
+  <div>
+    <h2 class="text-center blue ">
+      Sort & Filter
+    </h2>
+    <div class="border-bottom row"></div>
+    <div class="form-group">
+      <label class="blue" for="exampleInputEmail1">Sort by</label>
+      <select class="form-control" (change)="onsortchange($event.target.value)">
+        <option value="Lowest" >lowest price</option>
+        <option value="hieght" >hieght price</option>
+      </select>
+    </div>
+    <div class="">
+      <a type="button" class="btn " (click)="isCollapsed = !isCollapsed" [attr.aria-expanded]="!isCollapsed"
+        aria-controls="collapseBasic" style="width:100%; padding: 10px 0;"><span class="fl blue"> <b>Stops</b></span>   <span class="glyphicon fr drop-arrow" [class.glyphicon-menu-up]="!isCollapsed" [class.glyphicon-menu-down]="isCollapsed" aria-hidden="true"></span>
+    </a>
+      
+      <div id="collapseBasic" [collapse]="isCollapsed" class="card card-block card-header">
+          
+          <div class="checkbox">
+              <label>
+                <input type="checkbox" [(ngModel)]="NoneStop"  (change)="onFilterChange()">
+                None stop
+              </label>
+            </div>
+            <div class="checkbox">
+                <label>
+                  <input type="checkbox" [(ngModel)]="OneStop"  (change)="onOneStopFilterChange()">
+                  1 stop
+                </label>
+              </div>
+              <div class="checkbox">
+                  <label>
+                    <input type="checkbox" [(ngModel)]="TwoStop"  (change)="onTwoStopFilterChange()">
+                    2+ stops
+                  </label>
+                </div>
+      </div>
+    </div>
+    <div class="">
+        <a type="button" class="btn " (click)="isCollapsed2 = !isCollapsed2" [attr.aria-expanded]="!isCollapsed2"
+          aria-controls="collapseBasic" style="width:100%; padding: 10px 0;"><span class="fl blue"> <b>Coast</b></span>   <span class="glyphicon fr drop-arrow" [class.glyphicon-menu-up]="!isCollapsed2" [class.glyphicon-menu-down]="isCollapsed2" aria-hidden="true"></span>
+      </a>
+        
+        <div id="collapseBasic" [collapse]="isCollapsed2" class="card card-block card-header">
+          
+            <div style="margin:15px 0;">
+                <ng5-slider [(value)]="Coastminvalue" [(highValue)]="CoastHieghtvalue" (change)="onMoneychange()"  [(options)]="Coastoptions"></ng5-slider>
+            </div>
+        </div>
+      </div>
+      <div class="">
+        <a type="button" class="btn " (click)="isCollapsed3 = !isCollapsed3" [attr.aria-expanded]="!isCollapsed3"
+          aria-controls="collapseBasic" style="width:100%; padding: 10px 0;"><span class="fl blue"> <b>Duration</b></span>   <span class="glyphicon fr drop-arrow" [class.glyphicon-menu-up]="!isCollapsed2" [class.glyphicon-menu-down]="isCollapsed2" aria-hidden="true"></span>
+      </a>
+        
+        <div id="collapseBasic" [collapse]="isCollapsed3" class="card card-block card-header">
+          
+            <div style="margin:15px 0;">
+                <ng5-slider [(value)]="Durationminvalue" [(highValue)]="DurationHieghtvalue" (change)="onMoneychange()"  [(options)]="Durationoptions"></ng5-slider>
+            </div>
+        </div>
+      </div>
+
+  </div>
+</div>
+

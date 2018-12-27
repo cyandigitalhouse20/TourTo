@@ -1,0 +1,826 @@
+/* You can add global styles to this file, and also import other style files */
+
+
+
+body{
+    background-image: url(/assets/img/bg.jpg);
+    background-position: bottom;
+    background-size: 100%;
+    background-repeat: no-repeat;
+}
+
+
+.btn-green {
+    color: #fff;
+    background-color: #c4d341;
+    border-color: #c4d341;
+    transition: ease 0.3s;
+}
+
+.btn-orange {
+    color: #fff;
+    background-color: #f8af00;
+    border-color: #f8af00;
+    transition: ease 0.3s;
+}
+
+.btn-red {
+    color: #fff;
+    background-color: #ed7768;
+    border-color: #ed7768;
+    transition: ease 0.3s;
+}
+
+.btn-cyan {
+    color: #fff;
+    background-color: #67c3d3;
+    border-color: #67c3d3;
+    transition: ease 0.3s;
+}
+
+.btn-blue {
+    color: #fff;
+    background-color: #144166;
+    border-color: #144166;
+    transition: ease 0.3s;
+}
+
+
+.item-number{
+
+    padding: 5px 10px;
+    margin-bottom: 15px;
+}
+
+
+
+.full-width{
+    width: 100%;
+}
+
+
+.orange{
+    color: #f8af00;
+}
+
+.white{
+    color: #fff
+}
+
+.blue{
+    color: #144166;
+}
+
+.dark-gray{
+    color: #333333;
+}
+
+.a-white:hover{
+    color: #fff;
+    text-decoration: none;
+}
+
+.float-left{
+    float: left;
+}
+.float-right{
+    float: right;
+}
+
+a{
+    transition: ease 0.3s;
+    cursor: pointer;
+
+}
+a:hover{
+    text-decoration: none;
+}
+
+.padding-rl5{
+    padding-right: 5px;
+    padding-left: 5px;
+}
+
+.radio-home{
+    color: #fff;
+    padding: 15px;
+
+}
+
+.radio-input{
+    background-color: #ed7768;
+}
+
+.theme-green .bs-datepicker-head {
+    background-color: #f8af00;
+}
+
+.theme-green .bs-datepicker-body table td.week span {
+    color: #f8af00;
+}
+
+/* You can add global styles to this file, and also import other style files */
+
+
+.btn-green {
+    color: #fff;
+    background-color: #c4d341;
+    border-color: #c4d341;
+    transition: ease 0.3s;
+}
+
+.btn-orange {
+    color: #fff;
+    background-color: #f8af00;
+    border-color: #f8af00;
+    transition: ease 0.3s;
+}
+
+.btn-red {
+    color: #fff;
+    background-color: #ed7768;
+    border-color: #ed7768;
+    transition: ease 0.3s;
+}
+
+.btn-cyan {
+    color: #fff;
+    background-color: #67c3d3;
+    border-color: #67c3d3;
+    transition: ease 0.3s;
+}
+
+.btn-blue {
+    color: #fff;
+    background-color: #144166;
+    border-color: #144166;
+    transition: ease 0.3s;
+}
+
+
+.item-number{
+
+    padding: 5px 10px;
+    margin-bottom: 15px;
+}
+
+
+
+.full-width{
+    width: 100%;
+}
+
+
+.orange{
+    color: #f8af00;
+}
+
+.white{
+    color: #fff
+}
+
+.blue{
+    color: #144166;
+}
+
+.a-white:hover{
+    color: #fff;
+    text-decoration: none;
+}
+
+.float-left{
+    float: left;
+}
+.float-right{
+    float: right;
+}
+
+a{
+    transition: ease 0.3s;
+
+}
+a:hover{
+    text-decoration: none;
+}
+
+.padding-rl5{
+    padding-right: 5px;
+    padding-left: 5px;
+}
+
+.radio-home{
+    color: #fff;
+    padding: 15px;
+
+}
+
+.radio-input{
+    background-color: #ed7768;
+}
+
+.theme-green .bs-datepicker-head {
+    background-color: #f8af00;
+}
+
+.theme-green .bs-datepicker-body table td.week span {
+    color: #f8af00;
+}
+
+.home-img{
+    background-image: url(/assets/img/wall.png);
+    background-position: center;
+    
+}
+.home-separator{
+    width: 100%;
+    height: 30px;
+    background-color: #f8af00;
+    padding: 4px;
+    text-align: center;
+    color: #fff;
+}
+
+
+.theme-green .bs-datepicker-body table td span.selected, .theme-green .bs-datepicker-body table td.selected span, .theme-green .bs-datepicker-body table td span[class*="select-"]:after, .theme-green .bs-datepicker-body table td[class*="select-"] span:after {
+    background-color: #144166;
+}
+
+.fl{
+	float: left;
+}
+
+.fr{
+	float: right;
+}
+
+
+.home-head2{
+    color: #fff;
+    font-size: 48px;
+    margin-top: 15px;
+
+}
+
+
+
+
+#left {
+    left: 0;
+    overflow-y: scroll;
+    max-height: 100%;
+    float: left;
+    width: 25%;
+
+}
+
+#right {
+    max-height: 100%;
+    margin: 30px 15px 0 0;
+    float: right;
+    width: 73%;
+
+}
+
+@media(max-width:991px){
+    #left {
+        display: none
+    
+    }
+    
+    #right {
+        max-height: 100%;
+        margin: 30px 15px 0 0;
+        float: none;
+        width: 100%;
+    
+    }
+}
+
+
+.filter-container{
+    background-color: #fff;
+    border-radius:8px;
+    padding: 15px;
+    margin: 30px 15px 0 30px;
+    border: 1px solid #e4e4e4;
+}
+
+@media(max-width:991px){
+    .filter-container {
+        padding: 0;
+        margin: 0;
+        border: 0 solid #e4e4e4;
+    }
+}
+
+
+.result-container{
+    width: 100%;
+    background-color: #fff;
+    border-radius:8px;
+    padding: 0;
+    margin: 15px 0;
+    border: 1px solid #e4e4e4;
+}
+
+::-webkit-scrollbar
+{
+    width:0px;
+}
+::-webkit-scrollbar-track-piece
+{
+    background-color:transparent;
+}
+
+
+.row {
+    margin-right: 0;
+    margin-left: 0;
+}
+
+.border-bottom{
+    background-color:  #e4e4e4;
+    width: 100%;
+    height: 1px;
+    margin: 15px 0 30px 0;
+     
+}
+
+
+.flite-container{
+overflow: hidden;
+}
+
+
+
+
+.borderd-details{
+    border: 1px solid #e4e4e4;
+    transition: ease 0.3s;
+    padding: 15px;
+    margin-bottom: 20px;
+    }
+.borderd-details:hover{
+    border: 1px solid #f8af00;
+    }    
+
+.borderd{
+border: 1px solid #e4e4e4;
+}
+.borderd-top{
+    border-top: 1px solid #e4e4e4;
+    }
+.borderd-right{
+    border-right: 1px solid #e4e4e4;
+        }
+ .borderd-bottom{
+     border-bottom: 1px solid #e4e4e4;
+            }       
+ .borderd-left{
+    border-left: 1px solid #e4e4e4;
+                }               
+
+
+.diagonal {
+  background: #f8af00;
+  color: #fff;
+  padding: 0 ;
+  position: relative;
+  float: left;
+  width: 300px;
+  padding-left: 20px;
+  border-top-left-radius: 8px;
+}
+
+
+.diagonal2 {
+    background: #f8af00;
+    color: #fff;
+    padding: 0 ;
+    position: relative;
+    float: left;
+    width: 300px;
+    padding-left: 20px;
+    border-top-left-radius: 8px;
+    z-index: 9;
+  }
+
+
+  
+  .diagonal:before,
+  .diagonal2:before {
+    content: '';
+    position: absolute;
+    bottom:  0;
+    right: 0;
+    border-bottom: 80px solid #fff;
+    border-left: 80px solid transparent;
+    width: 0;
+  }
+
+  .img-box-result{
+      width: 70px;
+      height: auto;
+  }
+  
+
+  .margin-0{
+  margin: 0;
+  }
+
+  .padding-0{
+      padding: 0;
+  }
+
+  .overflow{
+      overflow: hidden;
+  }
+
+
+
+.drop-arrow{
+    background-color: #e4e4e4;
+    color: #144166;
+    border: 1px solid #929292;
+    border-radius:5px;
+    padding: 2px; 
+}
+
+
+.ng5-slider .ng5-slider-selection {
+    background: #f8af00 !important;
+}
+
+
+.ng5-slider .ng5-slider-pointer {
+
+    width: 17px !important;
+    height: 17px !important;
+    top: -7px !important;
+    background-color: #f8af00 !important;
+
+
+}
+
+
+.ng5-slider .ng5-slider-pointer:after {
+    content: '';
+    width: 9px !important;
+    height: 9px !important;
+    position: absolute;
+    top: 4px !important;
+    left: 4px !important;
+    border-radius: 4px;
+    background: #fff;
+}
+
+
+
+
+.pagination>.active>a, .pagination>.active>a:focus, .pagination>.active>a:hover, .pagination>.active>span, .pagination>.active>span:focus, .pagination>.active>span:hover {
+    z-index: 3;
+    color: #fff;
+    cursor: default;
+    background-color: #f8af00;
+    border-color: #f8af00;
+}
+
+.plus{
+    border-radius:0;
+    background-color: #fff;
+    border: 0;
+    border-bottom: 1px solid #f8af00; 
+    webkit-box-shadow: 0 !important;
+    box-shadow: inset 0 1px 1px rgba(255, 255, 255, 1);
+}
+.filter-number{
+    text-align: right;
+    width: 20%;
+    float: right;
+    margin-right: 4px;
+}
+
+.filter-check{
+    text-align: left;
+    width: 50%;
+    float: left;
+}
+
+
+.more-details{
+    margin-bottom: 9px;
+    float: right;
+}
+
+ 
+.hotel-result-pic{
+
+    width: 100%;
+}
+.hotel-pic-container{
+    max-height: 180px;
+    overflow: hidden;
+}
+
+@media(max-width:1613px){
+    .hotel-pic-container{
+        max-height: 193px;
+        overflow: hidden;
+    }
+}
+
+@media (max-width: 991px){
+    .hotel-pic-container {
+    max-height: 500px;
+    overflow: hidden;
+}
+
+.more-details{
+    margin-bottom: 9px;
+    float: none;
+}
+}
+
+ 
+.border-top-orange{
+    border-top: 5px solid #f8af00;
+}
+
+
+.item-price{
+    padding-top: 30px;
+    text-align: center;
+}
+
+
+
+@media (max-width: 991px){
+   
+    .item-price >h3{
+        float: left;
+    }
+
+    .item-price >.form-group{
+        float: right;
+        margin-top: 17px;
+    }
+}
+
+
+
+.check {
+    position: relative;
+    padding-left: 35px;
+    margin-bottom: 12px;
+    cursor: pointer;
+    font-size: 15px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    color:#fff;
+}
+
+/* Hide the browser's default checkbox */
+.check input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+}
+
+/* Create a custom checkbox */
+.checkmark {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 20px;
+    width: 20px;
+    background-color: #eee;
+}
+
+/* On mouse-over, add a grey background color */
+.check:hover input ~ .checkmark {
+    background-color: #ccc;
+}
+
+/* When the checkbox is checked, add a blue background */
+.check input:checked ~ .checkmark {
+    background-color: #f8af00;
+}
+
+/* Create the checkmark/indicator (hidden when not checked) */
+.checkmark:after {
+    content: "";
+    position: absolute;
+    display: none;
+}
+
+/* Show the checkmark when checked */
+.check input:checked ~ .checkmark:after {
+    display: block;
+}
+
+/* Style the checkmark/indicator */
+.check .checkmark:after {
+    left: 8px;
+    top: 4px;
+    width: 5px;
+    height: 10px;
+    border: solid white;
+    border-width: 0 3px 3px 0;
+    -webkit-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    transform: rotate(45deg);
+}
+
+
+
+
+
+
+/* Create a custom checkbox */
+.radio2 {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 20px;
+    width: 20px;
+    background-color: #eee;
+    border-radius: 50%;
+}
+
+/* On mouse-over, add a grey background color */
+.check:hover input ~ .radio2 {
+    background-color: #ccc;
+}
+
+/* When the checkbox is checked, add a blue background */
+.check input:checked ~ .radio2 {
+    background-color: #f8af00;
+}
+
+/* Create the checkmark/indicator (hidden when not checked) */
+.radio2:after {
+    content: "";
+    position: absolute;
+    display: none;
+}
+
+/* Show the checkmark when checked */
+.check input:checked ~ .radio2:after {
+    display: block;
+}
+
+/* Style the checkmark/indicator */
+.check .radio2:after {
+   top: 6px;
+    left: 6px;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: white;
+}
+
+
+#left-details {
+    left: 0;
+    overflow-y: scroll;
+    max-height: 100%;
+    float: left;
+    width: 68%;
+}
+
+#right-details {
+    max-height: 100%;
+    margin: 60px 15px 0 0;
+    float: right;
+    width: 30%;
+}
+
+
+@media(max-width:991px){
+    #right-details {
+        display: none
+    
+    }
+    
+    #left-details {
+       
+        
+        float: none;
+        width: 100%;
+    
+    }
+}
+
+
+
+
+
+
+.ads{
+    margin-top:15px;
+    margin-bottom:15px;
+}
+
+
+
+
+
+th{
+    padding: 15px;
+    text-align: center;
+}
+
+td{
+    padding: 15px !important;
+}
+
+.bg-white{
+    background-color: #fff;
+}
+
+.dropdown-menu2 {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    z-index: 1000;
+    display: none;
+    float: left;
+    min-width: 160px;
+    padding: 5px 0;
+    margin: 2px 0 0;
+    font-size: 14px;
+    text-align: left;
+    list-style: none;
+    background-color: #0d4669b5;
+    -webkit-background-clip: padding-box;
+    background-clip: padding-box;
+    border: 1px solid #ccc;
+    border: 1px solid rgba(0,0,0,.15);
+    border-radius: 0;
+    -webkit-box-shadow: 0 6px 12px rgba(0,0,0,.175);
+    box-shadow: 0 6px 12px rgba(0,0,0,.175);
+    color: #fff;
+}
+
+.dropdown-menu2>li>a {
+    display: block;
+    padding: 3px 20px;
+    clear: both;
+    font-weight: 400;
+    line-height: 1.42857143;
+    color: #fff;
+    white-space: nowrap;
+}
+
+
+.tight{
+    margin-top: 2px;
+    margin-bottom: 2px;
+}
+
+.border-bottom-flight {
+    background-color: #e4e4e4;
+    width: 100%;
+    height: 1px;
+    margin: 10px 0;
+}
+
+
+.flight-logo{
+    padding: 20px 0 0 15px;
+}
+
+@media(max-width:767px){
+    .flight-logo{
+        padding: 9px 0 0 15px;
+    }
+}
+
+
+
+
+
+.ngx-pagination .current {
+    padding: 7px 12px !important;
+    background: #f2af01 !important;
+    color: #fefefe;
+    cursor: default;
+    border: 1px solid #f2af01 !important;
+}
+
+.ngx-pagination a, .ngx-pagination button {
+    color: #0a0a0a !important;
+    display: block;
+    padding: 7px 12px !important;
+    border-radius: 0;
+    border: 1px solid #ddd !important;
+}
+
+.ngx-pagination a, .ngx-pagination button {
+    cursor: pointer;
+    margin: -1px !important;
+}

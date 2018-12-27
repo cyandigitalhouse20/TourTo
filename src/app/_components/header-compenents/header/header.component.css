@@ -1,0 +1,48 @@
+
+
+.logo{
+    width: 100px;
+}
+
+.lang {
+    color: #fff;
+    background-color: transparent;
+    border-color:transparent;
+}
+
+.lang:hover, .lang:active {
+    color: #fff;
+    background-color:transparent;
+    border-color: transparent;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+
+.bord{
+    border-right: 1px solid rgba(255, 255, 255, 0.3);
+    border-left: 1px solid rgba(255, 255, 255, 0.3);
+    padding: 30px;
+}
+
+.bord-profile{
+    border-right: 1px solid rgba(255, 255, 255, 0.3);
+    border-left: 1px solid rgba(255, 255, 255, 0.3);
+    padding:15px 30px;
+    width: 290px;
+    vertical-align: middle;
+    
+}
+
+.nav-head{
+    border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+    
+}
+
+.profile-pic{
+    width: 50px;
+    height: 50px;
+    border: 1px solid #144166;
+    border-radius:50%; 
+    margin-right: 5px;
+}

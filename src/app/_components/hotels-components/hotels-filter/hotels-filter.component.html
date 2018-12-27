@@ -1,0 +1,71 @@
+<div class="filter-container">
+  <div>
+      <iframe src="https://www.google.com/maps/embed?pb=!1m10!1m8!1m3!1d13811.209223515241!2d31.35145115!3d30.071200749999996!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sar!2seg!4v1543940380753" width="100%" height="200px" frameborder="0" style="border:0" allowfullscreen></iframe>
+    <h2 class="text-center blue ">
+      Sort & Filter
+    </h2>
+    <div class="border-bottom row"></div>
+
+    <div class="">
+      <a type="button" class="btn " (click)="isCollapsed = !isCollapsed" [attr.aria-expanded]="!isCollapsed"
+        aria-controls="collapseBasic" style="width:100%; padding: 10px 0;"><span class="fl blue"> <b>Star Rating</b></span>
+        <span class="glyphicon fr drop-arrow" [class.glyphicon-menu-up]="!isCollapsed" [class.glyphicon-menu-down]="isCollapsed"
+          aria-hidden="true"></span>
+      </a>
+
+      <div id="collapseBasic" [collapse]="isCollapsed" class="card card-block card-header">
+
+        <div class="checkbox">
+          <label  style="width:100%;">
+            <input type="checkbox" value="">
+            <span class="filter-check"> 2 stars</span> <span class="filter-number"> 32</span>
+          </label>
+        </div>
+        <div class="checkbox">
+          <label style="width:100%;">
+            <input type="checkbox" value="">
+            <span class="filter-check"> 3 stars</span> <span  class="filter-number"> 48</span>
+          </label>
+        </div>
+        <div class="checkbox">
+          <label style="width:100%;">
+            <input type="checkbox" value="">
+            <span class="filter-check"> 4 stars</span> <span  class="filter-number"> 72</span>
+          </label>
+        </div>
+      </div>
+    </div>
+    <div class="">
+      <a type="button" class="btn " (click)="isCollapsed2 = !isCollapsed2" [attr.aria-expanded]="!isCollapsed2"
+          aria-controls="collapseBasic" style="width:100%; padding: 10px 0;"><span class="fl blue"> <b>Popular Filters</b></span>   
+          <span class="glyphicon fr drop-arrow" [class.glyphicon-menu-up]="!isCollapsed2" [class.glyphicon-menu-down]="isCollapsed2" aria-hidden="true"></span>
+      </a>
+
+      <div id="collapseBasic" [collapse]="isCollapsed2" class="card card-block card-header">
+
+        <div class="checkbox">
+          <label style="width:100%;">
+            <input type="checkbox" value="">
+            <span class="filter-check">Parking</span> <span  class="filter-number"> 32</span>
+          </label>
+        </div>
+        <div class="checkbox">
+          <label style="width:100%;">
+            <input type="checkbox" value="">
+            <span class="filter-check"> Wifi</span> <span  class="filter-number"> 48</span>
+          </label>
+        </div>
+        <div class="checkbox">
+          <label style="width:100%;">
+            <input type="checkbox" value="">
+             <span class="filter-check"> Gym</span> <span  class="filter-number"> 72</span>
+          </label>
+        </div>
+      </div>
+    </div>
+
+
+
+
+  </div>
+</div>

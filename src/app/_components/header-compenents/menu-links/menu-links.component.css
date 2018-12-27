@@ -1,0 +1,31 @@
+
+
+.head-menu{
+    border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+    padding: 10px 80px 0px 0;
+}
+
+.menu{
+    color: #fff;
+
+}
+
+.menu> li{
+    display: inline-block;
+    margin: 0 10px;
+    
+}
+.menu> li> a{
+
+    color: #fff;
+}
+
+.menu> li> a:hover{
+
+    color: #f8af00;
+}
+
+.menu> li> .active{
+
+    color: #f8af00;
+}
