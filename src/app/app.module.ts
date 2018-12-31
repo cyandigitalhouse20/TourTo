@@ -44,8 +44,6 @@ import { TypeaheadModule } from 'ngx-bootstrap/typeahead';
 import { AppRoutingModule } from './app-routing.module';
 import {TranslateModule, TranslateLoader} from '@ngx-translate/core';
 import {TranslateHttpLoader} from '@ngx-translate/http-loader';
-import { NnComponent } from './nn/nn.component';
-
 
 // AoT requires an exported function for factories
 export function HttpLoaderFactory(httpClient: HttpClient) {
@@ -79,7 +77,6 @@ export function HttpLoaderFactory(httpClient: HttpClient) {
     FlightDetailsComponent,
     FlightPaymentComponent,
     FlightTypeSelectComponent,
-    NnComponent,
     
   ],
   imports: [
@@ -114,6 +111,6 @@ export function HttpLoaderFactory(httpClient: HttpClient) {
     MenuService,
     StaticDataService
   ],
-  bootstrap: [AppComponent]
+  bootstrap: [HomeComponent]
 })
 export class AppModule { }
