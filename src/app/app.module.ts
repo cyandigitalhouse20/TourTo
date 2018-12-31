@@ -1,23 +1,6 @@
 
 import {  RepositoryService, FlightService, LanguageService, MenuService, StaticDataService } from './_services';
 import { AppComponent } from './app.component';
-
-import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
-import { CollapseModule } from 'ngx-bootstrap/collapse';
-import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
-import { TabsModule } from 'ngx-bootstrap/tabs';
-import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
-import { RatingModule } from 'ngx-bootstrap/rating';
-import { FormsModule } from '@angular/forms';
-import { Ng5SliderModule } from 'ng5-slider';
-import { PaginationModule } from 'ngx-bootstrap/pagination';
-import { PopoverModule } from 'ngx-bootstrap/popover';
-import { HttpClientModule } from '@angular/common/http';
-import { ModalModule } from 'ngx-bootstrap/modal';
-import { CarouselModule } from 'ngx-bootstrap/carousel';
-import {NgxPaginationModule} from 'ngx-pagination';
-import { RouterModule } from '@angular/router';
 import { SearchResultComponent } from './_components/search-result-compenents/search-result/search-result.component';
 import { HotelsResultComponent } from './_components/hotels-components/hotels-result/hotels-result.component';
 import { HotelsComponent } from './_components/hotels-components/hotels/hotels.component';
@@ -41,6 +24,33 @@ import { FlightResultComponent } from './_components/flights-components/flight-r
 import { FlightFilterComponent } from './_components/flights-components/flight-filter/flight-filter.component';
 import { FlightDetailsComponent } from './_components/flights-components/flight-details/flight-details.component';
 import { FlightPaymentComponent } from './_components/flights-components/flight-payment/flight-payment.component';
+import { FlightTypeSelectComponent } from './_components/flights-components/flight-type-select/flight-type-select.component';
+
+import { BrowserModule } from '@angular/platform-browser';
+import { NgModule } from '@angular/core';
+import { CollapseModule } from 'ngx-bootstrap/collapse';
+import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
+import { TabsModule } from 'ngx-bootstrap/tabs';
+import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
+import { RatingModule } from 'ngx-bootstrap/rating';
+import { FormsModule } from '@angular/forms';
+import { Ng5SliderModule } from 'ng5-slider';
+import { PaginationModule } from 'ngx-bootstrap/pagination';
+import { PopoverModule } from 'ngx-bootstrap/popover';
+import { HttpClientModule, HttpClient } from '@angular/common/http';
+import { ModalModule } from 'ngx-bootstrap/modal';
+import { CarouselModule } from 'ngx-bootstrap/carousel';
+import {NgxPaginationModule} from 'ngx-pagination';
+import { TypeaheadModule } from 'ngx-bootstrap/typeahead';
+import { AppRoutingModule } from './app-routing.module';
+import {TranslateModule, TranslateLoader} from '@ngx-translate/core';
+import {TranslateHttpLoader} from '@ngx-translate/http-loader';
+
+// AoT requires an exported function for factories
+export function HttpLoaderFactory(httpClient: HttpClient) {
+  return new TranslateHttpLoader(httpClient);
+}
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -67,9 +77,17 @@ import { FlightPaymentComponent } from './_components/flights-components/flight-
     FlightFilterComponent, 
     FlightDetailsComponent,
     FlightPaymentComponent,
+    FlightTypeSelectComponent,
     
   ],
   imports: [
+    TranslateModule.forRoot({
+      loader: {
+        provide: TranslateLoader,
+        useFactory: HttpLoaderFactory,
+        deps: [HttpClient]
+      }
+    }),
     HttpClientModule,
     BrowserModule,
     CollapseModule.forRoot(),
@@ -82,7 +100,10 @@ import { FlightPaymentComponent } from './_components/flights-components/flight-
     PopoverModule.forRoot(),
     ModalModule.forRoot(),
     CarouselModule.forRoot(),
-     NgxPaginationModule
+    NgxPaginationModule,
+    TypeaheadModule.forRoot(),
+    AppRoutingModule,
+    
   ],
   providers: [
     RepositoryService,

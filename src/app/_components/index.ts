@@ -30,3 +30,4 @@ export * from './flights-components/flight-payment/flight-payment.component';
 export * from './flights-components/flight-result/flight-result.component';
 export * from './flights-components/flight-round-trip/flight-round-trip.component';
 export * from './flights-components/flights/flights.component';
+export * from './flights-components/flight-type-select/flight-type-select.component';

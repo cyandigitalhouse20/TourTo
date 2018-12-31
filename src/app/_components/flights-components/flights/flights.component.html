@@ -1,5 +1,6 @@
-
-
-<app-flight-round-trip></app-flight-round-trip>
-<!-- <app-flight-oneway></app-flight-oneway> -->
-<!-- <app-flight-multi></app-flight-multi> -->
+<div class="container ">
+    <app-flight-type-select></app-flight-type-select>
+    <app-flight-round-trip *ngIf="flightservice.flightType=='roundTrip'"></app-flight-round-trip>
+    <app-flight-one-way *ngIf="flightservice.flightType=='oneWay'"></app-flight-one-way>
+    <app-flight-multi-city *ngIf="flightservice.flightType=='multiCity'"></app-flight-multi-city>
+</div>

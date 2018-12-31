@@ -1,22 +1,39 @@
 import { Injectable } from '@angular/core';
-import { Flightsearchresult, AirResultItineraries, SliderFilter } from 'src/app/_models';
+import { Flightsearchresult, AirResultItineraries, FlightSearchOptionTwoWay, SliderFilter } from 'src/app/_models';
 import { RepositoryService } from '..';
+import { strictEqual } from 'assert';
 
 
 @Injectable()
 export class FlightService {
+  flightType:string;
   flightsearchresult : Flightsearchresult;
   displayedFlightSearchResult: AirResultItineraries[];
   sliderFilters:SliderFilter;
   showFilter: boolean=false;
-
-
-
   constructor(private repositoryService: RepositoryService) {
+   
+    this.flightType="roundTrip";
     this.sliderFilters=new SliderFilter();
    }
-  GetAirLowFareSearch() {
-    return this.repositoryService.get('FlightService/AirLowFareSearch/2/null/true/2/0/0/Economy/true/1/0/true/2/3/01-01-2019/01-01-2019');
+  GetAirLowFareSearch(model:FlightSearchOptionTwoWay) {
+    let test:string= model.flightType +'/'+
+     model.requestId +'/' +
+     model.isNewRequest + '/'+ 
+     model.langId + '/' +
+      model.page + '/'+
+      model.pageItemCount+'/'+
+      model.class+'/'+
+      model.directFlight+'/'+
+      model.adult+'/'+
+      model.children+'/'+
+      model.flexDates+'/'+
+      model.CityFromId+'/'+
+      model.CityToId+'/'+
+      model.departureDate+'/'+
+      model.returnDate;
+      debugger;
+    return this.repositoryService.get('FlightService/AirLowFareSearch/'+test);
   }
   GetFlightDetails() {
     
