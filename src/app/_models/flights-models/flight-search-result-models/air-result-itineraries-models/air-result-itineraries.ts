@@ -5,7 +5,4 @@ export class AirResultItineraries {
     Amount: number;
     Currency: number;
     Routes: Routes[];
-
-    // detailscollapse
-    DetailsCollapse: boolean;
 }

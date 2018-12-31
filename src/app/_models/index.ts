@@ -19,4 +19,5 @@ export * from './flights-models/flight-search-result-models/air-result-itinerari
 export * from './flights-models/flight-search-result-models/air-result-itineraries-models/routes-models/segment-models/marketing'; 
 export * from './flights-models/flight-search-result-models/air-result-itineraries-models/routes-models/segment-models/origin';
 export * from './flights-models/flight-search-result-models/air-result-itineraries-models/routes-models/segment-models/segment';  
-export * from './flights-models/flight-search-result-models/air-result-itineraries-models/routes-models/segment-models/operating';  
+export * from './flights-models/flight-search-result-models/air-result-itineraries-models/routes-models/segment-models/operating';
+export * from './flights-models/flight-filter-models/slider-filter';

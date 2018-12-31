@@ -15,7 +15,7 @@
 
 <div class="row" style="clear: both;">
     <div id="left">
-        <app-flight-filter></app-flight-filter>
+        <app-flight-filter *ngIf="flightservice.showFilter"></app-flight-filter>
         <!-- <app-hotels-filter></app-hotels-filter> -->
     </div>
     

@@ -1,3 +1,4 @@
+import { SliderFilter } from './../../../_models/flights-models/flight-filter-models/slider-filter';
 import { Component, OnInit } from '@angular/core';
 import { Options } from 'ng5-slider';
 import { FlightService } from 'src/app/_services';
@@ -11,143 +12,112 @@ export class FlightFilterComponent implements OnInit {
 
   oneStopData: any[];
   twoStopData: any[];
-  arr: number[];
+  DurArr: number[];
+  OrigArr: number[];
+  DestArr: number[];
   NoneStop: boolean = false;
-  OneStop:  boolean= false;
-  TwoStop: boolean= false;
+  OneStop: boolean = false;
+  TwoStop: boolean = false;
   SortAsc: boolean = false;
   SortDesc: boolean = false;
-  Coastminvalue = 40;
-  CoastHieghtvalue = 60;
-  Durationminvalue = 90;
-  DurationHieghtvalue = 150; 
-
-  Coastoptions: Options = {
-    floor: 0,
-    ceil: 100
-  };
-  Durationoptions: Options = {
-    floor:50,
+ 
+  AgmyTimeoptions: Options = {
+    floor: 50,
     ceil: 200
   };
+  AgmyMinvalue = 90;
+  AgmyMaxvalue = 150;
+
+
+  agmy() {
+    alert(this.AgmyMinvalue);
+  }
 
   constructor(public flightservice: FlightService) { }
 
   ngOnInit() {
-    
-    // this.options = {
-    //   floor:Number(this.flightservice.flightsearchresult.MinPrice),
-    //   ceil: Number(this.flightservice.flightsearchresult.MaxPrice)
-    // }; 
-    this.Coastoptions = {
-      floor:Number(this.flightservice.flightsearchresult.MinPrice),
-      ceil: 200
-    }; 
+
   }
- 
+
   onFilterChange() {
- 
+
     this.filterDataOfTranzet();
-   }
-   onOneStopFilterChange() {
+  }
+  onOneStopFilterChange() {
     this.filterDataOfTranzet();
   }
   onTwoStopFilterChange() {
     this.filterDataOfTranzet();
   }
 
-  onMoneychange()
-  {
-alert('f');    
+
+  onsortchange(v) {
+    if (v == "Lowest") {
+      this.SortAsc = true;
+      this.SortDesc = false;
+      this.flightservice.displayedFlightSearchResult = this.flightservice.displayedFlightSearchResult.filter(o => o.Amount).sort((a, b) => 0 - (a > b ? -1 : 1));
+    }
+    else if (v == "hieght") {
+      this.SortAsc = false;
+      this.SortDesc = true;
+      this.flightservice.displayedFlightSearchResult = this.flightservice.displayedFlightSearchResult.filter(o => o.Amount).sort((a, b) => 0 - (a > b ? -1 : 1));
+    }
   }
-  onsortchange(v)
-  {
-if(v=="Lowest")  
-{
-  this.SortAsc=true;
-  this.SortDesc=false;
-  this.flightservice.displayedFlightSearchResult=this.flightservice.displayedFlightSearchResult.filter(o=>o.Amount).sort((a,b) => 0 - (a > b ? -1 : 1));
+  filterDataOfTranzet() {
+    if (this.NoneStop && this.OneStop == false && this.TwoStop == false) {
+      this.flightservice.displayedFlightSearchResult = this.flightservice.flightsearchresult.AirResultItineraries.filter(o => o.Routes.every(seg => seg.Segment.length == 1))
+    }
+    else if (this.NoneStop == false && this.OneStop && this.TwoStop == false) {
+      this.flightservice.displayedFlightSearchResult = this.flightservice.flightsearchresult.AirResultItineraries.filter(o => o.Routes.every(seg => seg.Segment.length == 2))
+    }
+    else if (this.NoneStop == false && this.OneStop == false && this.TwoStop) {
+      this.flightservice.displayedFlightSearchResult = this.flightservice.flightsearchresult.AirResultItineraries.filter(o => o.Routes.every(seg => seg.Segment.length > 2))
 
-}
-else if(v=="hieght")
-{
-  this.SortAsc=false;
-  this.SortDesc=true;
-  this.flightservice.displayedFlightSearchResult=this.flightservice.displayedFlightSearchResult.filter(o=>o.Amount).sort((a,b) => 0 - (a > b ? -1 : 1));
-}
+    }
+    else if (this.NoneStop && this.OneStop == false && this.TwoStop) {
+      this.flightservice.displayedFlightSearchResult = this.flightservice.flightsearchresult.AirResultItineraries.filter(o => o.Routes.every(seg => seg.Segment.length > 2 || seg.Segment.length == 1))
+
+    }
+    else if (this.NoneStop && this.OneStop && this.TwoStop == false) {
+      this.flightservice.displayedFlightSearchResult = this.flightservice.flightsearchresult.AirResultItineraries.filter(o => o.Routes.every(seg => seg.Segment.length == 2 || seg.Segment.length == 1))
+    }
+    else if (this.NoneStop == false && this.OneStop && this.TwoStop) {
+      this.flightservice.displayedFlightSearchResult = this.flightservice.flightsearchresult.AirResultItineraries.filter(o => o.Routes.every(seg => seg.Segment.length == 2 || seg.Segment.length > 2))
+    }
+    else {
+      this.flightservice.displayedFlightSearchResult = this.flightservice.flightsearchresult.AirResultItineraries;
+    }
+
+    // this.flightservice.sliderFilters.setDepatureFiltervaliues(this.flightservice.displayedFlightSearchResult.map(o => o.Routes).map(s => s.map(l => l.Segment.map(o => o.Origin.Time))));
+    // this.flightservice.sliderFilters.setDestinationFiltervaliues(this.flightservice.displayedFlightSearchResult.map(o => o.Routes).map(s => s.map(l => l.Segment.map(o => o.Destination.Time))));
+    this.flightservice.sliderFilters.setDurationfiltervaliues(this.flightservice.displayedFlightSearchResult.map(o => o.Routes).map(s => s.map(l => l.Duration)));
+    this.flightservice.sliderFilters.setCoastFilter(this.flightservice.displayedFlightSearchResult[0].Amount, this.flightservice.displayedFlightSearchResult[this.flightservice.displayedFlightSearchResult.length - 1].Amount);
+    if (this.SortDesc) {
+      this.flightservice.displayedFlightSearchResult = this.flightservice.displayedFlightSearchResult.filter(o => o.Amount).sort((a, b) => 0 - (a > b ? -1 : 1));
+    }
   }
-  filterDataOfTranzet()
-  { 
-    if(this.NoneStop&&this.OneStop==false&&this.TwoStop==false)
-    {
-      this.flightservice.displayedFlightSearchResult=this.flightservice.flightsearchresult.AirResultItineraries.filter( o => o.Routes.every(seg => seg.Segment.length==1))
-    }
-    else if(this.NoneStop==false&&this.OneStop&&this.TwoStop==false)
-    {
-      this.flightservice.displayedFlightSearchResult=this.flightservice.flightsearchresult.AirResultItineraries.filter( o => o.Routes.every( seg => seg.Segment.length==2))
-    }
-    else if(this.NoneStop==false&&this.OneStop==false&&this.TwoStop)
-    {
-      this.flightservice.displayedFlightSearchResult=this.flightservice.flightsearchresult.AirResultItineraries.filter( o => o.Routes.every( seg => seg.Segment.length > 2))
+  FilterCoast() {
+    this.flightservice.displayedFlightSearchResult = this.flightservice.flightsearchresult.AirResultItineraries.filter(o => o.Amount >= this.flightservice.sliderFilters.CoastMinvalue && o.Amount <= this.flightservice.sliderFilters.CoastMaxvalue);
+    // this.flightservice.sliderFilters.setDepatureFiltervaliues(this.flightservice.displayedFlightSearchResult.map(o=>o.Routes).map(s=>s.map(l=>l.Segment.map(o=>o.Origin.Time))));
+    // this.flightservice.sliderFilters.setDestinationFiltervaliues(this.flightservice.displayedFlightSearchResult.map(o=>o.Routes).map(s=>s.map(l=>l.Segment.map(o=>o.Destination.Time))));
+    this.flightservice.sliderFilters.setDurationfiltervaliues(this.flightservice.displayedFlightSearchResult.map(o=>o.Routes).map(s=>s.map(l=>l.Duration)));
 
     }
-    else if(this.NoneStop&&this.OneStop==false&&this.TwoStop)
-    {
-      this.flightservice.displayedFlightSearchResult=this.flightservice.flightsearchresult.AirResultItineraries.filter( o => o.Routes.every( seg => seg.Segment.length > 2||seg.Segment.length==1))
+    FilterDuration() {
 
-    }
-    else if(this.NoneStop&&this.OneStop&&this.TwoStop==false)
-    {
-      this.flightservice.displayedFlightSearchResult=this.flightservice.flightsearchresult.AirResultItineraries.filter( o => o.Routes.every( seg => seg.Segment.length ==2 ||seg.Segment.length==1))
-    }
-    else if(this.NoneStop==false&&this.OneStop&&this.TwoStop)
-    {
-      this.flightservice.displayedFlightSearchResult=this.flightservice.flightsearchresult.AirResultItineraries.filter( o => o.Routes.every( seg => seg.Segment.length ==2 ||seg.Segment.length>2))
-    }
-    else
-    {
-      this.flightservice.displayedFlightSearchResult=this.flightservice.flightsearchresult.AirResultItineraries;
-    }
-    if(this.SortDesc)
-    {
-      this.flightservice.displayedFlightSearchResult=this.flightservice.displayedFlightSearchResult.filter(o=>o.Amount).sort((a,b) => 0 - (a > b ? -1 : 1));
-    }
-
-   
-    this.Coastoptions = {
-      floor: this.flightservice.displayedFlightSearchResult[0].Amount,
-      ceil: this.flightservice.displayedFlightSearchResult[this.flightservice.displayedFlightSearchResult.length-1].Amount
-    }; 
-
-this.Coastminvalue=this.flightservice.displayedFlightSearchResult[0].Amount;
-
-this.CoastHieghtvalue=this.flightservice.displayedFlightSearchResult[this.flightservice.displayedFlightSearchResult.length-1].Amount;
+      this.flightservice.displayedFlightSearchResult = this.flightservice.flightsearchresult.AirResultItineraries.filter(o => o.Routes.every(a=>parseInt(a.Duration.substring(0,2).toString()) >= this.flightservice.sliderFilters.DurationMinvalue && parseInt(a.Duration.substring(0,2).toString()) <= this.flightservice.sliderFilters.DurationMaxvalue));
+      // this.flightservice.sliderFilters.setDepatureFiltervaliues(this.flightservice.displayedFlightSearchResult.map(o=>o.Routes).map(s=>s.map(l=>l.Segment.map(o=>o.Origin.Time))));
+      // this.flightservice.sliderFilters.setDestinationFiltervaliues(this.flightservice.displayedFlightSearchResult.map(o=>o.Routes).map(s=>s.map(l=>l.Segment.map(o=>o.Destination.Time))));
+        this.flightservice.sliderFilters.setCoastFilter(this.flightservice.displayedFlightSearchResult[0].Amount,this.flightservice.displayedFlightSearchResult[this.flightservice.displayedFlightSearchResult.length-1].Amount);  
+    
+      }
 
 
-let DurationTwoD=this.flightservice.displayedFlightSearchResult.map(o=>o.Routes).map(s=>s.map(l=>l.Duration));
-let arrivalTimeTwoD=this.flightservice.displayedFlightSearchResult.map(o=>o.Routes).map(s=>s.map(l=>l.Segment.map(o=>o.Origin.Time)));
-debugger;
-let DurationInOneD = DurationTwoD.reduce(function(prev, next) {
-  return prev.concat(next);
-});
-
-let durationArray=[];
-DurationInOneD.forEach(element => {
-  durationArray.push(element.substr(0,2));
-  });
-
-  this.arr=durationArray.map(Number);
-  var max = this.arr.reduce(function(a, b) {
-    return Math.max(a, b);});
-   this.Durationoptions={floor:this.arr.reduce(function(a, b) {
-    return Math.min(a, b);}),
-    ceil: this.arr.reduce(function(a, b) {
-      return Math.max(a, b);})
-
-     
-  }; 
-  this.Durationminvalue=this.Durationoptions.floor;
-  this.DurationHieghtvalue=this.Durationoptions.ceil;
-}
-
+      SetallSliderFilters()
+      {
+        // this.flightservice.sliderFilters.setDepatureFiltervaliues(this.flightservice.displayedFlightSearchResult.map(o=>o.Routes).map(s=>s.map(l=>l.Segment.map(o=>o.Origin.Time))));
+        // this.flightservice.sliderFilters.setDestinationFiltervaliues(this.flightservice.displayedFlightSearchResult.map(o=>o.Routes).map(s=>s.map(l=>l.Segment.map(o=>o.Destination.Time))));
+        this.flightservice.sliderFilters.setDurationfiltervaliues(this.flightservice.displayedFlightSearchResult.map(o=>o.Routes).map(s=>s.map(l=>l.Duration)));
+        this.flightservice.sliderFilters.setCoastFilter(this.flightservice.displayedFlightSearchResult[0].Amount,this.flightservice.displayedFlightSearchResult[this.flightservice.displayedFlightSearchResult.length-1].Amount);        
+      }
 }

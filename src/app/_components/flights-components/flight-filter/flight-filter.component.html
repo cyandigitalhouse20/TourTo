@@ -46,7 +46,7 @@
         <div id="collapseBasic" [collapse]="isCollapsed2" class="card card-block card-header">
           
             <div style="margin:15px 0;">
-                <ng5-slider [(value)]="Coastminvalue" [(highValue)]="CoastHieghtvalue" (change)="onMoneychange()"  [(options)]="Coastoptions"></ng5-slider>
+                <ng5-slider (click)="FilterCoast()" [(value)]="this.flightservice.sliderFilters.CoastMinvalue" [(highValue)]="this.flightservice.sliderFilters.CoastMaxvalue"  [(options)]="this.flightservice.sliderFilters.Coastoptions"></ng5-slider>
             </div>
         </div>
       </div>
@@ -58,10 +58,34 @@
         <div id="collapseBasic" [collapse]="isCollapsed3" class="card card-block card-header">
           
             <div style="margin:15px 0;">
-                <ng5-slider [(value)]="Durationminvalue" [(highValue)]="DurationHieghtvalue" (change)="onMoneychange()"  [(options)]="Durationoptions"></ng5-slider>
+                <ng5-slider (click)="FilterDuration()" [(value)]="this.flightservice.sliderFilters.DurationMinvalue" [(highValue)]="this.flightservice.sliderFilters.DurationMaxvalue"  [(options)]="this.flightservice.sliderFilters.Durationoptions"></ng5-slider>
             </div>
         </div>
       </div>
+      <!-- <div class="">
+        <a type="button" class="btn " (click)="isCollapsed3 = !isCollapsed3" [attr.aria-expanded]="!isCollapsed3"
+          aria-controls="collapseBasic" style="width:100%; padding: 10px 0;"><span class="fl blue"> <b>Depature Time</b></span>   <span class="glyphicon fr drop-arrow" [class.glyphicon-menu-up]="!isCollapsed2" [class.glyphicon-menu-down]="isCollapsed2" aria-hidden="true"></span>
+      </a>
+        
+        <div id="collapseBasic" [collapse]="isCollapsed3" class="card card-block card-header">
+          
+          <div style="margin:15px 0;">
+            <ng5-slider [(value)]="this.flightservice.sliderFilters.OriginTimeMinvalue" [(highValue)]="this.flightservice.sliderFilters.OriginTimeMaxvalue" [(options)]="this.flightservice.sliderFilters.OriginTimeoptions"></ng5-slider>
+          </div>
+        </div>
+      </div>
+      <div class="">
+        <a type="button" class="btn " (click)="isCollapsed3 = !isCollapsed3" [attr.aria-expanded]="!isCollapsed3"
+          aria-controls="collapseBasic" style="width:100%; padding: 10px 0;"><span class="fl blue"> <b>Arrival Time</b></span>   <span class="glyphicon fr drop-arrow" [class.glyphicon-menu-up]="!isCollapsed2" [class.glyphicon-menu-down]="isCollapsed2" aria-hidden="true"></span>
+      </a>
+        
+        <div id="collapseBasic" [collapse]="isCollapsed3" class="card card-block card-header">
+          
+            <div style="margin:15px 0;">
+                <ng5-slider [(value)]="this.flightservice.sliderFilters.DestinationTimeMinvalue" [(highValue)]="this.flightservice.sliderFilters.DestinationTimeMaxvalue" [(options)]="this.flightservice.sliderFilters.DestinationTimeoptions"></ng5-slider>
+            </div>
+        </div>
+      </div> -->
 
   </div>
 </div>
