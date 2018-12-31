@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { LanguageService } from 'src/app/_services';
 import { HttpErrorResponse } from '@angular/common/http';
+import {TranslateService} from '@ngx-translate/core';
 
 @Component({
   selector: 'app-header-web',
@@ -10,7 +11,13 @@ import { HttpErrorResponse } from '@angular/common/http';
 export class HeaderWebComponent implements OnInit {
   isCollapsed = true;
   languages: any[];
-  constructor(public languageService: LanguageService) { }
+  constructor(public languageService: LanguageService,public translate: TranslateService) {
+    translate.addLangs(['en', 'fr']);
+    translate.setDefaultLang('en');
+  
+    const browserLang = translate.getBrowserLang();
+    translate.use(browserLang.match(/en|fr/) ? browserLang : 'en');
+   }
 
   ngOnInit() {
 

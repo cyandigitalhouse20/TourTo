@@ -9,10 +9,9 @@ import { RepositoryService } from '..';
 export class StaticDataService {
 
   cities: City[] = [];
-  flightSearchOptionTwoWay: FlightSearchOptionTwoWay;
 
   constructor(private repositoryService: RepositoryService) {
-    this.flightSearchOptionTwoWay=new FlightSearchOptionTwoWay();
+  
    }
 
   searchCity(term: string) {
