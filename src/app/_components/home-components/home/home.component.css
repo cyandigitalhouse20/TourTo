@@ -1,0 +1,131 @@
+.wall{
+    width: 100%;
+    position: absolute;
+    z-index: -1;
+}
+
+.round{
+    width:60px;
+    height:60px;
+    padding: 10px;
+    text-align: center;
+    border: 2px solid #587d8f;
+    border-radius: 50%;
+    background-color: #144166;
+    transition: ease 0.3s;
+    color: #fff;
+
+}
+
+.round:hover{
+
+    background-color: #f8af00;
+    border: 2px solid #f8af00;
+    color: #fff;
+
+}
+
+.round:active .round.active{
+
+    background-color: #67c3d3;
+    border: 2px solid #67c3d3;
+    color: #fff;
+
+}
+
+.home-links{
+    color: white;
+    margin: 20px 40px;
+    text-align: center;
+    text-decoration: none;
+}
+.home-links:hover, .home-links:active {
+    color: white;
+}
+
+ .home-links.active>.round{
+    background-color: #f8af00;
+    border: 2px solid #f8af00;
+}
+
+@media(max-width:990px){
+    .home-links{
+        margin: 20px 20px;
+    }
+}
+
+
+.link-strok{
+    width: 100px;
+    height: 3px;
+    background-color: #f8af00;
+    margin-top: -70px;
+    display: none;
+    transition: ease 0.3s;
+    
+
+}
+
+.home-links.active>.link-strok{
+    display: block;
+    transition: ease 0.3s;
+    margin-left: -20px;
+    margin-right: -20px;
+
+}
+.home-line{
+    width: 100%;
+    height: 1px;
+    background-color: #587d8f;
+    margin: 100px 0 -51px 0;
+}
+
+
+.btn-group, .btn-group-vertical {
+    position: relative;
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.btn-group-vertical>.home-links,  .btn-group>.home-links {
+    position: relative;
+    float: left;
+}
+
+.home-head1-container{
+    text-align: center;
+    border-bottom: 1px solid #fff;
+}
+
+.home-head1{
+    color: #f8af00;
+    font-size: 32px;
+    margin-top: 30px;
+}
+
+.home-head2{
+    color: #fff;
+    font-size: 48px;
+    margin-top: 15px;
+
+}
+
+.small-head{
+    background: rgba(20, 65, 102, 0.4);
+    margin-top: 10px;
+}
+
+
+.section{
+    background-image: url(/assets/img/section.jpg);
+    padding: 30px;
+    text-align: center;
+    background-position: center;
+}
+
+
+
+.dropdown-packages {
+    top: 82%;
+    left: 55%;
+}

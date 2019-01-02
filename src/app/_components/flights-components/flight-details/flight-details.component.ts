@@ -9,7 +9,7 @@ import { HttpErrorResponse } from '@angular/common/http';
 })
 export class FlightDetailsComponent implements OnInit {
 obj:any;
-  constructor( public flightservice: FlightService) { }
+  constructor( private flightservice: FlightService) { }
 
   ngOnInit() {
     debugger;

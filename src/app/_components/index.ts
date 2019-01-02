@@ -1,6 +1,3 @@
-// search result
-export * from './search-result-compenents/search-result/search-result.component';
-
 // hotel
 export * from './hotels-components/hotels/hotels.component';
 export * from './hotels-components/hotels-filter/hotels-filter.component';
@@ -19,7 +16,6 @@ export * from './home-components/footer/footer.component';
 export * from './home-components/home/home.component';
 export * from './home-components/home-experience/home-experience.component';
 export * from './home-components/home-packages/home-packages.component';
-export * from './home-components/home-page/home-page.component';
 
 // header
 export * from './flights-components/flight-details/flight-details.component';

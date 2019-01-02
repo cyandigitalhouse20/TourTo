@@ -1,9 +1,12 @@
 import { NgModule } from '@angular/core';
-import { Routes,RouterModule } from '@angular/router';
+import { Routes, RouterModule } from '@angular/router';
+import { HomeComponent, FlightsComponent } from './_components';
 
-
- const routes:Routes=[
-
+const routes: Routes = [
+  { path: '', component: HomeComponent },
+  { path: 'home', component: HomeComponent },
+  { path: 'flights', component: FlightsComponent },
+  { path: '**', redirectTo: '/', pathMatch: 'full' }
 ];
 
 @NgModule({
@@ -11,4 +14,3 @@ import { Routes,RouterModule } from '@angular/router';
   exports: [RouterModule]
 })
 export class AppRoutingModule { }
- 

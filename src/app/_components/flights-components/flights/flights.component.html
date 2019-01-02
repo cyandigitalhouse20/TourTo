@@ -1,6 +1,30 @@
-<div class="container ">
+<div *ngIf="router.url === '/home' ||router.url === '/';else flight_content" class="container ">
     <app-flight-type-select></app-flight-type-select>
-    <app-flight-round-trip *ngIf="flightservice.flightType=='roundTrip'"></app-flight-round-trip>
-    <app-flight-one-way *ngIf="flightservice.flightType=='oneWay'"></app-flight-one-way>
-    <app-flight-multi-city *ngIf="flightservice.flightType=='multiCity'"></app-flight-multi-city>
+
 </div>
+
+<ng-template #flight_content>
+    <div class="home-img">
+        <app-menu-links></app-menu-links>
+        <app-header></app-header>
+
+        <div class="container">
+            <div class="col-xs-8 col-xs-offset-2 home-head1-container">
+                <h1 class="home-head2 text-center">{{'Flight.ExperienceTheFreedom'|translate}} </h1>
+            </div>
+        </div>
+        <div class="container ">
+            <app-flight-type-select></app-flight-type-select>
+        </div>
+    </div>
+
+    <div *ngIf="flightservice.showFlightsDetails" class="row" style="clear: both;">
+        <div  id="left">
+            <app-flight-filter ></app-flight-filter>
+        </div>
+
+        <div id="right">
+            <app-flight-result></app-flight-result>
+        </div>
+    </div>
+</ng-template>

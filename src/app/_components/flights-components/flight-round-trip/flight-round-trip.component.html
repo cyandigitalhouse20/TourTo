@@ -1,57 +1,50 @@
-
+<form #searchForm="ngForm" autocomplete="off">
   <div class="row">
+
     <div class="form-group  col-md-2 padding-rl5">
-      <input [(ngModel)]="cityFrom"
-             [typeahead]="staticDataService.cities"
-             typeaheadOptionField="Name"
-             class="form-control"
-             placeholder="From"
-             [typeaheadOptionsLimit]="7"
-             [typeaheadMinLength]="0"
-             (keyup)="updateCitiesFrom($event)"
-             (typeaheadOnSelect)="selectCity($event,'from')"
-             >
+      <input [(ngModel)]="flightService.roundTripModel.CityFrom" name="CityFrom" #CityFrom [typeahead]="citiesFrom" typeaheadOptionField="Name"
+        class="form-control" placeholder="{{ 'FlightRoundTrip.From' | translate }}" [typeaheadOptionsLimit]="7"
+        [typeaheadMinLength]="0" (keyup)="updateCitiesFrom($event)" (typeaheadOnSelect)="selectCity($event,'from')">
     </div>
+
     <div class="form-group  col-md-2 padding-rl5">
-        <input [(ngModel)]="cityTo"
-        [typeahead]="staticDataService.cities"
-        typeaheadOptionField="Name"
-        class="form-control"
-        placeholder="To"
-        [typeaheadOptionsLimit]="7"
-        [typeaheadMinLength]="0"
-        (keyup)="updateCitiesTo($event)"
-        (typeaheadOnSelect)="selectCity($event,'to')"
-        >
+      <input [(ngModel)]="flightService.roundTripModel.CityTo" name="CityTo" #CityTo [typeahead]="citiesTo" typeaheadOptionField="Name" class="form-control"
+        placeholder="{{ 'FlightRoundTrip.To' | translate }}" [typeaheadOptionsLimit]="7" [typeaheadMinLength]="0"
+        (keyup)="updateCitiesTo($event)" (typeaheadOnSelect)="selectCity($event,'to')">
+    </div>
+    
+    <div class="form-group  col-md-3 padding-rl5">
+      <input  [(ngModel)]="flightService.roundTripModel.Dates" name="Dates" #Date placeholder="{{ 'FlightRoundTrip.DepartingArrivalTime' | translate }}" class="form-control"
+        bsDaterangepicker>
     </div>
     <div class="form-group  col-md-3 padding-rl5">
-      <input type="text" placeholder="Departing / Arrival Time" class="form-control" bsDaterangepicker [(ngModel)]="date">
-    </div>
-    <div class="form-group  col-md-3 padding-rl5">
-      <input type="email" class="form-control" id="exampleInputEmail2" placeholder="1 Adult / Economy" placement="bottom"
-        [popover]="popTemplate" popoverTitle="Dynamic html inside">
+      <input class="form-control"  placeholder="{{ 'FlightRoundTrip.AdultEconomy' | translate }}"
+        placement="bottom" [popover]="popTemplate">
       <ng-template #popTemplate>
-          <div class="form-group">
-              <label for="exampleInputEmail1">Adult</label>
-              <input type="number" class="form-control plus" id="exampleInputEmail1" [(ngModel)]="adult" placeholder="0">
-            </div>
         <div class="form-group">
-          <label for="exampleInputEmail1">Children</label>
-          <input type="number" class="form-control plus" id="exampleInputEmail1" [(ngModel)]="child" placeholder="0">
+          <label>{{ 'FlightRoundTrip.Adult' | translate }}</label>
+          <input type="number" class="form-control plus" name="Adult" [(ngModel)]="flightService.roundTripModel.Adult" #Adult placeholder="0">
+        </div>
+        <div class="form-group">
+          <label> {{ 'FlightRoundTrip.Children' | translate }}</label>
+          <input type="number" class="form-control plus" name="Child" [(ngModel)]="flightService.roundTripModel.Child" #Child placeholder="0">
         </div>
       </ng-template>
 
     </div>
     <div class="form-group  col-md-2 padding-rl5">
-      <button type="submit" (click)="search()" class="btn btn-orange" style="width:100%;">Search</button>
+      <button type="submit" (click)="search()" class="btn btn-orange" style="width:100%;">{{
+        'FlightRoundTrip.Search' |
+        translate }}</button>
     </div>
   </div>
 
   <div class="row" style="padding:15px;">
-      <label class="check">
-          None stop flight
-          <input type="checkbox" checked="checked">
-          <span class="checkmark"></span>
-      </label>
+    <label class="check">
+      {{ 'FlightRoundTrip.NoneStopFlight' | translate }}
+      <input type="checkbox" name="DirectFlight" #DirectFlight [(ngModel)]="flightService.roundTripModel.DirectFlight"  value="true">
+      <span class="checkmark"></span>
+    </label>
 
   </div>
+</form>

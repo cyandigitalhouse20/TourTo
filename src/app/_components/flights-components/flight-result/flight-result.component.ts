@@ -12,7 +12,7 @@ import { FlightService } from 'src/app/_services';
 })
 export class FlightResultComponent implements OnInit {
   modalRef: BsModalRef;
-  constructor(private modalService: BsModalService, public flightservice: FlightService) { }
+  constructor(private modalService: BsModalService, private flightservice: FlightService) { }
 
   ngOnInit() {
    

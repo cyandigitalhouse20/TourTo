@@ -1,5 +1,4 @@
 import { Injectable } from '@angular/core';
-import { City, FlightSearchOptionTwoWay } from 'src/app/_models';
 import { RepositoryService } from '..';
 
 
@@ -7,9 +6,6 @@ import { RepositoryService } from '..';
   providedIn: 'root'
 })
 export class StaticDataService {
-
-  cities: City[] = [];
-
   constructor(private repositoryService: RepositoryService) {
   
    }

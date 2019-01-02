@@ -1,14 +1,20 @@
 <div class="row radio-home">
-  <label class="radio-inline check">
-      <input name="inlineRadioOptions" id="inlineRadio1" type="radio" checked="" (change)="setFlightType('roundTrip')" value="option1"> Round Trip
-      <span class="radio2"></span>
-  </label>
-  <label class="radio-inline check">
-      <input name="inlineRadioOptions" id="inlineRadio2" type="radio"  value="option2" (change)="setFlightType('oneWay')" > One Way
-      <span class="radio2"></span>
-  </label>
-  <label class="radio-inline check">
-      <input name="inlineRadioOptions" id="inlineRadio3" type="radio" value="option3" (change)="setFlightType('multiCity')" > Multi City
-      <span class="radio2"></span>
-  </label>
+    <label class="radio-inline check">
+        <input type="radio" [checked]="flightService.flightType=='roundTrip'" (change)="setFlightType('roundTrip')">{{
+        'FlightTypeSelect.RoundTrip' | translate }}
+        <span class="radio2"></span>
+    </label>
+    <label class="radio-inline check">
+        <input [checked]="flightService.flightType=='oneWay'" type="radio" (change)="setFlightType('oneWay')">{{
+        'FlightTypeSelect.OneWay' | translate }}
+        <span class="radio2"></span>
+    </label>
+    <label class="radio-inline check">
+        <input type="radio" (change)="flightService.setFlightType('multiCity')" [checked]="flightType=='multiCity'"> {{ 'FlightTypeSelect.MultiCity' | translate }}
+        <span class="radio2"></span>
+    </label>
 </div>
+
+<app-flight-round-trip *ngIf="flightService.flightType=='roundTrip'"></app-flight-round-trip>
+<app-flight-one-way *ngIf="flightService.flightType=='oneWay'"></app-flight-one-way>
+<app-flight-multi-city *ngIf="flightService.flightType=='multiCity'"></app-flight-multi-city>

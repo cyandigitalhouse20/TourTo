@@ -1,7 +1,54 @@
 {
-    "HOME": {
-      "TITLE": "a7la asharf!",
-      "SELECT": "Change language"
-    }
+  "Home": {
+    "WelcomeToTourTo": "Welcome To Tour To",
+    "ExperienceTheFreedom": "Experience the freedom",
+    "PlaceExperinceEnjoy": "A PLACE TO EXPERIENCE AND ENJOY THE LIFE",
+    "Experience": "Experience",
+    "Flights": "Flights",
+    "Hotels": "Hotels",
+    "Packages": "Packages",
+    "CreateYourOwnPackage": "Create your own package",
+    "ExistingPackage": "Existing package",
+    "Cars": "Cars",
+    "Activities": "Activities",
+    "VirginAtlantic": "Virgin Atlantic puts finishing touches to new leadership team",
+    "NaturePeople": "NATURE & PEOPLE THRIVE TOGETHER",
+    "DiscoverTravel": "DISCOVER TRAVEL THAT STIRS YOUR SOUL",
+    "JustMinutes": "Just minutes from downtown Glenwood Springs, the expansive White River National Forest offers thousands of miles of trails and back country hiking, biking, climbing, rafting and riding. Our town was built around a love of these places and continues to grow and thrive as more people discover what life is really like at the confluence of adventure."
+  },
+  "Footer": {
+    "FollowUs": "Follow us",
+    "SubscribeToNewsletter": "Subscribe to newsletter",
+    "AwesomePartners": "Awesome partners",
+    "ViewAllPartners": "View all partners",
+    "Copyright": "© 2019 Tour to / Designed & Developed By CYAN DIGITAL HOUSE"
+  },
+  "Flight": {
+    "ExperienceTheFreedom": "Experience the freedom"
+  },
+  "FlightTypeSelect": {
+    "RoundTrip": "Round Trip",
+    "OneWay": "One Way",
+    "MultiCity": "Multi City"
+  },
+  "FlightRoundTrip": {
+    "From": "From",
+    "To": "To",
+    "DepartingArrivalTime": "Departing / Arrival Time",
+    "AdultEconomy": "1 Adult / Economy",
+    "Adult": "Adult",
+    "Children": "Children",
+    "Search": "Search",
+    "NoneStopFlight": "None stop flight"
+  },
+  "FlightOneWay": {
+    "From": "From",
+    "To": "To",
+    "DepartingTime": "Departing Time",
+    "AdultEconomy": "1 Adult / Economy",
+    "Adult": "Adult",
+    "Children": "Children",
+    "Search": "Search",
+    "NoneStopFlight": "None stop flight"
   }
-  
+}

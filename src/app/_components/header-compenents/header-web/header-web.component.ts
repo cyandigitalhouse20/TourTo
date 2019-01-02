@@ -8,15 +8,18 @@ import {TranslateService} from '@ngx-translate/core';
   templateUrl: './header-web.component.html',
   styleUrls: ['./header-web.component.css']
 })
+
 export class HeaderWebComponent implements OnInit {
+
   isCollapsed = true;
   languages: any[];
-  constructor(public languageService: LanguageService,public translate: TranslateService) {
-    translate.addLangs(['en', 'fr']);
-    translate.setDefaultLang('en');
+
+  constructor(private languageService: LanguageService,public translate: TranslateService) {
+    // translate.addLangs(['en', 'fr']);
+     translate.setDefaultLang('en');
   
-    const browserLang = translate.getBrowserLang();
-    translate.use(browserLang.match(/en|fr/) ? browserLang : 'en');
+    // const browserLang = translate.getBrowserLang();
+    // translate.use(browserLang.match(/en|fr/) ? browserLang : 'en');
    }
 
   ngOnInit() {

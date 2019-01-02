@@ -6,7 +6,7 @@ export * from './static-data-models/city';
 export * from './menu-models/footer';
 
 // flights
-export * from './flights-models/flight-search-option-models/flight-search-option-two-way';
+export * from './flights-models/flight-search-option-models/flight-search-option-round-one';
 export * from './flights-models/flight-search-result-models/flight-search-result';
 export * from './flights-models/flight-search-result-models/air-result-itineraries-models/air-result-itineraries';
 export * from './flights-models/flight-search-result-models/air-result-itineraries-models/routes-models/routes';

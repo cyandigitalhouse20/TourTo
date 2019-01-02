@@ -1,57 +1,49 @@
+<form #searchForm="ngForm" autocomplete="off">
   <div class="row">
-    <div class="form-group  col-md-2 padding-rl5">
-      <input [(ngModel)]="cityFrom"
-             [typeahead]="staticDataService.cities"
-             typeaheadOptionField="Name"
-             class="form-control"
-             placeholder="From"
-             [typeaheadOptionsLimit]="7"
-             [typeaheadMinLength]="0"
-             (keyup)="updateCitiesFrom($event)"
-             (typeaheadOnSelect)="selectCity($event,'from')"
-             >
-    </div>
-    <div class="form-group  col-md-2 padding-rl5">
-        <input [(ngModel)]="cityTo"
-        [typeahead]="staticDataService.cities"
-        typeaheadOptionField="Name"
-        class="form-control"
-        placeholder="To"
-        [typeaheadOptionsLimit]="7"
-        [typeaheadMinLength]="0"
-        (keyup)="updateCitiesTo($event)"
-        (typeaheadOnSelect)="selectCity($event,'to')"
-        >
-    </div>
-    <div class="form-group  col-md-3 padding-rl5">
-        <input type="text"placeholder="Datepicker"class="form-control"bsDatepicker>
-    </div>
-    <div class="form-group  col-md-3 padding-rl5">
-      <input type="email" class="form-control" id="exampleInputEmail2" placeholder="1 Adult / Economy" placement="bottom"
-        [popover]="popTemplate" popoverTitle="Dynamic html inside">
-      <ng-template #popTemplate>
-          <div class="form-group">
-              <label for="exampleInputEmail1">Adult</label>
-              <input type="number" class="form-control plus" id="exampleInputEmail1" placeholder="0">
-            </div>
-        <div class="form-group">
-          <label for="exampleInputEmail1">Children</label>
-          <input type="number" class="form-control plus" id="exampleInputEmail1" placeholder="0">
+      <div class="form-group  col-md-2 padding-rl5">
+          <input [(ngModel)]="flightService.oneWayModel.CityFrom" name="CityFrom" #CityFrom [typeahead]="citiesFrom" typeaheadOptionField="Name"
+            class="form-control" placeholder="{{ 'FlightOneWay.From' | translate }}" [typeaheadOptionsLimit]="7"
+            [typeaheadMinLength]="0" (keyup)="updateCitiesFrom($event)" (typeaheadOnSelect)="selectCity($event,'from')">
         </div>
-      
-      </ng-template>
+    
+        <div class="form-group  col-md-2 padding-rl5">
+          <input [(ngModel)]="flightService.oneWayModel.CityTo" name="CityTo" #CityTo [typeahead]="citiesTo" typeaheadOptionField="Name" class="form-control"
+            placeholder="{{ 'FlightOneWay.To' | translate }}" [typeaheadOptionsLimit]="7" [typeaheadMinLength]="0"
+            (keyup)="updateCitiesTo($event)" (typeaheadOnSelect)="selectCity($event,'to')">
+        </div>
 
+    <div class="form-group  col-md-3 padding-rl5">
+      <input type="text" [(ngModel)]="flightService.oneWayModel.Date" name="Date" #Date placeholder="{{ 'FlightOneWay.DepartingTime' | translate }}" class="form-control" bsDatepicker>
     </div>
-    <div class="form-group  col-md-2 padding-rl5">
-      <button type="submit" class="btn btn-orange" style="width:100%;">Search</button>
-    </div>
-  </div>
 
-  <div class="row" style="padding:15px;">
+    <div class="form-group  col-md-3 padding-rl5">
+        <input class="form-control"  placeholder="{{ 'FlightOneWay.AdultEconomy' | translate }}"
+          placement="bottom" [popover]="popTemplate">
+        <ng-template #popTemplate>
+          <div class="form-group">
+            <label>{{ 'FlightOneWay.Adult' | translate }}</label>
+            <input type="number" class="form-control plus" name="Adult" [(ngModel)]="flightService.oneWayModel.Adult" #Adult placeholder="0">
+          </div>
+          <div class="form-group">
+            <label> {{ 'FlightOneWay.Children' | translate }}</label>
+            <input type="number" class="form-control plus" name="Child" [(ngModel)]="flightService.oneWayModel.Child" #Child placeholder="0">
+          </div>
+        </ng-template>        
+      </div>
+
+      <div class="form-group  col-md-2 padding-rl5">
+        <button type="submit" (click)="search()" class="btn btn-orange" style="width:100%;">{{
+          'FlightOneWay.Search' |
+          translate }}</button>
+      </div>
+    </div>
+  
+    <div class="row" style="padding:15px;">
       <label class="check">
-          None stop flight
-          <input type="checkbox" checked="checked">
-          <span class="checkmark"></span>
+        {{ 'FlightOneWay.NoneStopFlight' | translate }}
+        <input type="checkbox" name="DirectFlight" #DirectFlight [(ngModel)]="flightService.oneWayModel.DirectFlight"  value="true">
+        <span class="checkmark"></span>
       </label>
-
-  </div>
+  
+    </div>
+</form>

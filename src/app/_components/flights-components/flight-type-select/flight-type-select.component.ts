@@ -7,12 +7,13 @@ import { FlightService } from 'src/app/_services';
   styleUrls: ['./flight-type-select.component.css']
 })
 export class FlightTypeSelectComponent implements OnInit {
-
-  constructor(public flightservice: FlightService) { }
+  constructor(private flightService: FlightService) {
+   }
 
   ngOnInit() {
+
   }
   setFlightType(type) {
-    this.flightservice.flightType = type;
+    this.flightService.flightType = type;
   }
 }

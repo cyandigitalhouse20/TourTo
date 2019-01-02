@@ -33,7 +33,7 @@ export class FlightFilterComponent implements OnInit {
     alert(this.AgmyMinvalue);
   }
 
-  constructor(public flightservice: FlightService) { }
+  constructor(private flightservice: FlightService) { }
 
   ngOnInit() {
 
