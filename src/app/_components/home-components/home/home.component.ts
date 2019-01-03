@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpErrorResponse } from '@angular/common/http';
-import { LanguageService } from 'src/app/_services';
+import { LanguageService, FlightService } from 'src/app/_services';
 import { TranslateService } from '@ngx-translate/core';
 
 @Component({
@@ -11,7 +11,7 @@ import { TranslateService } from '@ngx-translate/core';
 export class HomeComponent implements OnInit {
   showHotels: boolean;
   showFlights: boolean;
-  constructor(public languageService: LanguageService,public translate: TranslateService) {
+  constructor(public languageService: LanguageService,public translate: TranslateService,public flightService:FlightService) {
     translate.addLangs(['en']);
     translate.setDefaultLang('en');
   }

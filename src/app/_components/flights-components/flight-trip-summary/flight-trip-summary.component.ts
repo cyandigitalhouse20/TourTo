@@ -9,14 +9,15 @@ import { FlightService } from 'src/app/_services';
 })
 export class FlightTripSummaryComponent implements OnInit {
 
-  constructor(private router:Router,private flightservice: FlightService) { }
-  numberOfTickets:number;
-  ngOnInit() {
-   this.numberOfTickets=this.flightservice.numberOfAdult+this.flightservice.numberOfChilds;
+  constructor(private router: Router, public flightservice: FlightService) { }
+  numberOfTickets: number;
+    ngOnInit() {
+    this.numberOfTickets = this.flightservice.numberOfAdult + this.flightservice.numberOfChilds;
+    
   }
 
   continueBooking() {
-   
+
     if (this.router.url == "/flight/details") {
       this.router.navigate(['/flight/payment']);
     }

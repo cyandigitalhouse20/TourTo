@@ -218,6 +218,7 @@ export class FlightMultiCityComponent implements OnInit {
 
 
   search() {
+    this.flightService.IsCompleated = true;
     this.flightService.numberOfChilds=this.flightService.multiCitiesModel.Children;
     this.flightService.numberOfAdult=this.flightService.multiCitiesModel.Adult;
     this.flightService.multiCitiesModel.DepartureDate1 = new Date(this.flightService.multiCitiesModel.Date1).toLocaleDateString().toString().replace('/', '-').replace('/', '-');
@@ -233,6 +234,7 @@ export class FlightMultiCityComponent implements OnInit {
 
     this.flightService.airLowFareSearchMultiCity(this.flightService.multiCitiesModel).subscribe((data: any) => {
       this.flightService.flightsearchresult = data;
+      this.flightService.IsCompleated = false;
       this.flightService.displayedFlightSearchResult = data.AirResultItineraries;
       this.flightService.sliderFilters.setCoastFilter(this.flightService.displayedFlightSearchResult[0].Amount, this.flightService.displayedFlightSearchResult[this.flightService.displayedFlightSearchResult.length - 1].Amount);
       this.flightService.sliderFilters.setDurationfiltervaliues(this.flightService.displayedFlightSearchResult.map(o => o.Routes).map(s => s.map(l => l.Duration)));

@@ -20,6 +20,7 @@ import { TypeaheadModule } from 'ngx-bootstrap/typeahead';
 import { AppRoutingModule } from './app-routing.module';
 import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
+import { LoadComponent } from './_components/load/load.component';
 // import { defineLocale } from 'ngx-bootstrap/chronos';
 // import { enGbLocale } from 'ngx-bootstrap/locale';
 export function HttpLoaderFactory(httpClient: HttpClient) {
@@ -52,6 +53,7 @@ export function HttpLoaderFactory(httpClient: HttpClient) {
     FlightPaymentComponent,
     FlightTypeSelectComponent,
     FlightTripSummaryComponent,
+    LoadComponent
   ],
   imports: [
     TranslateModule.forRoot({

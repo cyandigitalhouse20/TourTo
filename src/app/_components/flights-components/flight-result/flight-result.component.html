@@ -32,7 +32,7 @@
                     <div class="row margin-0  overflow" style="margin-bottom: -5px;">
                       <div *ngIf="i=='0'">
                         <div class="diagonal2">
-                          <h4 style="margin: 3px;"><img src="../assets/img/To copy.png"> Depature</h4>
+                          <h4 style="margin: 3px;"><img src="../assets/img/fly from  copy.png"> Depature</h4>
                         </div>
                       </div>
                     </div>
@@ -41,11 +41,10 @@
 
 
                       <div class="row ">
-                        <div class="col-sm-2 col-xs-6 borderd-right flight-logo">
+                        <div class="col-sm-5 col-xs-6 flight-logo">
                           <img src={{Route.Segment[0].Carrier.MarketingImage}} class="img-box-result">
-                        </div>
-                        <div class="col-sm-3 col-xs-6" style="padding: 25px 0 0 15px;">
-                          <h4 class="dark-gray tight"> {{Route.Segment[0].Origin.Airport.City}}</h4>
+                          <img src="../assets/img/strip.png" class="img-strip">
+                          <h4 class="dark-gray tight" style="margin-top: 17px;"> {{Route.Segment[0].Origin.Airport.City}}</h4>
                         </div>
                         <div class="col-sm-2 col-xs-6" style="padding:15px;">
                           <h5 class="dark-gray tight">{{Route.Segment[0].Origin.Date | date}}</h5>
@@ -82,7 +81,7 @@
                     <div class="row margin-0  overflow" style="margin-bottom: -5px;">
                       <div *ngIf="i=='0';else retunTemplate">
                         <div class="diagonal2">
-                          <h4 style="margin: 3px;"><img src="../assets/img/To copy.png"> Depature</h4>
+                          <h4 style="margin: 3px;"><img src="../assets/img/fly from  copy.png"> Depature</h4>
                         </div>
                       </div>
                     </div>
@@ -95,12 +94,12 @@
 
 
                       <div class="row ">
-                        <div class="col-sm-2 col-xs-6 borderd-right flight-logo">
+                        <div class="col-sm-5 col-xs-6 flight-logo">
                           <img src={{Route.Segment[0].Carrier.MarketingImage}} class="img-box-result">
+                          <img src="../assets/img/strip.png" class="img-strip">
+                          <h4 class="dark-gray tight" style="margin-top: 17px;"> {{Route.Segment[0].Origin.Airport.City}}</h4>
                         </div>
-                        <div class="col-sm-3 col-xs-6" style="padding: 25px 0 0 15px;">
-                          <h4 class="dark-gray tight"> {{Route.Segment[0].Origin.Airport.City}}</h4>
-                        </div>
+                       
                         <div class="col-sm-2 col-xs-6" style="padding:15px;">
                           <h5 class="dark-gray tight">{{Route.Segment[0].Origin.Date | date}}</h5>
                           <h5 class="dark-gray tight">{{Route.Segment[0].Origin.Time| date:'h:mm a z'}}</h5>
@@ -149,30 +148,19 @@
 
           <div id="collapseBasic" [collapse]="!item.DetailsCollapse" class="card card-block card-header">
             <div *ngFor="let Route of item.Routes; let i = index">
+                <div *ngIf="this.flightservice.flightType=='multiCity';else   OneWayAndRoundTripDetails">
               <div class="row margin-0 borderd-top">
                 <div class="col-md-12 ">
-                  <div *ngIf="i=='0';else retunDetailsTemplate">
-                    <div _ngcontent-c5="" class="fl radio-home">
-                      <label _ngcontent-c5="" class="radio-inline check">
-                        <input _ngcontent-c5="" checked="" id="inlineRadio1" name="inlineRadioOptions" type="radio"
-                          value="option1">
+
+                    <div _ngcontent-c5="" >
+                      <label _ngcontent-c5="" >
                         <b class="blue">Depart</b>
                         <span class="dark-gray"> {{Route.Segment[0].Origin.Airport.City}} -
                           {{Route.Segment[Route.Segment.length-1].Destination.Airport.City}}</span> <span _ngcontent-c5=""
-                          class="radio2"></span></label>
+                          ></span></label>
                     </div>
-                  </div>
-                  <ng-template #retunDetailsTemplate>
-                    <div _ngcontent-c5="" class="fl radio-home">
-                      <label _ngcontent-c5="" class="radio-inline check">
-                        <input _ngcontent-c5="" checked="" id="inlineRadio1" name="inlineRadioOptions" type="radio"
-                          value="option1">
-                        <b class="blue">Return</b>
-                        <span class="dark-gray"> {{Route.Segment[0].Origin.Airport.City}} -
-                          {{Route.Segment[Route.Segment.length-1].Destination.Airport.City}}</span> <span _ngcontent-c5=""
-                          class="radio2"></span></label>
-                    </div>
-                  </ng-template>
+
+               
                   <h4 class="fr">
                     <b>Total Duration:</b> {{Route.Duration}} hr
                   </h4>
@@ -204,6 +192,69 @@
                   </div>
                 </div>
               </div>
+                </div>
+
+
+
+
+
+
+                <ng-template #OneWayAndRoundTripDetails>
+                    <div class="row margin-0 borderd-top">
+                        <div class="col-md-12 ">
+                          <div *ngIf="i=='0';else retunDetailsTemplate">
+                            <div _ngcontent-c5="">
+                              <label _ngcontent-c5="" >
+                              
+                                <b class="blue">Depart</b>
+                                <span class="dark-gray"> {{Route.Segment[0].Origin.Airport.City}} -
+                                  {{Route.Segment[Route.Segment.length-1].Destination.Airport.City}}</span> <span _ngcontent-c5=""
+                                  ></span></label>
+                            </div>
+                          </div>
+                          <ng-template #retunDetailsTemplate>
+                            <div _ngcontent-c5="" >
+                              <label _ngcontent-c5="" >
+                           
+                                <b class="blue">Return</b>
+                                <span class="dark-gray"> {{Route.Segment[0].Origin.Airport.City}} -
+                                  {{Route.Segment[Route.Segment.length-1].Destination.Airport.City}}</span> <span _ngcontent-c5=""
+                                  ></span></label>
+                            </div>
+                          </ng-template>
+                          <h4 class="fr">
+                            <b>Total Duration:</b> {{Route.Duration}} hr
+                          </h4>
+                        </div>
+                        <div *ngFor="let Seg of Route.Segment; let i = index">
+                          <div class="col-md-12 ">
+                            <div class="borderd-details row">
+        
+                              <div class="col-md-3">
+                                <p>{{Seg.Origin.Date | date}} <span class="blue"> <b *ngIf="Seg.Carrier.Operating!=null;else retunmarktingTemplate">{{Seg.Carrier.Operating.Value}}</b></span>
+                                </p>
+                                <ng-template #retunmarktingTemplate>
+                                  <b>{{Seg.Carrier.Marketing.Value}}</b>
+                                </ng-template>
+                              </div>
+        
+                              <div class="col-md-6">
+                                <p class="media-heading"><b> Takeoff: </b>{{Seg.Origin.Time| date:'h:mm a z'}}<span> — </span><b>
+                                    Arrival:</b> {{Seg.Destination.Time| date:'h:mm a z'}}</p>
+                                <p class="media-heading"><b>From: </b>{{Seg.Origin.Airport.City}}<span> — </span><b>To: </b>{{Seg.Destination.Airport.City}}</p>
+                                <p><span><b>Flight number: </b>{{Seg.Flight.Number}}</span> <br> <b>{{Seg.Aircraft.Value}}</b><br>
+                                  <span><b>Aircraft code: </b> {{Seg.Aircraft.Code}}</span></p>
+                              </div>
+                              <div class="col-md-3">
+                                <p> <span><b> Duration: </b> {{Seg.Flight.Duration}} hr</span> <br /> <span><b> Cabin type:</b>
+                                    {{Seg.Flight.CabinType}} </span><br /> <span><b>Class:{{Seg.Flight.Class}} </b></span> </p>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                </ng-template>
+
             </div>
           </div>
 

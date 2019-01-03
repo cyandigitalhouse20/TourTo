@@ -4,12 +4,12 @@ import { RepositoryService } from '..';
 
 @Injectable()
 export class FlightService {
-
+  IsCompleated: boolean = false;
   showFlightsDetails: boolean;
   multiCityFlightsNumber: number;
-  numberOfAdult:number;
-  numberOfChilds:number;
-  selectedItenartyData:AirResultItineraries[];
+  numberOfAdult: number;
+  numberOfChilds: number;
+  selectedItenartyData: AirResultItineraries[];
   flightType: string;
   flightTypeSearchResult: string;
   selectedItenartyId: string
@@ -82,13 +82,11 @@ export class FlightService {
     return this.repositoryService.post('FlightService/AirMakeReservation', airMakeReservationModel);
   }
 
-  airIssueReservationTickets(reservationID:string)
-  {
+  airIssueReservationTickets(reservationID: string) {
     return this.repositoryService.post('FlightService/AirIssueReservationTickets', reservationID);
   }
 
-  airSeatMap(airSeatMapModel:AirSeatMap)
-  {
+  airSeatMap(airSeatMapModel: AirSeatMap) {
     return this.repositoryService.post('FlightService/AirSeatMap', airSeatMapModel);
   }
 

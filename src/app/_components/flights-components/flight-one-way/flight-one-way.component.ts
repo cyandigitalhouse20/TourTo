@@ -60,6 +60,7 @@ export class FlightOneWayComponent implements OnInit {
   }
 
   search() {
+    this.flightService.IsCompleated = true;
     this.flightService.numberOfChilds=this.flightService.oneWayModel.Children;
     this.flightService.numberOfAdult=this.flightService.oneWayModel.Adult;
     this.flightService.oneWayModel.DepartureDate = new Date(this.flightService.oneWayModel.Date).toLocaleDateString().toString().replace('/', '-').replace('/', '-');
@@ -75,6 +76,7 @@ export class FlightOneWayComponent implements OnInit {
 
     this.flightService.airLowFareSearch(this.flightService.oneWayModel).subscribe((data: any) => {
       this.flightService.flightsearchresult = data;
+      this.flightService.IsCompleated = false;
       this.flightService.displayedFlightSearchResult = data.AirResultItineraries;
       this.flightService.sliderFilters.setCoastFilter(this.flightService.displayedFlightSearchResult[0].Amount, this.flightService.displayedFlightSearchResult[this.flightService.displayedFlightSearchResult.length - 1].Amount);
       this.flightService.sliderFilters.setDurationfiltervaliues(this.flightService.displayedFlightSearchResult.map(o => o.Routes).map(s => s.map(l => l.Duration)));

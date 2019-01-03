@@ -9,9 +9,13 @@ import { Router } from '@angular/router';
 })
 export class FlightsComponent implements OnInit {
 
-  constructor(public flightservice: FlightService,public router: Router) { }
+  constructor(public flightService: FlightService,public router: Router) {
+
+   }
 
   ngOnInit() {
+    
+    
   }
 
 }

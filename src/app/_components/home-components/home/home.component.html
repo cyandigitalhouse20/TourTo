@@ -1,21 +1,25 @@
+<div *ngIf="flightService.IsCompleated;else other_content">
+<app-load></app-load>
+</div>
 
+<ng-template #other_content>
 
 <div class="row home-slider" style="z-index:-1;">
     <carousel>
-    <slide>
-      <img src="../assets/img/wall.png" alt="first slide" >
-    </slide>
-    <slide>
-            <img src="../assets/img/wall2.png" alt="first slide" >
+        <slide>
+            <img src="../assets/img/wall.png" alt="first slide">
         </slide>
-    <slide>
-            <img src="../assets/img/wall3.png" alt="first slide" >
+        <slide>
+            <img src="../assets/img/wall2.png" alt="first slide">
         </slide>
-  </carousel>
+        <slide>
+            <img src="../assets/img/wall3.png" alt="first slide">
+        </slide>
+    </carousel>
 </div>
 
 <div class="home-main-container">
-   
+
     <app-header></app-header>
     <div class="container">
         <div class="row">
@@ -101,6 +105,19 @@
         <app-hotels *ngIf="showHotels"></app-hotels>
     </div>
 
+
+
+</div>
+<div class="row text-center">
+    <span class="scroll-btn">
+        <a>
+            <span class="mouse">
+                <span>
+                </span>
+            </span>
+        </a>
+
+    </span>
 </div>
 <div class="home-separator">
     {{'Home.VirginAtlantic'|translate}}</div>
@@ -120,3 +137,4 @@
 <app-home-packages></app-home-packages>
 
 <app-footer></app-footer>
+</ng-template>
