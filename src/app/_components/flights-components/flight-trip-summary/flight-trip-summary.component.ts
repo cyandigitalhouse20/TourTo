@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { FlightService } from 'src/app/_services';
 
 @Component({
   selector: 'app-flight-trip-summary',
@@ -8,12 +9,14 @@ import { Router } from '@angular/router';
 })
 export class FlightTripSummaryComponent implements OnInit {
 
-  constructor(private router:Router) { }
-
+  constructor(private router:Router,private flightservice: FlightService) { }
+  numberOfTickets:number;
   ngOnInit() {
+   this.numberOfTickets=this.flightservice.numberOfAdult+this.flightservice.numberOfChilds;
   }
 
   continueBooking() {
+   
     if (this.router.url == "/flight/details") {
       this.router.navigate(['/flight/payment']);
     }

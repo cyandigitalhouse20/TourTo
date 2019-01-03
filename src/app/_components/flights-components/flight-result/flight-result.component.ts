@@ -28,7 +28,8 @@ export class FlightResultComponent implements OnInit {
     this.flightservice.selectedItenartyId = selectedItinerary;
     
     this.flightservice.airFareValidation().subscribe((data: any) => {
-      this.flightservice.flightDetails = data;
+      this.flightservice.flightDetails = data[0];
+     this.flightservice.selectedItenartyData=this.flightservice.flightsearchresult.AirResultItineraries.filter(o=>o.ItineraryId=selectedItinerary);
       this.router.navigate(['/flight/details']);
     }, (err: HttpErrorResponse) => {
       console.log(err.error.Message);

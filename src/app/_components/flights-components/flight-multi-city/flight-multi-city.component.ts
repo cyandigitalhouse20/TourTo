@@ -218,7 +218,8 @@ export class FlightMultiCityComponent implements OnInit {
 
 
   search() {
-
+    this.flightService.numberOfChilds=this.flightService.multiCitiesModel.Children;
+    this.flightService.numberOfAdult=this.flightService.multiCitiesModel.Adult;
     this.flightService.multiCitiesModel.DepartureDate1 = new Date(this.flightService.multiCitiesModel.Date1).toLocaleDateString().toString().replace('/', '-').replace('/', '-');
     this.flightService.multiCitiesModel.DepartureDate2 = new Date(this.flightService.multiCitiesModel.Date2).toLocaleDateString().toString().replace('/', '-').replace('/', '-');
     this.flightService.multiCitiesModel.LangId = 2;

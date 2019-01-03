@@ -60,6 +60,8 @@ export class FlightOneWayComponent implements OnInit {
   }
 
   search() {
+    this.flightService.numberOfChilds=this.flightService.oneWayModel.Children;
+    this.flightService.numberOfAdult=this.flightService.oneWayModel.Adult;
     this.flightService.oneWayModel.DepartureDate = new Date(this.flightService.oneWayModel.Date).toLocaleDateString().toString().replace('/', '-').replace('/', '-');
     this.flightService.oneWayModel.ReturnDate = new Date(this.flightService.oneWayModel.Date).toLocaleDateString().toString().replace('/', '-').replace('/', '-');
     this.flightService.oneWayModel.LangId = 2;

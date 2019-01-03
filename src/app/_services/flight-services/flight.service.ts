@@ -7,6 +7,9 @@ export class FlightService {
 
   showFlightsDetails: boolean;
   multiCityFlightsNumber: number;
+  numberOfAdult:number;
+  numberOfChilds:number;
+  selectedItenartyData:AirResultItineraries[];
   flightType: string;
   flightTypeSearchResult: string;
   selectedItenartyId: string

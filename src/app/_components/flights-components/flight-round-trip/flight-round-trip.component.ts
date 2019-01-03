@@ -60,6 +60,9 @@ export class FlightRoundTripComponent implements OnInit {
   }
 
   search() {
+    
+    this.flightService.numberOfChilds=this.flightService.roundTripModel.Children;
+    this.flightService.numberOfAdult=this.flightService.roundTripModel.Adult;
     this.flightService.roundTripModel.DepartureDate = new Date(this.flightService.roundTripModel.Dates[0]).toLocaleDateString().toString().replace('/', '-').replace('/', '-');
     this.flightService.roundTripModel.ReturnDate = new Date(this.flightService.roundTripModel.Dates[1]).toLocaleDateString().toString().replace('/', '-').replace('/', '-');
     this.flightService.roundTripModel.LangId = 2;

@@ -30,23 +30,19 @@
                 <div *ngIf="this.flightservice.flightType=='multiCity';else   OneWayAndRoundTrip">
                   <div class="row padding-0 ">
                     <div class="row margin-0  overflow" style="margin-bottom: -5px;">
-                      <div *ngIf="i=='0';else retunTemplate">
+                      <div *ngIf="i=='0'">
                         <div class="diagonal2">
                           <h4 style="margin: 3px;"><img src="../assets/img/To copy.png"> Depature</h4>
                         </div>
                       </div>
                     </div>
-                    <ng-template #retunTemplate>
-                      <div class="diagonal2">
-                        <h4 style="margin: 3px;"><img src="../assets/img/To copy.png"> Return</h4>
-                      </div>
-                    </ng-template>
+                 
                     <div class="itenery borderd-bottom">
 
 
                       <div class="row ">
                         <div class="col-sm-2 col-xs-6 borderd-right flight-logo">
-                          <img src="../assets/img/egyptAir.png" class="img-box-result">
+                          <img src={{Route.Segment[0].Carrier.MarketingImage}} class="img-box-result">
                         </div>
                         <div class="col-sm-3 col-xs-6" style="padding: 25px 0 0 15px;">
                           <h4 class="dark-gray tight"> {{Route.Segment[0].Origin.Airport.City}}</h4>
@@ -100,7 +96,7 @@
 
                       <div class="row ">
                         <div class="col-sm-2 col-xs-6 borderd-right flight-logo">
-                          <img src="../assets/img/egyptAir.png" class="img-box-result">
+                          <img src={{Route.Segment[0].Carrier.MarketingImage}} class="img-box-result">
                         </div>
                         <div class="col-sm-3 col-xs-6" style="padding: 25px 0 0 15px;">
                           <h4 class="dark-gray tight"> {{Route.Segment[0].Origin.Airport.City}}</h4>

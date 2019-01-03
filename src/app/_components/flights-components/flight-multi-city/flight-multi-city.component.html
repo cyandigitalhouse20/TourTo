@@ -20,7 +20,7 @@
       </div>
       <div class="form-group  col-md-3 padding-rl5">
         <input class="form-control" placeholder="{{ 'FlightMultiCity.AdultEconomy' | translate }}" placement="bottom"
-          [popover]="popTemplate">
+          [popover]="popTemplate"[outsideClick]="true">
         <ng-template #popTemplate>
           <div class="form-group">
             <label>{{ 'FlightMultiCity.Adult' | translate }}</label>
@@ -29,7 +29,7 @@
           </div>
           <div class="form-group">
             <label> {{ 'FlightMultiCity.Children' | translate }}</label>
-            <input type="number" class="form-control plus" name="Child" [(ngModel)]="flightService.multiCitiesModel.Child"
+            <input type="number" class="form-control plus" name="Child" [(ngModel)]="flightService.multiCitiesModel.Children"
               #Child placeholder="0">
           </div>
         </ng-template>
@@ -122,18 +122,16 @@
     </div>
 
   </div>
-  <div class="col-md-2 " style="padding: 0 20px;">
+  <div class="col-md-2 ">
     <button type="submit" (click)="search()" class="btn btn-orange" style="width:100%;">Search</button>
   </div>
 </div>
 <div class="row">
 
- <div class="col-md-12">
   <div *ngIf="flightService.multiCityFlightsNumber < 5" class="form-group  col-md-2 padding-rl5">
-    <button (click)="addFlight()" class="btn btn-red" style="width:100%;margin-top: 15px;">  {{ 'FlightMultiCity.AddFlight' | translate }} <span class="glyphicon glyphicon-plus"
+    <button (click)="addFlight()" class="btn btn-blue" style="width:100%;">  {{ 'FlightMultiCity.AddFlight' | translate }} <span class="glyphicon glyphicon-plus"
         aria-hidden="true"></span> </button>
   </div>
- </div>
 </div>
 
 
