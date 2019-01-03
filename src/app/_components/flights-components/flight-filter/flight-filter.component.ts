@@ -1,4 +1,3 @@
-import { SliderFilter } from './../../../_models/flights-models/flight-filter-models/slider-filter';
 import { Component, OnInit } from '@angular/core';
 import { Options } from 'ng5-slider';
 import { FlightService } from 'src/app/_services';

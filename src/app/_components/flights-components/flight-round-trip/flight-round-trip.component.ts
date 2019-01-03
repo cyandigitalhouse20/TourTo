@@ -25,8 +25,8 @@ export class FlightRoundTripComponent implements OnInit {
 
   updateCitiesFrom(event) {
     if (event.code != 'Backspace') {
-      if (this.flightService.roundTripModel.CityFrom.length == 1) {
-        this.staticDataService.searchCity(this.flightService.roundTripModel.CityFrom).subscribe((data: any) => {
+      if (this.flightService.roundTripModel.OriginCity.length == 1) {
+        this.staticDataService.searchCity(this.flightService.roundTripModel.OriginCity).subscribe((data: any) => {
           this.citiesFrom = data;
         }, (err: HttpErrorResponse) => {
           console.log(err.error.Message);
@@ -37,8 +37,8 @@ export class FlightRoundTripComponent implements OnInit {
 
   updateCitiesTo(event) {
     if (event.code != 'Backspace') {
-      if (this.flightService.roundTripModel.CityTo.length == 1) {
-        this.staticDataService.searchCity(this.flightService.roundTripModel.CityTo).subscribe((data: any) => {
+      if (this.flightService.roundTripModel.DestinationCity.length == 1) {
+        this.staticDataService.searchCity(this.flightService.roundTripModel.DestinationCity).subscribe((data: any) => {
           this.citiesTo = data;
 
         }, (err: HttpErrorResponse) => {
@@ -50,10 +50,10 @@ export class FlightRoundTripComponent implements OnInit {
 
   selectCity(event, city) {
     if (city == "from") {
-      this.flightService.roundTripModel.CityFromId = event.item.Id;
+      this.flightService.roundTripModel.OriginCityId = event.item.Id;
     }
     else {
-      this.flightService.roundTripModel.CityToId = event.item.Id;
+      this.flightService.roundTripModel.DestinationCityId = event.item.Id;
     }
   }
 
@@ -69,7 +69,7 @@ export class FlightRoundTripComponent implements OnInit {
     this.flightService.roundTripModel.Class = "Economy";
     this.flightService.roundTripModel.RequestId = "null";
 
-    this.flightService.GetAirLowFareSearch(this.flightService.roundTripModel).subscribe((data: any) => {
+    this.flightService.airLowFareSearch(this.flightService.roundTripModel).subscribe((data: any) => {
       this.flightService.flightsearchresult = data;
       this.flightService.displayedFlightSearchResult = data.AirResultItineraries;
       this.flightService.sliderFilters.setCoastFilter(this.flightService.displayedFlightSearchResult[0].Amount, this.flightService.displayedFlightSearchResult[this.flightService.displayedFlightSearchResult.length - 1].Amount);
@@ -77,6 +77,7 @@ export class FlightRoundTripComponent implements OnInit {
       if (this.router.url != "/flights") {
         this.router.navigate(['/flights']);
       }
+      this.flightService.flightTypeSearchResult="roundTrip";
       this.flightService.showFlightsDetails = true;
     }, (err: HttpErrorResponse) => {
       console.log(err.error.Message);

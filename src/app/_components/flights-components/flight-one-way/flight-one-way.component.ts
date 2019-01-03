@@ -25,8 +25,8 @@ export class FlightOneWayComponent implements OnInit {
 
   updateCitiesFrom(event) {
     if (event.code != 'Backspace') {
-      if (this.flightService.oneWayModel.CityFrom.length == 1) {
-        this.staticDataService.searchCity(this.flightService.oneWayModel.CityFrom).subscribe((data: any) => {
+      if (this.flightService.oneWayModel.OriginCity.length == 1) {
+        this.staticDataService.searchCity(this.flightService.oneWayModel.OriginCity).subscribe((data: any) => {
           this.citiesFrom = data;
         }, (err: HttpErrorResponse) => {
           console.log(err.error.Message);
@@ -37,8 +37,8 @@ export class FlightOneWayComponent implements OnInit {
 
   updateCitiesTo(event) {
     if (event.code != 'Backspace') {
-      if (this.flightService.oneWayModel.CityTo.length == 1) {
-        this.staticDataService.searchCity(this.flightService.oneWayModel.CityTo).subscribe((data: any) => {
+      if (this.flightService.oneWayModel.DestinationCity.length == 1) {
+        this.staticDataService.searchCity(this.flightService.oneWayModel.DestinationCity).subscribe((data: any) => {
           this.citiesTo = data;
 
         }, (err: HttpErrorResponse) => {
@@ -50,10 +50,10 @@ export class FlightOneWayComponent implements OnInit {
 
   selectCity(event, city) {
     if (city == "from") {
-      this.flightService.oneWayModel.CityFromId = event.item.Id;
+      this.flightService.oneWayModel.OriginCityId = event.item.Id;
     }
     else {
-      this.flightService.oneWayModel.CityToId = event.item.Id;
+      this.flightService.oneWayModel.DestinationCityId = event.item.Id;
     }
   }
 
@@ -69,7 +69,7 @@ export class FlightOneWayComponent implements OnInit {
     this.flightService.oneWayModel.Class = "Economy";
     this.flightService.oneWayModel.RequestId = "null";
 
-    this.flightService.GetAirLowFareSearch(this.flightService.oneWayModel).subscribe((data: any) => {
+    this.flightService.airLowFareSearch(this.flightService.oneWayModel).subscribe((data: any) => {
       this.flightService.flightsearchresult = data;
       this.flightService.displayedFlightSearchResult = data.AirResultItineraries;
       this.flightService.sliderFilters.setCoastFilter(this.flightService.displayedFlightSearchResult[0].Amount, this.flightService.displayedFlightSearchResult[this.flightService.displayedFlightSearchResult.length - 1].Amount);
@@ -77,6 +77,7 @@ export class FlightOneWayComponent implements OnInit {
       if (this.router.url != "/flights") {
         this.router.navigate(['/flights']);
       }
+      this.flightService.flightTypeSearchResult="oneWay";
       this.flightService.showFlightsDetails = true;
     }, (err: HttpErrorResponse) => {
       console.log(err.error.Message);

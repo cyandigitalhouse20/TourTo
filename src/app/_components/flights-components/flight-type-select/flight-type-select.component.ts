@@ -8,12 +8,17 @@ import { FlightService } from 'src/app/_services';
 })
 export class FlightTypeSelectComponent implements OnInit {
   constructor(private flightService: FlightService) {
-   }
+    if (this.flightService.flightType == undefined) {
+      this.flightService.flightType = "roundTrip";
+    }
+  }
 
   ngOnInit() {
 
   }
+  
   setFlightType(type) {
     this.flightService.flightType = type;
+
   }
 }

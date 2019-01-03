@@ -1,5 +1,5 @@
 import { RepositoryService, FlightService, LanguageService, MenuService, StaticDataService } from './_services';
-import { HotelsResultComponent, HotelsComponent, HotelsPaymentComponent, HotleDetailsComponent, HotelsFilterComponent, HeaderComponent, HeaderMobileComponent, HeaderWebComponent, MenuLinksComponent, HomeComponent, FooterComponent, HomeExperienceComponent, HomePackagesComponent, FlightsComponent, FlightMultiCityComponent, FlightRoundTripComponent, FlightOneWayComponent, FlightResultComponent, FlightFilterComponent, FlightDetailsComponent, FlightPaymentComponent, FlightTypeSelectComponent } from './_components';
+import { HotelsResultComponent, HotelsComponent, HotelsPaymentComponent, HotleDetailsComponent, HotelsFilterComponent, HeaderComponent, HeaderMobileComponent, HeaderWebComponent, MenuLinksComponent, HomeComponent, FooterComponent, HomeExperienceComponent, HomePackagesComponent, FlightsComponent, FlightMultiCityComponent, FlightRoundTripComponent, FlightOneWayComponent, FlightResultComponent, FlightFilterComponent, FlightDetailsComponent, FlightPaymentComponent, FlightTypeSelectComponent, FlightTripSummaryComponent } from './_components';
 import { AppComponent } from './app.component';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
@@ -50,6 +50,7 @@ export function HttpLoaderFactory(httpClient: HttpClient) {
     FlightDetailsComponent,
     FlightPaymentComponent,
     FlightTypeSelectComponent,
+    FlightTripSummaryComponent,
   ],
   imports: [
     TranslateModule.forRoot({

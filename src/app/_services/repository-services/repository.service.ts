@@ -1,7 +1,6 @@
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 
-
 @Injectable()
 export class RepositoryService {
   readonly url = 'http://tourto.cyandh.com/API/';
@@ -21,12 +20,10 @@ export class RepositoryService {
         reqOpts.params.set(k, params[k]);
       }
     }
-
     return this.http.get(this.url + '/' + endpoint, reqOpts);
   }
 
   post(endpoint: string, body: any, reqOpts?: any) {
-    debugger;
     return this.http.post(this.url + endpoint, body, reqOpts);
   }
 

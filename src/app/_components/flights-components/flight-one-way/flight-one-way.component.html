@@ -1,13 +1,13 @@
 <form #searchForm="ngForm" autocomplete="off">
   <div class="row">
       <div class="form-group  col-md-2 padding-rl5">
-          <input [(ngModel)]="flightService.oneWayModel.CityFrom" name="CityFrom" #CityFrom [typeahead]="citiesFrom" typeaheadOptionField="Name"
+          <input [(ngModel)]="flightService.oneWayModel.OriginCity" name="OriginCity" #OriginCity [typeahead]="citiesFrom" typeaheadOptionField="Name"
             class="form-control" placeholder="{{ 'FlightOneWay.From' | translate }}" [typeaheadOptionsLimit]="7"
             [typeaheadMinLength]="0" (keyup)="updateCitiesFrom($event)" (typeaheadOnSelect)="selectCity($event,'from')">
         </div>
     
         <div class="form-group  col-md-2 padding-rl5">
-          <input [(ngModel)]="flightService.oneWayModel.CityTo" name="CityTo" #CityTo [typeahead]="citiesTo" typeaheadOptionField="Name" class="form-control"
+          <input [(ngModel)]="flightService.oneWayModel.DestinationCity" name="DestinationCity" #DestinationCity [typeahead]="citiesTo" typeaheadOptionField="Name" class="form-control"
             placeholder="{{ 'FlightOneWay.To' | translate }}" [typeaheadOptionsLimit]="7" [typeaheadMinLength]="0"
             (keyup)="updateCitiesTo($event)" (typeaheadOnSelect)="selectCity($event,'to')">
         </div>
@@ -41,7 +41,7 @@
     <div class="row" style="padding:15px;">
       <label class="check">
         {{ 'FlightOneWay.NoneStopFlight' | translate }}
-        <input type="checkbox" name="DirectFlight" #DirectFlight [(ngModel)]="flightService.oneWayModel.DirectFlight"  value="true">
+        <input type="checkbox" name="DirectFlight" #DirectFlight [(ngModel)]="flightService.oneWayModel.DirectFlight"  >
         <span class="checkmark"></span>
       </label>
   

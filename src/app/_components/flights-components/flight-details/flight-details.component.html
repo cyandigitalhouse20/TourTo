@@ -1,241 +1,142 @@
 <div class="home-img">
 
-  <app-menu-links></app-menu-links>
-  <app-header></app-header>
+    <app-menu-links></app-menu-links>
+    <app-header></app-header>
 
 </div>
 
 <div class="row" style="margin-top:30px;">
 
-  <div id="left-details">
-      <div class="row">
-          <div class="col-md-2">
-
-          </div>
-          <div class="col-md-10">
+    <div id="left-details">
+        <div class="row">
+            <div class="col-md-2">
+            </div>
+            <div class="col-md-10">
                 <h3 class="dark-gray">Review your trip</h3>
                 <p class="blue">Nice Job! You picked one of our cheapest flights </p>
-            <div class="result-container">
-                <div class="flite-container">
-                  <div class="col-md-12  padding-0  ">
-                      <div class="row padding-0 ">
-                          <div class="row margin-0">
-                              <div class="diagonal">
-                                <h4 style="margin: 3px;"><img src="../assets/img/fly from  copy.png"> Departure</h4>
-                              </div>
-                            </div>
-                         
-                          <div class="itenery borderd-bottom">
-                             
-                              <div class="row " style="margin:15px;">
-                                <div class="col-sm-2 col-xs-6 borderd-right" style="padding:15px;">
-                                  <img src="../assets/img/egyptAir.png" class="img-box-result">
+                <div class="result-container">
+                    <div class="flite-container">
+                        <div class="col-md-12  padding-0  ">
+                            <!-- <div *ngFor="let item of flightService.flightDetails.itineraryField"> -->
+
+                                <div class="row padding-0 ">
+                                    <div class="row margin-0">
+                                        <div class="diagonal">
+                                            <h4 style="margin: 3px;"><img src="../assets/img/fly from  copy.png">
+                                                Departure</h4>
+                                        </div>
+                                    </div>
+                                    <div class="itenery borderd-bottom">
+
+                                        <div class="row " style="margin:15px;">
+                                            <div class="col-sm-2 col-xs-6 borderd-right" style="padding:15px;">
+                                                <img src="../assets/img/egyptAir.png" class="img-box-result">
+                                            </div>
+                                            <div class="col-sm-3 col-xs-6" style="padding:15px;">
+                                                <!-- <h4 class="dark-gray">{{item.segmentField[0].OriginField.AirportField.cityField}}</h4> -->
+                                            </div>
+                                            <div class="col-sm-2 col-xs-6" style="padding:15px;">
+                                                <h5 class="dark-gray">1:40 pm</h5>
+                                                <h4 class="blue">CAI</h4>
+                                            </div>
+                                            <div class="col-sm-3 hidden-xs " style="padding:15px;">
+                                                <div class="border-bottom  "></div>
+                                            </div>
+                                            <div class="col-sm-2 col-xs-6" style="padding:15px;">
+                                                <h5 class="dark-gray">1:40 pm</h5>
+                                                <h4 class="blue">aa</h4>
+                                            </div>
+
+                                        </div>
+                                    </div>
+
                                 </div>
-                                <div class="col-sm-3 col-xs-6"style="padding:15px;">
-                                  <h4 class="dark-gray" >Egypt Air</h4>
-                                </div>
-                                <div class="col-sm-2 col-xs-6"style="padding:15px;">
-                                  <h5 class="dark-gray">1:40 pm</h5>
-                                  <h4 class="blue">CAI</h4>
-                                </div>
-                                <div class="col-sm-3 hidden-xs "style="padding:15px;">
-                                  <div class="border-bottom  "></div>
-                                </div>
-                                <div class="col-sm-2 col-xs-6"style="padding:15px;">
-                                  <h5 class="dark-gray">1:40 pm</h5>
-                                  <h4 class="blue">aa</h4>
-                                </div>
-                
-                              </div>
+
+                            <!-- </div> -->
+
                         </div>
+                        <div class="row borderd-top" style="padding:15px 0;">
+                            <div class="col-sm-6">
+                                <a class="h5 blue fl" href="javascript:void(0)">
+                                    <span class="fl blue" style="margin:5px;"> <b>LUGGAGES DETAILS</b></span> <span
+                                        class="glyphicon glyphicon-menu-down fr drop-arrow"></span>
+                                </a>
+                            </div>
+                            <div class="col-sm-6">
+                                <a type="button " class="btn" (click)="isCollapsed = !isCollapsed" [attr.aria-expanded]="!isCollapsed" aria-controls="collapseBasic">
+                                    <span class=" blue" style="margin:5px;"> <b>FLIGHT DETAILS</b></span>
+                                    <span class="glyphicon fr drop-arrow" [class.glyphicon-menu-up]="isCollapsed"
+                                        [class.glyphicon-menu-down]="!isCollapsed" aria-hidden="true"></span>
+                                </a>
+                            </div>
+                        </div>
+
+                        <div id="collapseBasic" [collapse]="!isCollapsed" class="card card-block card-header">
+                            <div class="row margin-0 borderd-top">
+                                <div class="col-md-12 clearfix">
+                                    <h4 class="fl"><b class="blue">Depart</b> <span class="dark-gray"> CAI - DXB</span></h4>
+                                    <h4 class="fr">
+                                        4h 55m
+                                    </h4>
+                                </div>
+                                <div class="col-md-12 ">
+                                    <div class="borderd-details">
+                                        <div class="media">
+                                            <div class="media-left" style="width: 30%;">
+                                                <p>Sun, Nov 11 <span class="blue"> <b>Egyptair</b></span> </p>
+                                            </div>
+                                            <div class="media-body">
+                                                <p class="media-heading">1:40 pm<span> — </span>5:30 pm</p>
+                                                <p class="media-heading">Cairo<span> — </span>Manama</p>
+                                                <p>Gulf Air 70 · Narrow-Body Jet · Airbus A321-100/200</p>
+                                            </div>
+                                            <div class="media-right" style="width: 20%;">
+                                                <p>Economy <span> 2h 50m</span> </p>
+                                                <h3 class="orange">$370.21</h3>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                            <div class="row margin-0 ">
+                                <div class="col-md-12 clearfix">
+                                    <h4 class="fl"><b class="blue">Depart</b> <span class="dark-gray"> CAI - DXB</span></h4>
+                                    <h4 class="fr">
+                                        4h 55m
+                                    </h4>
+                                </div>
+                                <div class="col-md-12 ">
+                                    <div class="borderd-details">
+                                        <div class="media">
+                                            <div class="media-left" style="width: 30%;">
+                                                <p>Sun, Nov 11 <span class="blue"> <b>Egyptair</b></span> </p>
+                                            </div>
+                                            <div class="media-body">
+                                                <p class="media-heading">1:40 pm<span> — </span>5:30 pm</p>
+                                                <p class="media-heading">Cairo<span> — </span>Manama</p>
+                                                <p>Gulf Air 70 · Narrow-Body Jet · Airbus A321-100/200</p>
+                                            </div>
+                                            <div class="media-right" style="width: 20%;">
+                                                <p>Economy <span> 2h 50m</span> </p>
+                                                <h3 class="orange">$370.21</h3>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                         
-                        <div class="row padding-0 ">
-                            <div class="row margin-0  overflow">
-                              <div class="diagonal2">
-                                <h4 style="margin: 3px;"><img src="../assets/img/To copy.png"> Return</h4>
-                              </div>
-                            </div>
-                            <div class="itenery borderd-bottom">
-                             
-                                <div class="row " style="margin:15px;">
-                                  <div class="col-sm-2 col-xs-6 borderd-right" style="padding:15px;">
-                                    <img src="../assets/img/egyptAir.png" class="img-box-result">
-                                  </div>
-                                  <div class="col-sm-3 col-xs-6"style="padding:15px;">
-                                    <h4 class="dark-gray" >Egypt Air</h4>
-                                  </div>
-                                  <div class="col-sm-2 col-xs-6"style="padding:15px;">
-                                    <h5 class="dark-gray">1:40 pm</h5>
-                                    <h4 class="blue">CAI</h4>
-                                  </div>
-                                  <div class="col-sm-3 hidden-xs "style="padding:15px;">
-                                    <div class="border-bottom  "></div>
-                                  </div>
-                                  <div class="col-sm-2 col-xs-6"style="padding:15px;">
-                                    <h5 class="dark-gray">1:40 pm</h5>
-                                    <h4 class="blue">aa</h4>
-                                  </div>
-                  
-                                </div>
-                          </div>
-                          </div>
-                  </div>
-        
-                 
-        
-        
-        
-                 
-                </div>
-                <div class="row borderd-top" style="padding:15px 0;">
-                    <div class="col-sm-6">
-
-                           
-                        <a class="h5 blue fl" href="#">
-                            <span class="fl blue" style="margin:5px;"> <b>LUGGAGES DETAILS</b></span>   <span class="glyphicon glyphicon-menu-down fr drop-arrow"></span>
-
-                        </a>
                     </div>
-                    <div class="col-sm-6">
-                        <a type="button " class="btn fr" (click)="isCollapsed = !isCollapsed" [attr.aria-expanded]="!isCollapsed"
-                        aria-controls="collapseBasic" >
-                            <span class=" blue" style="margin:5px;"> <b>FLIGHT DETAILS</b></span>   <span class="glyphicon  drop-arrow" [class.glyphicon-menu-up]="isCollapsed" [class.glyphicon-menu-down]="!isCollapsed" aria-hidden="true"></span>
-
-                        </a>
-                    </div>
-                </div>
-        
-                <div id="collapseBasic" [collapse]="!isCollapsed" class="card card-block card-header">
-                 <div class="row margin-0 borderd-top">
-                   <div class="col-md-12 clearfix">
-                    <h4 class="fl"><b class="blue">Depart</b> <span class="dark-gray"> CAI - DXB</span></h4>
-                        <h4 class="fr">
-                          4h 55m
-                        </h4>
-                   </div>
-                   <div class="col-md-12 " >
-                     <div class="borderd-details">
-                        <div class="media">
-                            <div class="media-left" style="width: 30%;">
-                                <p>Sun, Nov 11 <span class="blue"> <b>Egyptair</b></span> </p>
-                            </div>
-                            <div class="media-body">
-                              <p class="media-heading">1:40 pm<span> — </span>5:30 pm</p>
-                              <p class="media-heading">Cairo<span> — </span>Manama</p>
-                              <p>Gulf Air 70 · Narrow-Body Jet · Airbus A321-100/200</p>
-                            </div>
-                            <div class="media-right" style="width: 20%;">
-                                <p>Economy  <span> 2h 50m</span> </p>
-                                <h3 class="orange">$370.21</h3>
-                              </div>
-                          </div>
-                     </div>
-                   </div>
-        
-        
-                 </div>
-                 <div class="row margin-0 ">
-                        <div class="col-md-12 clearfix">
-                                <h4 class="fl"><b class="blue">Depart</b> <span class="dark-gray"> CAI - DXB</span></h4>
-                                    <h4 class="fr">
-                                      4h 55m
-                                    </h4>
-                               </div>
-                    <div class="col-md-12 " >
-                      <div class="borderd-details">
-                         <div class="media">
-                             <div class="media-left" style="width: 30%;">
-                                 <p>Sun, Nov 11 <span class="blue"> <b>Egyptair</b></span> </p>
-                             </div>
-                             <div class="media-body">
-                               <p class="media-heading">1:40 pm<span> — </span>5:30 pm</p>
-                               <p class="media-heading">Cairo<span> — </span>Manama</p>
-                               <p>Gulf Air 70 · Narrow-Body Jet · Airbus A321-100/200</p>
-                             </div>
-                             <div class="media-right" style="width: 20%;">
-                                 <p>Economy  <span> 2h 50m</span> </p>
-                                 <h3 class="orange">$370.21</h3>
-                               </div>
-                           </div>
-                      </div>
-                    </div>
-         
-         
-                  </div>
-                  
-        
-                </div>
-              </div>
-          </div>
-      </div>
-
-
-
-  </div>
-  <div id="right-details" class="text-center">
-        <div class="filter-container">
-                <div>
-                    <h2 class="text-center blue ">
-                        Trip Summary
-                    </h2>
-                    <div class="border-bottom row"></div>
-                    <div class="row">
-                        <h5 class="fl blue"><b>Roundtrip Flight</b></h5>
-                        <p class="fr dark-gray" style="margin-top: 8px;">1 ticket:<span> 1 adult</span></p>
-                    </div>
-                    <div class="row">
-                        <h5 class="fl blue"><b>Dubai (DXB) to London (LCY)</b></h5>
-                        <p class="fr dark-gray" style="margin-top: 8px;">Airline:<span>  KLM</span></p>
-                    </div>
-                    <div class="row">
-                        <h5 class="fl dark-gray"><b>Fri, Nov 16 - Fri, Nov 23</b></h5>
-                        <p class="fr dark-gray" style="margin-top: 8px;">Class: <span>  Economy</span></p>
-                    </div>
-                    <div class="row">
-                        <h5 class="fl dark-gray"><b>Baggage allowance:</b> 30 Kg(s)</h5>
-                    </div>
-                    <div class="border-bottom row"></div>
-
-                    <div class="row">
-                        <h5 class="fl blue"><b>Traveler 1: Adult </b></h5>
-                    </div>
-                    <div class="row">
-                        <h5 class="fl dark-gray"><b>Flight</b></h5>
-                        <p class="fr dark-gray" style="margin-top: 8px;">$276.00</p>
-                    </div>
-                    <div class="row">
-                        <h5 class="fl dark-gray"><b>Taxes &amp; Fees</b></h5>
-                        <p class="fr dark-gray" style="margin-top: 8px;">$272.43</p>
-                    </div>
-                    <div class="row">
-                        <h5 class="fl dark-gray"><b>Booking Fee</b></h5>
-                        <p class="fr dark-gray" style="margin-top: 8px;">$2.78</p>
-                    </div>
-                    <div class="border-bottom row"></div>
-                    <div class="row">
-                        <h3 class="fl dark-gray"><b>Total trip</b></h3>
-                        <h3 class="fr dark-gray" >$551.19</h3>
-                    </div>
-                    <div class="row">
-                        <h5 class="dark-gray"><b>Rates ar.e quoted in US dollars</b></h5>
-                        <h5 class="orange"> THIS BOOKING WILL GIVE YOU 130 POINTS</h5>
-                       
-                    </div>
-
-                    <div class="border-bottom row"></div>
-                    <p class="dark-gray">
-                        Your flight is a combination of two one-way fares, each subject to its own rules and restrictions. If one of your flights is changed or cancelled, it will not automatically alter the other flight. Changes to the other flight may incur a charge.
-                    </p>
-
-                    <div class="row text-center">
-                        <button class="btn btn-orange" type="submit">Continue Booking</button>
-
-                    </div>
-
-
                 </div>
             </div>
-  </div>
+
+        </div>
+
+    </div>
+
+    <app-flight-trip-summary></app-flight-trip-summary>
+
 </div>
 
+<app-footer></app-footer>

@@ -5,12 +5,13 @@
         <span class="radio2"></span>
     </label>
     <label class="radio-inline check">
-        <input [checked]="flightService.flightType=='oneWay'" type="radio" (change)="setFlightType('oneWay')">{{
+        <input  type="radio" [checked]="flightService.flightType=='oneWay'" (change)="setFlightType('oneWay')">{{
         'FlightTypeSelect.OneWay' | translate }}
         <span class="radio2"></span>
     </label>
     <label class="radio-inline check">
-        <input type="radio" (change)="flightService.setFlightType('multiCity')" [checked]="flightType=='multiCity'"> {{ 'FlightTypeSelect.MultiCity' | translate }}
+        <input type="radio"[checked]="flightService.flightType=='multiCity'"(change)="setFlightType('multiCity')"> {{
+         'FlightTypeSelect.MultiCity' | translate }}
         <span class="radio2"></span>
     </label>
 </div>

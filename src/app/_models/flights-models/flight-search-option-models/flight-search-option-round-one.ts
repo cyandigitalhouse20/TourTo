@@ -1,8 +1,8 @@
-export class FlightSearchOptionRoundOne{    
-    CityFromId:number;
-    CityToId:number;
-    CityFrom:string;
-    CityTo:string;
+export class FlightSearchOptionRoundOne{ 
+    OriginCityId:number;
+    DestinationCityId:number;
+    OriginCity:string;
+    DestinationCity:string;
     FlightType:string;
     RequestId:string;
     IsNewRequest:boolean
@@ -26,7 +26,7 @@ export class FlightSearchOptionRoundOne{
         FlightSearchOptionRoundOne.prototype.Adult =1;
         FlightSearchOptionRoundOne.prototype.Children = 0;
         FlightSearchOptionRoundOne.prototype.DirectFlight = false;
-        FlightSearchOptionRoundOne.prototype.CityFrom = "";
-        FlightSearchOptionRoundOne.prototype.CityTo = "";
+        FlightSearchOptionRoundOne.prototype.OriginCity = "";
+        FlightSearchOptionRoundOne.prototype.DestinationCity = "";
     })();
 }

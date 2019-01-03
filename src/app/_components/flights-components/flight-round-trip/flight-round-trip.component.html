@@ -2,13 +2,13 @@
   <div class="row">
 
     <div class="form-group  col-md-2 padding-rl5">
-      <input [(ngModel)]="flightService.roundTripModel.CityFrom" name="CityFrom" #CityFrom [typeahead]="citiesFrom" typeaheadOptionField="Name"
+      <input [(ngModel)]="flightService.roundTripModel.OriginCity" name="OriginCity" #OriginCity [typeahead]="citiesFrom" typeaheadOptionField="Name"
         class="form-control" placeholder="{{ 'FlightRoundTrip.From' | translate }}" [typeaheadOptionsLimit]="7"
         [typeaheadMinLength]="0" (keyup)="updateCitiesFrom($event)" (typeaheadOnSelect)="selectCity($event,'from')">
     </div>
 
     <div class="form-group  col-md-2 padding-rl5">
-      <input [(ngModel)]="flightService.roundTripModel.CityTo" name="CityTo" #CityTo [typeahead]="citiesTo" typeaheadOptionField="Name" class="form-control"
+      <input [(ngModel)]="flightService.roundTripModel.DestinationCity" name="DestinationCity" #DestinationCity [typeahead]="citiesTo" typeaheadOptionField="Name" class="form-control"
         placeholder="{{ 'FlightRoundTrip.To' | translate }}" [typeaheadOptionsLimit]="7" [typeaheadMinLength]="0"
         (keyup)="updateCitiesTo($event)" (typeaheadOnSelect)="selectCity($event,'to')">
     </div>
@@ -19,7 +19,7 @@
     </div>
     <div class="form-group  col-md-3 padding-rl5">
       <input class="form-control"  placeholder="{{ 'FlightRoundTrip.AdultEconomy' | translate }}"
-        placement="bottom" [popover]="popTemplate">
+        placement="bottom" [popover]="popTemplate" [outsideClick]="true">
       <ng-template #popTemplate>
         <div class="form-group">
           <label>{{ 'FlightRoundTrip.Adult' | translate }}</label>
@@ -42,7 +42,7 @@
   <div class="row" style="padding:15px;">
     <label class="check">
       {{ 'FlightRoundTrip.NoneStopFlight' | translate }}
-      <input type="checkbox" name="DirectFlight" #DirectFlight [(ngModel)]="flightService.roundTripModel.DirectFlight"  value="true">
+      <input type="checkbox" name="DirectFlight" #DirectFlight [(ngModel)]="flightService.roundTripModel.DirectFlight"  >
       <span class="checkmark"></span>
     </label>
 

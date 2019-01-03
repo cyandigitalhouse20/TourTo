@@ -17,7 +17,7 @@ export * from './home-components/home/home.component';
 export * from './home-components/home-experience/home-experience.component';
 export * from './home-components/home-packages/home-packages.component';
 
-// header
+// flight
 export * from './flights-components/flight-details/flight-details.component';
 export * from './flights-components/flight-filter/flight-filter.component';
 export * from './flights-components/flight-multi-city/flight-multi-city.component';
@@ -27,3 +27,4 @@ export * from './flights-components/flight-result/flight-result.component';
 export * from './flights-components/flight-round-trip/flight-round-trip.component';
 export * from './flights-components/flights/flights.component';
 export * from './flights-components/flight-type-select/flight-type-select.component';
+export * from './flights-components/flight-trip-summary/flight-trip-summary.component';

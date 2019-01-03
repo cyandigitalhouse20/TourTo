@@ -50,5 +50,16 @@
     "Children": "Children",
     "Search": "Search",
     "NoneStopFlight": "None stop flight"
+  },
+  "FlightMultiCity": {
+    "From": "From",
+    "To": "To",
+    "DepartingTime": "Departing Time",
+    "AdultEconomy": "1 Adult / Economy",
+    "Adult": "Adult",
+    "Children": "Children",
+    "Search": "Search",
+    "NoneStopFlight": "None stop flight",
+    "AddFlight": "Add flight"
   }
 }
