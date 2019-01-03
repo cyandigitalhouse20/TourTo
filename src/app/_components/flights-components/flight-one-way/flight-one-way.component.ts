@@ -3,7 +3,7 @@ import { StaticDataService, FlightService } from 'src/app/_services';
 import { HttpErrorResponse } from '@angular/common/http';
 import { City, FlightSearchOptionRoundOne } from 'src/app/_models';
 import { Router } from '@angular/router';
-import { BsLocaleService } from 'ngx-bootstrap/datepicker';
+// import { BsLocaleService } from 'ngx-bootstrap/datepicker';
 
 @Component({
   selector: 'app-flight-one-way',
@@ -15,8 +15,8 @@ export class FlightOneWayComponent implements OnInit {
   citiesFrom: City[] = [];
   citiesTo: City[] = [];
 
-  constructor(private _localeService: BsLocaleService,public staticDataService: StaticDataService, public flightService: FlightService, public router: Router) {
-    this._localeService.use('engb');
+  constructor(public staticDataService: StaticDataService, public flightService: FlightService, public router: Router) {
+    // this._localeService.use('engb');
     if (this.flightService.oneWayModel == undefined) {
       this.flightService.oneWayModel = new FlightSearchOptionRoundOne();
     }
