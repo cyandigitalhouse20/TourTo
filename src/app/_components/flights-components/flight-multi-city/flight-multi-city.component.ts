@@ -3,6 +3,7 @@ import { StaticDataService, FlightService } from 'src/app/_services';
 import { Router } from '@angular/router';
 import { City, FlightSearchOptionMultiCities } from 'src/app/_models';
 import { HttpErrorResponse } from '@angular/common/http';
+import { BsLocaleService } from 'ngx-bootstrap/datepicker';
 
 @Component({
   selector: 'app-flight-multi-city',
@@ -22,7 +23,8 @@ export class FlightMultiCityComponent implements OnInit {
   citiesFrom5: City[] = [];
   citiesTo5: City[] = [];
 
-  constructor(public staticDataService: StaticDataService, public flightService: FlightService, public router: Router) {
+  constructor(private _localeService: BsLocaleService,public staticDataService: StaticDataService, public flightService: FlightService, public router: Router) {
+    this._localeService.use('engb');
     if (this.flightService.multiCitiesModel == undefined) {
       this.flightService.multiCitiesModel = new FlightSearchOptionMultiCities();
     }

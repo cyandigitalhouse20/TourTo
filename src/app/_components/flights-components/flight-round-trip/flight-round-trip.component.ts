@@ -3,6 +3,7 @@ import { StaticDataService, FlightService } from 'src/app/_services';
 import { HttpErrorResponse } from '@angular/common/http';
 import { FlightSearchOptionRoundOne, City } from 'src/app/_models';
 import { Router } from '@angular/router';
+import { BsLocaleService } from 'ngx-bootstrap/datepicker';
 
 @Component({
   selector: 'app-flight-round-trip',
@@ -14,7 +15,8 @@ export class FlightRoundTripComponent implements OnInit {
   citiesFrom: City[] = [];
   citiesTo: City[] = [];
 
-  constructor(public staticDataService: StaticDataService, public flightService: FlightService, public router: Router) {
+  constructor(private _localeService: BsLocaleService,public staticDataService: StaticDataService, public flightService: FlightService, public router: Router) {
+    this._localeService.use('engb');
     if (this.flightService.roundTripModel == undefined) {
       this.flightService.roundTripModel = new FlightSearchOptionRoundOne();
     }
