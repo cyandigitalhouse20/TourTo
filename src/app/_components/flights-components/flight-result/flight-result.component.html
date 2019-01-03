@@ -24,8 +24,8 @@
       <div *ngFor="let item of this.flightservice.displayedFlightSearchResult | paginate: { itemsPerPage: 3, currentPage: p }">
 
         <div class="result-container">
-          <div class="flite-container">
-            <div class="col-md-10  padding-0  borderd-right">
+          <div class="flite-container row-eq-height">
+            <div class="col-md-10  padding-0">
               <div *ngFor="let Route of item.Routes; let i = index">
                 <div *ngIf="this.flightservice.flightType=='multiCity';else   OneWayAndRoundTrip">
                   <div class="row padding-0 ">
@@ -132,19 +132,22 @@
 
               </div>
             </div>
-            <div class="col-sm-2 ">
+            <div class="col-sm-2 borderd-left borderd-bottom">
               <div class="item-price">
                 <h3 class="dark-gray"> {{item.Amount}} {{item.Currency}}</h3>
-                <div _ngcontent-c5="" class="form-group "><button _ngcontent-c5="" class="btn btn-orange" type="submit"
-                    (click)="item.DetailsCollapse = !item.DetailsCollapse" [attr.aria-expanded]="!item.DetailsCollapse"
-                    aria-controls="collapseBasic">Details</button></div>
-                <div _ngcontent-c5="" class="form-group "><button _ngcontent-c5="" class="btn btn-orange" type="submit"
-                    (click)="getDetails(item.ItineraryId)" aria-controls="collapseBasic">Select</button></div>
+                <div _ngcontent-c5="" class="form-group "><button _ngcontent-c5="" class="btn btn-orange" type="submit" (click)="getDetails(item.ItineraryId)" aria-controls="collapseBasic">Select</button>
+                  </div>
               </div>
-
-
             </div>
+            <div class="row" style="padding:15px 0;">
+              <div class="col-sm-12">
+                  <a type="button " class="btn" type="submit" (click)="item.DetailsCollapse = !item.DetailsCollapse" [attr.aria-expanded]="!item.DetailsCollapse" aria-controls="collapseBasic">
+                      <span class=" blue" style="margin:5px;"> <b>FLIGHT DETAILS</b></span>
+                      <span class="glyphicon fr drop-arrow" [class.glyphicon-menu-up]="isCollapsed"
+                          [class.glyphicon-menu-down]="!isCollapsed" aria-hidden="true"  ></span>
+                  </a> </div>
           </div>
+        </div>
 
           <div id="collapseBasic" [collapse]="!item.DetailsCollapse" class="card card-block card-header">
             <div *ngFor="let Route of item.Routes; let i = index">
@@ -153,11 +156,11 @@
                 <div class="col-md-12 ">
 
                     <div _ngcontent-c5="" >
-                      <label _ngcontent-c5="" >
+                      <h4 _ngcontent-c5="" class="fl">
                         <b class="blue">Depart</b>
                         <span class="dark-gray"> {{Route.Segment[0].Origin.Airport.City}} -
                           {{Route.Segment[Route.Segment.length-1].Destination.Airport.City}}</span> <span _ngcontent-c5=""
-                          ></span></label>
+                          ></span></h4>
                     </div>
 
                
@@ -204,22 +207,22 @@
                         <div class="col-md-12 ">
                           <div *ngIf="i=='0';else retunDetailsTemplate">
                             <div _ngcontent-c5="">
-                              <label _ngcontent-c5="" >
+                              <h4 _ngcontent-c5="" class="fl">
                               
                                 <b class="blue">Depart</b>
                                 <span class="dark-gray"> {{Route.Segment[0].Origin.Airport.City}} -
                                   {{Route.Segment[Route.Segment.length-1].Destination.Airport.City}}</span> <span _ngcontent-c5=""
-                                  ></span></label>
+                                  ></span></h4>
                             </div>
                           </div>
                           <ng-template #retunDetailsTemplate>
                             <div _ngcontent-c5="" >
-                              <label _ngcontent-c5="" >
+                              <h4 _ngcontent-c5="" class="fl" >
                            
                                 <b class="blue">Return</b>
                                 <span class="dark-gray"> {{Route.Segment[0].Origin.Airport.City}} -
                                   {{Route.Segment[Route.Segment.length-1].Destination.Airport.City}}</span> <span _ngcontent-c5=""
-                                  ></span></label>
+                                  ></span></h4>
                             </div>
                           </ng-template>
                           <h4 class="fr">
