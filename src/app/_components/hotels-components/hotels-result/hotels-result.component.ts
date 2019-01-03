@@ -11,7 +11,10 @@ export class HotelsResultComponent implements OnInit {
   rate: number = 3;
   isReadonly: boolean = true;
   modalRef: BsModalRef;
-  constructor(private modalService: BsModalService) { }
+  isCollapsed:boolean;
+  isCollapsed2:boolean;
+ 
+  constructor(public modalService: BsModalService) { }
 
   ngOnInit() {
   }

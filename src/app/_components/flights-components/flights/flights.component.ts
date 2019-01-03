@@ -9,7 +9,7 @@ import { Router } from '@angular/router';
 })
 export class FlightsComponent implements OnInit {
 
-  constructor(private flightservice: FlightService,private router: Router) { }
+  constructor(public flightservice: FlightService,public router: Router) { }
 
   ngOnInit() {
   }

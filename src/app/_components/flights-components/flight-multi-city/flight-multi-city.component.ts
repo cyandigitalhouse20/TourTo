@@ -22,7 +22,7 @@ export class FlightMultiCityComponent implements OnInit {
   citiesFrom5: City[] = [];
   citiesTo5: City[] = [];
 
-  constructor(private staticDataService: StaticDataService, private flightService: FlightService, private router: Router) {
+  constructor(public staticDataService: StaticDataService, public flightService: FlightService, public router: Router) {
     if (this.flightService.multiCitiesModel == undefined) {
       this.flightService.multiCitiesModel = new FlightSearchOptionMultiCities();
     }

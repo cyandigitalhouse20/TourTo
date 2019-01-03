@@ -19,7 +19,9 @@ export class FlightFilterComponent implements OnInit {
   TwoStop: boolean = false;
   SortAsc: boolean = false;
   SortDesc: boolean = false;
- 
+  isCollapsed:boolean;
+  isCollapsed2:boolean;
+  isCollapsed3:boolean;
   AgmyTimeoptions: Options = {
     floor: 50,
     ceil: 200
@@ -32,7 +34,7 @@ export class FlightFilterComponent implements OnInit {
     alert(this.AgmyMinvalue);
   }
 
-  constructor(private flightservice: FlightService) { }
+  constructor(public flightservice: FlightService) { }
 
   ngOnInit() {
 

@@ -7,7 +7,7 @@ import { FlightService } from 'src/app/_services';
   styleUrls: ['./flight-type-select.component.css']
 })
 export class FlightTypeSelectComponent implements OnInit {
-  constructor(private flightService: FlightService) {
+  constructor(public flightService: FlightService) {
     if (this.flightService.flightType == undefined) {
       this.flightService.flightType = "roundTrip";
     }

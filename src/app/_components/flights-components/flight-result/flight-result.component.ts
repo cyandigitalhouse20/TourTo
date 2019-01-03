@@ -12,7 +12,8 @@ import { Router } from '@angular/router';
 })
 export class FlightResultComponent implements OnInit {
   modalRef: BsModalRef;
-  constructor(private modalService: BsModalService, private flightservice: FlightService, private router: Router) { }
+  p:any;
+  constructor(public modalService: BsModalService, public flightservice: FlightService, public router: Router) { }
 
   ngOnInit() {
 

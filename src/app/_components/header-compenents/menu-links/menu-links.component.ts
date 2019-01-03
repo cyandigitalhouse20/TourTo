@@ -11,7 +11,7 @@ export class MenuLinksComponent implements OnInit {
 
   pages: any[];
 
-  constructor(private menuService: MenuService) { }
+  constructor(public menuService: MenuService) { }
 
   ngOnInit() {
     this.menuService.getMenu(1).subscribe((data: any) => {

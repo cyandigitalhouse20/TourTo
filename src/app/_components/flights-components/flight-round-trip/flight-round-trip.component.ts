@@ -14,7 +14,7 @@ export class FlightRoundTripComponent implements OnInit {
   citiesFrom: City[] = [];
   citiesTo: City[] = [];
 
-  constructor(private staticDataService: StaticDataService, private flightService: FlightService, private router: Router) {
+  constructor(public staticDataService: StaticDataService, public flightService: FlightService, public router: Router) {
     if (this.flightService.roundTripModel == undefined) {
       this.flightService.roundTripModel = new FlightSearchOptionRoundOne();
     }

@@ -14,7 +14,7 @@ export class HeaderWebComponent implements OnInit {
   isCollapsed = true;
   languages: any[];
 
-  constructor(private languageService: LanguageService,public translate: TranslateService) {
+  constructor(public languageService: LanguageService,public translate: TranslateService) {
     // translate.addLangs(['en', 'fr']);
      translate.setDefaultLang('en');
   

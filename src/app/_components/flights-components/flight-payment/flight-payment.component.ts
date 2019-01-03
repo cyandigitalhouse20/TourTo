@@ -13,7 +13,7 @@ export class FlightPaymentComponent implements OnInit {
 
   passengers: Passenger[];
   modalRef: BsModalRef;
-  constructor(private modalService: BsModalService, private flightService: FlightService) {
+  constructor(public modalService: BsModalService, public flightService: FlightService) {
     if (this.passengers == undefined) {
       this.passengers = [];
     }

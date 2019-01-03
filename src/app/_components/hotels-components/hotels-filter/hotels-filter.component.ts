@@ -6,7 +6,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./hotels-filter.component.css']
 })
 export class HotelsFilterComponent implements OnInit {
-
+  isCollapsed:boolean;
+  isCollapsed2:boolean;
   constructor() { }
 
   ngOnInit() {

@@ -14,7 +14,7 @@ export class FlightOneWayComponent implements OnInit {
   citiesFrom: City[] = [];
   citiesTo: City[] = [];
 
-  constructor(private staticDataService: StaticDataService, private flightService: FlightService, private router: Router) {
+  constructor(public staticDataService: StaticDataService, public flightService: FlightService, public router: Router) {
     if (this.flightService.oneWayModel == undefined) {
       this.flightService.oneWayModel = new FlightSearchOptionRoundOne();
     }

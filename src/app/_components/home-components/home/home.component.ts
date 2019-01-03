@@ -11,7 +11,7 @@ import { TranslateService } from '@ngx-translate/core';
 export class HomeComponent implements OnInit {
   showHotels: boolean;
   showFlights: boolean;
-  constructor(private languageService: LanguageService,private translate: TranslateService) {
+  constructor(public languageService: LanguageService,public translate: TranslateService) {
     translate.addLangs(['en']);
     translate.setDefaultLang('en');
   }

@@ -9,7 +9,7 @@ import { FlightService } from 'src/app/_services';
 
 export class FlightDetailsComponent implements OnInit {
   isCollapsed = false;
-  constructor( private flightservice: FlightService) { }
+  constructor( public flightservice: FlightService) { }
 
   ngOnInit() {
     

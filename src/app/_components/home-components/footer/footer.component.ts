@@ -11,7 +11,7 @@ import { MenuService } from 'src/app/_services';
 export class FooterComponent implements OnInit {
   model: Footer[] = [];
 
-  constructor(private menuService: MenuService) {
+  constructor(public menuService: MenuService) {
 
   }
 

@@ -6,7 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./hotle-details.component.css']
 })
 export class HotleDetailsComponent implements OnInit {
-
+  isCollapsed:boolean;
   constructor() { }
 
   ngOnInit() {

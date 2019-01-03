@@ -10,7 +10,7 @@ import { LanguageService } from 'src/app/_services';
 export class HeaderMobileComponent implements OnInit {
   isCollapsed = true;
   languages: any[];
-  constructor(private languageService: LanguageService) { }
+  constructor(public languageService: LanguageService) { }
 
   ngOnInit() {
 
