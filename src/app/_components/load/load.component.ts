@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { FlightService } from 'src/app/_services';
 
 @Component({
   selector: 'app-load',

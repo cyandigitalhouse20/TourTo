@@ -1,140 +1,141 @@
-<div *ngIf="flightService.IsCompleated;else other_content">
-<app-load></app-load>
+<div *ngIf="flightService.isCompleated;else home_content">
+    <app-load></app-load>
 </div>
 
-<ng-template #other_content>
+<ng-template #home_content>
 
-<div class="row home-slider" style="z-index:-1;">
-    <carousel>
-        <slide>
-            <img src="../assets/img/wall.png" alt="first slide">
-        </slide>
-        <slide>
-            <img src="../assets/img/wall2.png" alt="first slide">
-        </slide>
-        <slide>
-            <img src="../assets/img/wall3.png" alt="first slide">
-        </slide>
-    </carousel>
-</div>
+    <div class="row home-slider" style="z-index:-1;">
+        <carousel>
+            <slide>
+                <img src="../assets/img/wall.png" alt="first slide">
+            </slide>
+            <slide>
+                <img src="../assets/img/wall2.png" alt="first slide">
+            </slide>
+            <slide>
+                <img src="../assets/img/wall3.png" alt="first slide">
+            </slide>
+        </carousel>
+    </div>
 
-<div class="home-main-container">
+    <div class="home-main-container">
 
-    <app-header></app-header>
-    <div class="container">
-        <div class="row">
-            <div class="col-xs-8 col-xs-offset-2 home-head1-container">
-                <h1 class="home-head1 orange">{{'Home.WelcomeToTourTo'|translate}} </h1>
-            </div>
+        <app-header></app-header>
+        <div class="container">
+            <div class="row">
+                <div class="col-xs-8 col-xs-offset-2 home-head1-container">
+                    <h1 class="home-head1 orange">{{'Home.WelcomeToTourTo'|translate}} </h1>
+                </div>
 
-            <div class="col-xs-8 col-xs-offset-2 home-head1-container">
-                <h1 class="home-head2 orange">{{'Home.ExperienceTheFreedom'|translate}} </h1>
-            </div>
-            <div class="col-xs-8 col-xs-offset-2 text-center ">
-                <h3 class="orange small-head">{{'Home.PlaceExperinceEnjoy'|translate}} </h3>
+                <div class="col-xs-8 col-xs-offset-2 home-head1-container">
+                    <h1 class="home-head2 orange">{{'Home.ExperienceTheFreedom'|translate}} </h1>
+                </div>
+                <div class="col-xs-8 col-xs-offset-2 text-center ">
+                    <h3 class="orange small-head">{{'Home.PlaceExperinceEnjoy'|translate}} </h3>
+                </div>
             </div>
         </div>
-    </div>
-    <div class=" home-line"></div>
+        <div class=" home-line"></div>
 
-    <div class="container text-center">
+        <div class="container text-center">
 
 
-        <div class="btn-group-vertical" dropdown>
-            <a (click)="show('Experience')" class="home-links ">
-                <div class="btn round ">
-                    <img src="../assets/img/experience.png" class="full-width">
-                </div>
-                <h4>{{'Home.Experience'|translate}}</h4>
-                <div class="link-strok"></div>
-            </a>
-            <a (click)="show('Flights')" class="home-links" [class.active]="showFlights">
-                <div class="btn round ">
-                    <img src="../assets/img/flight.png" class="full-width">
-                </div>
-                <h4>{{'Home.Flights'|translate}}</h4>
-                <div class="link-strok"></div>
+            <div class="btn-group-vertical" dropdown>
+                <a (click)="show('Experience')" class="home-links ">
+                    <div class="btn round ">
+                        <img src="../assets/img/experience.png" class="full-width">
+                    </div>
+                    <h4>{{'Home.Experience'|translate}}</h4>
+                    <div class="link-strok"></div>
+                </a>
+                <a (click)="show('Flights')" class="home-links" [class.active]="showFlights">
+                    <div class="btn round ">
+                        <img src="../assets/img/flight.png" class="full-width">
+                    </div>
+                    <h4>{{'Home.Flights'|translate}}</h4>
+                    <div class="link-strok"></div>
 
-            </a>
-            <a (click)="show('Hotels')" class="home-links" [class.active]="showHotels">
-                <div class="btn round ">
-                    <img src="../assets/img/hotels.png" class="full-width">
-                </div>
-                <h4>{{'Home.Hotels'|translate}}</h4>
-                <div class="link-strok"></div>
+                </a>
+                <a (click)="show('Hotels')" class="home-links" [class.active]="showHotels">
+                    <div class="btn round ">
+                        <img src="../assets/img/hotels.png" class="full-width">
+                    </div>
+                    <h4>{{'Home.Hotels'|translate}}</h4>
+                    <div class="link-strok"></div>
 
-            </a>
+                </a>
 
-            <a class="home-links dropdown-toggle" id="button-basic" dropdownToggle type="button" aria-controls="dropdown-basic">
-                <div class="btn round ">
-                    <img src="../assets/img/packages.png" class="full-width">
-                </div>
-                <h4>{{'Home.Packages'|translate}}</h4>
-                <div class="link-strok"></div>
+                <a class="home-links dropdown-toggle" id="button-basic" dropdownToggle type="button" aria-controls="dropdown-basic">
+                    <div class="btn round ">
+                        <img src="../assets/img/packages.png" class="full-width">
+                    </div>
+                    <h4>{{'Home.Packages'|translate}}</h4>
+                    <div class="link-strok"></div>
 
-            </a>
-            <ul id="dropdown-basic" *dropdownMenu class="dropdown-menu dropdown-packages" role="menu" aria-labelledby="button-basic">
-                <li role="menuitem"><a class="dropdown-item" href="#"> <span class="glyphicon glyphicon-equalizer orange"
-                            aria-hidden="true"></span> {{'Home.CreateYourOwnPackage'|translate}}</a></li>
-                <li class="divider dropdown-divider"></li>
-                <li role="menuitem"><a class="dropdown-item" href="#"><span class="glyphicon glyphicon-gift orange"
-                            aria-hidden="true"></span> {{'Home.ExistingPackage'|translate}}</a></li>
-            </ul>
+                </a>
+                <ul id="dropdown-basic" *dropdownMenu class="dropdown-menu dropdown-packages" role="menu"
+                    aria-labelledby="button-basic">
+                    <li role="menuitem"><a class="dropdown-item" href="#"> <span class="glyphicon glyphicon-equalizer orange"
+                                aria-hidden="true"></span> {{'Home.CreateYourOwnPackage'|translate}}</a></li>
+                    <li class="divider dropdown-divider"></li>
+                    <li role="menuitem"><a class="dropdown-item" href="#"><span class="glyphicon glyphicon-gift orange"
+                                aria-hidden="true"></span> {{'Home.ExistingPackage'|translate}}</a></li>
+                </ul>
 
-            <a href="#" class="home-links">
-                <div class="btn round ">
-                    <img src="../assets/img/car.png" class="full-width">
-                </div>
-                <h4>{{'Home.Cars'|translate}}</h4>
-                <div class="link-strok"></div>
+                <a href="#" class="home-links">
+                    <div class="btn round ">
+                        <img src="../assets/img/car.png" class="full-width">
+                    </div>
+                    <h4>{{'Home.Cars'|translate}}</h4>
+                    <div class="link-strok"></div>
 
-            </a>
-            <a href="#" class="home-links">
-                <div class="btn round ">
-                    <img src="../assets/img/activities.png" class="full-width">
-                </div>
-                <h4>{{'Home.Activities'|translate}}</h4>
-                <div class="link-strok"></div>
-            </a>
+                </a>
+                <a href="#" class="home-links">
+                    <div class="btn round ">
+                        <img src="../assets/img/activities.png" class="full-width">
+                    </div>
+                    <h4>{{'Home.Activities'|translate}}</h4>
+                    <div class="link-strok"></div>
+                </a>
+            </div>
+
         </div>
 
+        <div class="wed-cont container">
+            <app-flights *ngIf="showFlights"></app-flights>
+            <app-hotels *ngIf="showHotels"></app-hotels>
+        </div>
+
+
+
     </div>
-
-    <div class="wed-cont container">
-        <app-flights *ngIf="showFlights"></app-flights>
-        <app-hotels *ngIf="showHotels"></app-hotels>
-    </div>
-
-
-
-</div>
-<div class="row text-center">
-    <span class="scroll-btn">
-        <a>
-            <span class="mouse">
-                <span>
+    <div class="row text-center">
+        <span class="scroll-btn">
+            <a>
+                <span class="mouse">
+                    <span>
+                    </span>
                 </span>
-            </span>
-        </a>
+            </a>
 
-    </span>
-</div>
-<div class="home-separator">
-    {{'Home.VirginAtlantic'|translate}}</div>
-
-<app-home-experience></app-home-experience>
-
-<div class="section">
-    <div class="container">
-        <h3 class="white">{{'Home.NaturePeople'|translate}}</h3>
-        <h5 class="orange">{{'Home.DiscoverTravel'|translate}}</h5>
-        <p class="white">
-            {{'Home.JustMinutes'|translate}}
-        </p>
+        </span>
     </div>
-</div>
+    <div class="home-separator">
+        {{'Home.VirginAtlantic'|translate}}</div>
 
-<app-home-packages></app-home-packages>
+    <app-home-experience></app-home-experience>
 
-<app-footer></app-footer>
+    <div class="section">
+        <div class="container">
+            <h3 class="white">{{'Home.NaturePeople'|translate}}</h3>
+            <h5 class="orange">{{'Home.DiscoverTravel'|translate}}</h5>
+            <p class="white">
+                {{'Home.JustMinutes'|translate}}
+            </p>
+        </div>
+    </div>
+
+    <app-home-packages></app-home-packages>
+
+    <app-footer></app-footer>
 </ng-template>

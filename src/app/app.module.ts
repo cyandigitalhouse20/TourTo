@@ -1,5 +1,5 @@
 import { RepositoryService, FlightService, LanguageService, MenuService, StaticDataService } from './_services';
-import { HotelsResultComponent, HotelsComponent, HotelsPaymentComponent, HotleDetailsComponent, HotelsFilterComponent, HeaderComponent, HeaderMobileComponent, HeaderWebComponent, MenuLinksComponent, HomeComponent, FooterComponent, HomeExperienceComponent, HomePackagesComponent, FlightsComponent, FlightMultiCityComponent, FlightRoundTripComponent, FlightOneWayComponent, FlightResultComponent, FlightFilterComponent, FlightDetailsComponent, FlightPaymentComponent, FlightTypeSelectComponent, FlightTripSummaryComponent } from './_components';
+import { HotelsResultComponent, HotelsComponent, HotelsPaymentComponent, HotleDetailsComponent, HotelsFilterComponent, HeaderComponent, HeaderMobileComponent, HeaderWebComponent, MenuLinksComponent, HomeComponent, FooterComponent, HomeExperienceComponent, HomePackagesComponent, FlightsComponent, FlightMultiCityComponent, FlightRoundTripComponent, FlightOneWayComponent, FlightResultComponent, FlightFilterComponent, FlightDetailsComponent, FlightPaymentComponent, FlightTypeSelectComponent, FlightTripSummaryComponent, LoadComponent } from './_components';
 import { AppComponent } from './app.component';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
@@ -20,13 +20,11 @@ import { TypeaheadModule } from 'ngx-bootstrap/typeahead';
 import { AppRoutingModule } from './app-routing.module';
 import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
-import { LoadComponent } from './_components/load/load.component';
-// import { defineLocale } from 'ngx-bootstrap/chronos';
-// import { enGbLocale } from 'ngx-bootstrap/locale';
+
 export function HttpLoaderFactory(httpClient: HttpClient) {
   return new TranslateHttpLoader(httpClient);
 }
-// defineLocale('engb', enGbLocale);
+
 @NgModule({
   declarations: [
     AppComponent,

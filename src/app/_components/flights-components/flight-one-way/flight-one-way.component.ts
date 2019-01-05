@@ -3,7 +3,6 @@ import { StaticDataService, FlightService } from 'src/app/_services';
 import { HttpErrorResponse } from '@angular/common/http';
 import { City, FlightSearchOptionRoundOne } from 'src/app/_models';
 import { Router } from '@angular/router';
-// import { BsLocaleService } from 'ngx-bootstrap/datepicker';
 
 @Component({
   selector: 'app-flight-one-way',
@@ -16,7 +15,6 @@ export class FlightOneWayComponent implements OnInit {
   citiesTo: City[] = [];
 
   constructor(public staticDataService: StaticDataService, public flightService: FlightService, public router: Router) {
-    // this._localeService.use('engb');
     if (this.flightService.oneWayModel == undefined) {
       this.flightService.oneWayModel = new FlightSearchOptionRoundOne();
     }
@@ -60,7 +58,7 @@ export class FlightOneWayComponent implements OnInit {
   }
 
   search() {
-    this.flightService.IsCompleated = true;
+    this.flightService.isCompleated = true;
     this.flightService.numberOfChilds=this.flightService.oneWayModel.Children;
     this.flightService.numberOfAdult=this.flightService.oneWayModel.Adult;
     this.flightService.oneWayModel.DepartureDate = new Date(this.flightService.oneWayModel.Date).toLocaleDateString().toString().replace('/', '-').replace('/', '-');
@@ -76,7 +74,7 @@ export class FlightOneWayComponent implements OnInit {
 
     this.flightService.airLowFareSearch(this.flightService.oneWayModel).subscribe((data: any) => {
       this.flightService.flightsearchresult = data;
-      this.flightService.IsCompleated = false;
+      this.flightService.isCompleated = false;
       this.flightService.displayedFlightSearchResult = data.AirResultItineraries;
       this.flightService.sliderFilters.setCoastFilter(this.flightService.displayedFlightSearchResult[0].Amount, this.flightService.displayedFlightSearchResult[this.flightService.displayedFlightSearchResult.length - 1].Amount);
       this.flightService.sliderFilters.setDurationfiltervaliues(this.flightService.displayedFlightSearchResult.map(o => o.Routes).map(s => s.map(l => l.Duration)));

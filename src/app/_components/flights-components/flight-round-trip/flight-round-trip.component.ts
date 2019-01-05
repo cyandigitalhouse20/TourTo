@@ -3,8 +3,6 @@ import { StaticDataService, FlightService } from 'src/app/_services';
 import { HttpErrorResponse } from '@angular/common/http';
 import { FlightSearchOptionRoundOne, City } from 'src/app/_models';
 import { Router } from '@angular/router';
-import { LoadComponent } from '../../load/load.component';
-// import { BsLocaleService } from 'ngx-bootstrap/datepicker';
 
 @Component({
   selector: 'app-flight-round-trip',
@@ -17,7 +15,6 @@ export class FlightRoundTripComponent implements OnInit {
   citiesTo: City[] = [];
 
   constructor(public staticDataService: StaticDataService, public flightService: FlightService, public router: Router) {
-    // this._localeService.use('engb');
     if (this.flightService.roundTripModel == undefined) {
       this.flightService.roundTripModel = new FlightSearchOptionRoundOne();
     }
@@ -62,7 +59,7 @@ export class FlightRoundTripComponent implements OnInit {
   }
 
   search() {
-    this.flightService.IsCompleated = true;
+    this.flightService.isCompleated = true;
     this.flightService.numberOfChilds = this.flightService.roundTripModel.Children;
     this.flightService.numberOfAdult = this.flightService.roundTripModel.Adult;
     this.flightService.roundTripModel.DepartureDate = new Date(this.flightService.roundTripModel.Dates[0]).toLocaleDateString().toString().replace('/', '-').replace('/', '-');
@@ -78,7 +75,7 @@ export class FlightRoundTripComponent implements OnInit {
 
     this.flightService.airLowFareSearch(this.flightService.roundTripModel).subscribe((data: any) => {
       this.flightService.flightsearchresult = data;
-      this.flightService.IsCompleated = false;
+      this.flightService.isCompleated = false;
       this.flightService.displayedFlightSearchResult = data.AirResultItineraries;
       this.flightService.sliderFilters.setCoastFilter(this.flightService.displayedFlightSearchResult[0].Amount, this.flightService.displayedFlightSearchResult[this.flightService.displayedFlightSearchResult.length - 1].Amount);
       this.flightService.sliderFilters.setDurationfiltervaliues(this.flightService.displayedFlightSearchResult.map(o => o.Routes).map(s => s.map(l => l.Duration)));
@@ -89,7 +86,7 @@ export class FlightRoundTripComponent implements OnInit {
       this.flightService.flightTypeSearchResult = "roundTrip";
       this.flightService.showFlightsDetails = true;
     }, (err: HttpErrorResponse) => {
-      this.flightService.IsCompleated = true;
+      this.flightService.isCompleated = true;
       console.log(err.error.Message);
     });
   }

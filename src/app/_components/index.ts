@@ -1,3 +1,6 @@
+// load
+export * from './load/load.component';
+
 // hotel
 export * from './hotels-components/hotels/hotels.component';
 export * from './hotels-components/hotels-filter/hotels-filter.component';

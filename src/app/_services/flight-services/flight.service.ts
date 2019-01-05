@@ -4,7 +4,8 @@ import { RepositoryService } from '..';
 
 @Injectable()
 export class FlightService {
-  IsCompleated: boolean = false;
+
+  isCompleated: boolean;
   showFlightsDetails: boolean;
   multiCityFlightsNumber: number;
   numberOfAdult: number;

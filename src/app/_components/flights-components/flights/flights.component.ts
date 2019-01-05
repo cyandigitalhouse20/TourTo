@@ -13,8 +13,7 @@ export class FlightsComponent implements OnInit {
 
    }
 
-  ngOnInit() {
-    
+  ngOnInit() {    
     
   }
 
