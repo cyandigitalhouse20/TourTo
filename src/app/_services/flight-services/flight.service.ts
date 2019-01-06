@@ -5,7 +5,7 @@ import { RepositoryService } from '..';
 @Injectable()
 export class FlightService {
 
-  isCompleated: boolean;
+  isCompleated: boolean=true;
   showFlightsDetails: boolean;
   multiCityFlightsNumber: number;
   numberOfAdult: number;
@@ -21,7 +21,8 @@ export class FlightService {
   flightDetails: FlightDetails;
   sliderFilters: SliderFilter;
   displayedFlightSearchResult: AirResultItineraries[];
-
+  acceptTerms:boolean;
+  
   constructor(private repositoryService: RepositoryService) {
     this.sliderFilters = new SliderFilter();
   }

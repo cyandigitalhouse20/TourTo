@@ -17,6 +17,9 @@ export class HomeComponent implements OnInit {
   }
 
   ngOnInit() {
+
+    
+
     this.showFlights = true;
 
     if (this.languageService.currentLanguageId == null) {

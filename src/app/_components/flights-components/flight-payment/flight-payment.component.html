@@ -1,5 +1,4 @@
 <div class="home-img">
-
   <app-menu-links></app-menu-links>
   <app-header></app-header>
 
@@ -10,52 +9,163 @@
   <div id="left-details">
     <div class="row">
       <div class="col-md-2">
-
+          <div class="feature-container">
+              <div class="feature-title">
+                  Add<br>Features
+              </div>
+              
+              <div class="row">
+                      <button class="btn btn-feature-red"><img src="../assets/img/hotels.png"><br>Add Hotel</button>
+              </div>
+              <div class="row">
+                      <button class="btn btn-feature-green"><img src="../assets/img/flight.png"><br>Add flight</button>
+              </div>
+              <div class="row">
+                      <button class="btn btn-feature-orange"><img src="../assets/img/car.png"><br>Add car</button>
+              </div>
+              <div class="row">
+                      <button class="btn btn-feature-cyan"><img src="../assets/img/activities.png"><br>Add<br>activities</button>
+              </div>
+          </div>
       </div>
       <div class="col-md-10">
         <h3 class="dark-gray">Review your trip</h3>
         <p class="blue">Nice Job! You picked one of our cheapest flights </p>
         <div class="result-container">
           <div class="row">
-
+       <form>
             <div *ngFor="let passenger of passengers; let i=index">
               <div class="col-md-12">
-                <a type="button" class="btn " (click)="passenger.isCollapsed = !passenger.isCollapsed" [attr.aria-expanded]="!passenger.isCollapsed"
-                  aria-controls="collapseBasic" style="width:100%; padding: 15px;"><span class="fl blue"> <b>Passenger
+                <a type="button" class="btn " (click)="passenger.isCollapsed = !passenger.isCollapsed"
+                  [attr.aria-expanded]="!passenger.isCollapsed" aria-controls="collapseBasic" style="width:100%; padding: 15px;"><span
+                    class="fl blue"> <b>Passenger
                       {{i+1}}</b></span> <span class="glyphicon fr drop-arrow" [class.glyphicon-menu-up]="!passenger.isCollapsed"
                     [class.glyphicon-menu-down]="passenger.isCollapsed" aria-hidden="true"></span>
                 </a>
 
+
+
                 <div id="collapseBasic" [collapse]="!passenger.isCollapsed" class="card card-block card-header">
                   <div class="form-group col-md-4">
-                    <input [(ngModel)]="passenger.FirstName" class="form-control"  placeholder="First name">
+
+                    <ngx-select-dropdown [multiple]="false" [(ngModel)]="passenger.Title" [config]="config" [options]="titleOptions"></ngx-select-dropdown>
                   </div>
                   <div class="form-group col-md-4">
-                    <input  class="form-control"  placeholder="Middle name">
-                  </div>
-                  <div class="form-group col-md-4">
-                    <input  [(ngModel)]="passenger.LastName"  class="form-control"  placeholder="Last name">
-                  </div>
-                  <div class="form-group col-md-12">
-                    <input  [(ngModel)]="passenger.Phone"   class="form-control"  placeholder="Phone number">
-                  </div>
-                  <div class="form-group col-md-12">
-                    <input  class="form-control"  placeholder="Passport">
+                    <input [(ngModel)]="passenger.FirstName" name="FirstName" #FirstName="ngModel"  required class="form-control" placeholder="First name">
+                  
+                    <div *ngIf="FirstName.invalid && (FirstName.dirty || FirstName.touched)"
+                    class="alert alert-danger">
+                
+                  <!-- <div *ngIf="FirstName.errors.required">
+                      FirstName is required.
+                  </div> -->
+                
+                </div>
                   </div>
 
+                  <div class="form-group col-md-4">
+                    <input [(ngModel)]="passenger.LastName" name="LastName" #LastName="ngModel"  required class="form-control" placeholder="Last name">
+                    <div *ngIf="LastName.invalid && (LastName.dirty || LastName.touched)"
+                    class="alert alert-danger">
+                
+                  <!-- <div *ngIf="LastName.errors.required">
+                    LastName is required.
+                  </div> -->
+                
+                </div>
+                  </div>
+                  <div class="form-group col-md-12">
+                    <input [(ngModel)]="passenger.Phone" class="form-control" placeholder="Phone number">
+                  </div>
+                    <div class="form-group col-md-12">
+                      <input [(ngModel)]="passenger.Email"  class="form-control" placeholder="Email">
+                    </div>
+                  <div class="form-group  col-md-3 ">
+                    <input type="text" [(ngModel)]="passenger.BirthDate" name="Date" #Date placeholder="BirthDate"
+                      class="form-control" bsDatepicker>
+                  </div>
+                  <div class="form-group col-md-4">
+                    <ngx-select-dropdown  name="passgType" #passgType="ngModel" required [multiple]="false" [(ngModel)]="passenger.Type" [config]="config2" [options]="typeOptions"></ngx-select-dropdown>
+                    <div *ngIf="passgType.invalid && (passgType.dirty || passgType.touched)"
+                    class="alert alert-danger">
+                
+                  <!-- <div *ngIf="passgType.errors.required">
+                    Type is required.
+                  </div> -->
+                
+                </div>
+                  </div>
+
+
+                  <!-- If “IdentificationDocument” has attribute “Required” value “true” -->
+
+
+
+                  <div *ngIf="this.flightservice.flightDetails.offerConfigurationField.identificationDocumentField.requiredField">
+                    <div class="form-group col-md-4">
+
+                      <ngx-select-dropdown [multiple]="false" [(ngModel)]="passenger.IdentificationDocument.Type"
+                        [config]="config3" [options]="identificationDocumentTypeOptions"></ngx-select-dropdown>
+                    </div>
+
+                    <div class="form-group col-md-12">
+                      <input [(ngModel)]="passenger.IdentificationDocument.Number" class="form-control" placeholder="The number of the identification document">
+                    </div>
+
+                    <div class="form-group  col-md-3 padding-rl5">
+                      <input type="text" [(ngModel)]="passenger.IdentificationDocument.ExpiryDate" name="Date" #Date
+                        placeholder="ExpiryDate" class="form-control" bsDatepicker>
+                    </div>
+
+                    <div class="form-group col-md-12">
+                      <input [(ngModel)]="passenger.IdentificationDocument.IssuingCountry" class="form-control"
+                        placeholder="IssuingCountry">
+                    </div>
+
+                    <div class="form-group col-md-12">
+                      <input [(ngModel)]="passenger.IdentificationDocument.PaxNationality" class="form-control"
+                        placeholder="PaxNationality">
+                    </div>
+                  </div>
+
+                  <div class="row" style="padding:15px;">
+                    <div class="col-md-12">
+                      <label class="check">
+                        <p class="orange"> Frequent Traveller Cards </p>
+                        <input type="checkbox" (change)="passenger.haveFrequent = !passenger.haveFrequent " >
+                        <span class="checkmark"></span>
+                      </label>
+                    </div>
+                  </div>
+
+                  <!-- if have Frequent Traveller Cards -->
+                  <div *ngIf="passenger.haveFrequent">
+                    <div class="form-group col-md-12">
+                      <input [(ngModel)]="passenger.FrequentTravellerCards.AirlineCode" class="form-control"
+                        placeholder="Frequent traveller card airline code.">
+                    </div>
+
+                    <div class="form-group col-md-12">
+                      <input [(ngModel)]="passenger.FrequentTravellerCards.Number" class="form-control" placeholder="Frequent traveller card number.">
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
 
+          </form>
           </div>
+
+
           <div class="row" style="padding:15px;">
             <div class="col-md-12">
               <h5>Seat selections are requested from the airline, but cannot be guaranteed.</h5>
 
               <button type="button" class="btn btn-orange" (click)="openModalWithClass(template)">Seat preference</button>
               <br>
-
+        
               <ng-template #template>
+
                 <div class="modal-header">
                   <h4 class="modal-title pull-left">Seat preference</h4>
                   <button type="button" class="close pull-right" aria-label="Close" (click)="modalRef.hide()">
@@ -67,78 +177,41 @@
                     <div class="col-md-8">
                       <h4 class="blue">Select your Seat</h4>
                       <div class="form-group">
-                        <select class="form-control ">
-                          <option>Any seat</option>
-                          <option>Window</option>
-                          <option>Aisle</option>
-
-                        </select>
+                          <ngx-select-dropdown [multiple]="false" [(ngModel)]="selectedSeat"
+                          [config]="config4" [options]="seatOptions" (change)="SetPassengerSeat()"></ngx-select-dropdown>
                       </div>
                       <div class="plane-iframe"></div>
                     </div>
                     <div class="col-md-4 borderd-left">
-                      <h4 class="blue">Passenger 1</h4>
+                        
+                      <h4 class="blue" >Passenger {{PassengerNumber}}</h4>
                       <p>When you're traveling with a companion. Airlines often book middle seats last, so there's a
                         better chance of ending up with an open middle seat when one of you is booked on the window and
                         the other on the aisle. If you don't want to get bumped by </p>
-                      <button type="button" class="btn btn-orange btn-block">
+                      <button type="button"  (click)="NextPassanger()" class="btn btn-orange btn-block">
                         Next
                       </button>
-                      <button type="button" class="btn btn-orange btn-block">
-                        Next
+                      <button type="button" class="btn btn-orange btn-block" (click)="PreviuosPassanger()">
+                        Previous
                       </button>
                     </div>
                   </div>
                 </div>
               </ng-template>
 
-              <div class="clearfix"></div>
-              <h4 class="fl dark-gray"><b>DXB</b> to <b>AMS</b></h4>
-              <h4 class="fr orange"><b>Any</b> </h4>
-
-
+       
 
             </div>
           </div>
-          <div class="row" style="padding:15px;">
-            <div class="col-md-12">
-              <button  type="button" class="btn btn-orange">
-                Select meal
-              </button>
-              <div class="clearfix"></div>
-              <h4 class="fl dark-gray"><b>PASSENGER 1</b> </h4>
-              <h4 class="fr orange"><b>Vegan</b> </h4>
-            </div>
-          </div>
+         
+        
           <div class="row" style="padding:15px;">
 
             <div class="col-md-12">
-              <h4 class="blue"><b>Frequent flight </b></h4>
-              <div class="form-group">
-                <select class="form-control ">
-                  <option>Egypt Air</option>
-                  <option>KLM</option>
-                  <option>Nile Air</option>
-
-                </select>
-              </div>
-              <div class="form-group">
-                <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Frequent number">
-              </div>
-
-            </div>
-          </div>
-          <div class="row" style="padding:15px;">
-
-            <div class="col-md-12">
-              <h4 class="blue"><b>Special assistance </b></h4>
-              <div class="form-group">
-                <select class="form-control ">
-                  <option>Blind with guide dog</option>
-                  <option>Blind with guide dog</option>
-                  <option>Blind with guide dog</option>
-
-                </select>
+              <h4 class="blue"><b>Comments</b></h4>
+              
+                  <div class="form-group col-md-12">
+                      <textarea class="form-control" rows="3" placeholder="Comments"></textarea>
               </div>
               <p>Please contact the airline to confirm special assistance requests.</p>
             </div>
@@ -154,7 +227,7 @@
                   and Government Travel Advice Opens in a new window..
 
                 </p>
-                <input type="checkbox" checked="checked">
+                <input type="checkbox" required checked="checked" [(ngModel)]="this.flightservice.acceptTerms">
                 <span class="checkmark"></span>
               </label>
 
@@ -207,7 +280,7 @@
 
             </div>
           </div>
-
+          <button type="button" class="btn btn-orange" (click)="Resrve()">Test Go</button>
         </div>
       </div>
     </div>

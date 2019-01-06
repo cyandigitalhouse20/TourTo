@@ -1,6 +1,6 @@
 /* You can add global styles to this file, and also import other style files */
 
-
+@import "../node_modules/ngx-select-dropdown/dist/assets/style.css";
 
 body{
     background-image: url(/assets/img/bg.jpg);
@@ -11,45 +11,16 @@ body{
 
 
 .home-main-container{
-    height: 860px;
+    height: 100vh;
 }
 
 .home-slider{
     position: absolute;
     width: 100%;
-    height: 870px;
+    height: 100vh;
     overflow: hidden;
     z-index: -1;
 }
-
-@media(max-width:991px){
-    .home-slider{
-        position: absolute;
-        width: 100%;
-        height: 1100px;
-        overflow: hidden;
-    }
-    .home-main-container{
-        height: 1100px;
-    }
-}
-
-@media(max-width:767px){
-    .home-slider{
-        position: absolute;
-        width: 100%;
-        height: 900px;
-        overflow: hidden;
-    }
-    .home-main-container{
-        height: auto;
-    }
-   
-}
-
-
-
-
 
 
 .btn-green {
@@ -464,7 +435,7 @@ a:hover{
     width: 100%;
     height: 1px;
     background-color: #587d8f;
-    margin: 100px 0 -51px 0;
+    margin: 50px 0 -51px 0;
 }
 
 
@@ -486,14 +457,14 @@ a:hover{
 
 .home-head1{
     color: #f8af00;
-    font-size: 32px;
-    margin-top: 30px;
+    font-size: 30px;
+    margin-top: 20px;
 }
 
 .home-head2{
     color: #fff;
     font-size: 48px;
-    margin-top: 15px;
+    margin-top: 10px;
 
 }
 
@@ -598,14 +569,14 @@ a:hover{
     box-shadow: 0px 0px 7px 0px rgba(0,0,0,0.21);
 }
 
-::-webkit-scrollbar
+/* ::-webkit-scrollbar
 {
     width:0px;
 }
 ::-webkit-scrollbar-track-piece
 {
     background-color:transparent;
-}
+} */
 
 
 .row {
@@ -1527,3 +1498,177 @@ box-shadow: 0px 0px 7px 0px rgba(0,0,0,0.21);
     display: flex;
     flex-direction: column;
   }
+
+  
+
+
+
+.feature-title{
+    width: 80px;
+    background-color: #0d4669;
+    color: #fff;
+    text-align: center;
+    padding: 15px 5px;
+    border-top-right-radius:  8px;
+    border-top-left-radius:  8px;
+}
+
+
+
+.feature-container{
+    position: fixed;
+    
+    
+}
+
+
+
+.btn-feature-orange{
+    width: 90px;
+    margin-bottom: 1px;
+    background-color: #f8af00;
+    color: #fff;
+    text-align: center;
+    padding: 15px 5px;
+    border: 0;
+    border-radius:0; 
+    border-right:10px solid #fff;
+    border-top-right-radius:  8px;
+    border-bottom-right-radius:  8px;
+    transition: ease 0.3s;
+}
+.btn-feature-green{
+    width: 90px;
+    margin-bottom: 1px;
+    background-color: #bad550;
+    color: #fff;
+    text-align: center;
+    padding: 15px 5px;
+    border: 0;
+    border-radius:0; 
+    border-right:10px solid #fff;
+    border-top-right-radius:  8px;
+    border-bottom-right-radius:  8px;
+    transition: ease 0.3s;
+}
+.btn-feature-cyan{
+    width: 90px;
+    margin-bottom: 1px;
+    background-color: #59c6d3;
+    color: #fff;
+    text-align: center;
+    padding: 15px 5px;
+    border: 0;
+    border-radius:0; 
+    border-right:10px solid #fff;
+    border-top-right-radius:  8px;
+    border-bottom-right-radius:  8px;
+    transition: ease 0.3s;
+}
+.btn-feature-red{
+    width: 90px;
+    margin-bottom: 1px;
+    background-color: #f27b6c;
+    color: #fff;
+    text-align: center;
+    padding: 15px 5px;
+    border: 0;
+    border-radius:0; 
+    border-right:10px solid #fff;
+    border-top-right-radius:  8px;
+    border-bottom-right-radius:  8px;
+    transition: ease 0.3s;
+}
+
+.btn-feature-green:hover{
+    width: 150px;
+    margin-bottom: 1px;
+    background-color: #0d4669;
+    color: #fff;
+    text-align: center;
+    padding: 15px 5px;
+    border: 0;
+    border-radius:0; 
+    border-right:10px solid #bad550;
+    border-top-right-radius:  8px;
+    border-bottom-right-radius:  8px;
+    transition: ease 0.3s;
+}
+.btn-feature-orange:hover{
+    width: 150px;
+    margin-bottom: 1px;
+    background-color: #0d4669;
+    color: #fff;
+    text-align: center;
+    padding: 15px 5px;
+    border: 0;
+    border-radius:0; 
+    border-right:10px solid #f8af00;
+    border-top-right-radius:  8px;
+    border-bottom-right-radius:  8px;
+    transition: ease 0.3s;
+}
+.btn-feature-red:hover{
+    width: 150px;
+    margin-bottom: 1px;
+    background-color: #0d4669;
+    color: #fff;
+    text-align: center;
+    padding: 15px 5px;
+    border: 0;
+    border-radius:0; 
+    border-right:10px solid #f27b6c;
+    border-top-right-radius:  8px;
+    border-bottom-right-radius:  8px;
+    transition: ease 0.3s;
+}
+.btn-feature-cyan:hover{
+    width: 150px;
+    margin-bottom: 1px;
+    background-color: #0d4669;
+    color: #fff;
+    text-align: center;
+    padding: 15px 5px;
+    border: 0;
+    border-radius:0; 
+    border-right:10px solid #59c6d3;
+    border-top-right-radius:  8px;
+    border-bottom-right-radius:  8px;
+    transition: ease 0.3s;
+}
+
+.modal-header2{
+    background-color: #f2af01;
+    color: white;
+
+}
+
+.close2{
+    color: white;
+    opacity: 1;
+    transition: ease 0.3s;
+}
+
+
+.btn-tab-personal{
+    padding: 20px;
+    -webkit-box-shadow: 0px 0px 7px 0px rgba(0,0,0,0.21);
+    -moz-box-shadow: 0px 0px 7px 0px rgba(0,0,0,0.21);
+    box-shadow: 0px 0px 7px 0px rgba(0,0,0,0.21);
+    background: #fff;
+    color: #f8af00;
+    border-top-right-radius:  8px;
+    border-top-left-radius:  8px;
+    font-size: 16px;
+    transition: ease 0.3s;
+}
+
+
+.btn-tab-personal:hover, .btn-tab-personal.active {
+    padding: 20px;
+    -webkit-box-shadow: 0px 0px 7px 0px rgba(0,0,0,0.21);
+    -moz-box-shadow: 0px 0px 7px 0px rgba(0,0,0,0.21);
+    box-shadow: 0px 0px 7px 0px rgba(0,0,0,0.21);
+    background: #f8af00;
+    color: #fff;
+}

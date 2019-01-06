@@ -59,36 +59,12 @@ export class FlightRoundTripComponent implements OnInit {
   }
 
   search() {
-    this.flightService.isCompleated = true;
-    this.flightService.numberOfChilds = this.flightService.roundTripModel.Children;
-    this.flightService.numberOfAdult = this.flightService.roundTripModel.Adult;
+    localStorage.removeItem('RequestId');
+     this.flightService.isCompleated = false;
     this.flightService.roundTripModel.DepartureDate = new Date(this.flightService.roundTripModel.Dates[0]).toLocaleDateString().toString().replace('/', '-').replace('/', '-');
     this.flightService.roundTripModel.ReturnDate = new Date(this.flightService.roundTripModel.Dates[1]).toLocaleDateString().toString().replace('/', '-').replace('/', '-');
-    this.flightService.roundTripModel.LangId = 2;
-    this.flightService.roundTripModel.Page = 0;
-    this.flightService.roundTripModel.PageItemCount = 0;
-    this.flightService.roundTripModel.FlexDates = true;
-    this.flightService.roundTripModel.FlightType = "1";
-    this.flightService.roundTripModel.IsNewRequest = true;
-    this.flightService.roundTripModel.Class = "Economy";
-    this.flightService.roundTripModel.RequestId = "null";
 
-    this.flightService.airLowFareSearch(this.flightService.roundTripModel).subscribe((data: any) => {
-      this.flightService.flightsearchresult = data;
-      this.flightService.isCompleated = false;
-      this.flightService.displayedFlightSearchResult = data.AirResultItineraries;
-      this.flightService.sliderFilters.setCoastFilter(this.flightService.displayedFlightSearchResult[0].Amount, this.flightService.displayedFlightSearchResult[this.flightService.displayedFlightSearchResult.length - 1].Amount);
-      this.flightService.sliderFilters.setDurationfiltervaliues(this.flightService.displayedFlightSearchResult.map(o => o.Routes).map(s => s.map(l => l.Duration)));
-      
-      if (this.router.url != "/flights") {
-        this.router.navigate(['/flights']);
-      }
-      this.flightService.flightTypeSearchResult = "roundTrip";
-      this.flightService.showFlightsDetails = true;
-    }, (err: HttpErrorResponse) => {
-      this.flightService.isCompleated = true;
-      console.log(err.error.Message);
-    });
+    this.router.navigate(['/flights'+'/1'+'/Economy'+'/false'+'/'+this.flightService.roundTripModel.Adult+'/'+this.flightService.roundTripModel.Children+'/true'+'/'+this.flightService.roundTripModel.OriginCityId+'/'+this.flightService.roundTripModel.DestinationCityId+'/'+this.flightService.roundTripModel.DepartureDate+'/'+ this.flightService.roundTripModel.ReturnDate]);
   }
 
 }

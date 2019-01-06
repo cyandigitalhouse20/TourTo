@@ -10,6 +10,24 @@
   <div id="left-details">
     <div class="row">
       <div class="col-md-2">
+          <div class="feature-container">
+              <div class="feature-title">
+                  Add<br>Features
+              </div>
+              
+              <div class="row">
+                      <button class="btn btn-feature-red"><img src="../assets/img/hotels.png"><br>Add Hotel</button>
+              </div>
+              <div class="row">
+                      <button class="btn btn-feature-green"><img src="../assets/img/flight.png"><br>Add flight</button>
+              </div>
+              <div class="row">
+                      <button class="btn btn-feature-orange"><img src="../assets/img/car.png"><br>Add car</button>
+              </div>
+              <div class="row">
+                      <button class="btn btn-feature-cyan"><img src="../assets/img/activities.png"><br>Add<br>activities</button>
+              </div>
+          </div>
       </div>
       <div class="col-md-10">
         <h3 class="dark-gray">Review your trip</h3>
@@ -17,11 +35,11 @@
         <div class="result-container">
           <div class="flite-container">
             <div class="col-md-12  padding-0  ">
-              <div *ngFor="let Route of this.flightservice.selectedItenartyData[0].Routes; let i = index">
-                <div *ngIf="this.flightservice.flightType=='multiCity';else   OneWayAndRoundTrip">
+              <div *ngFor="let Route of this.flightService.selectedItenartyData[0].Routes; let i = index">
+                <div *ngIf="this.flightService.flightType=='multiCity';else   OneWayAndRoundTrip">
                   <div class="row padding-0 ">
                     <div class="row margin-0  overflow" style="margin-bottom: -5px;">
-                      <div *ngIf="i=='0'">
+                      <div *ngIf="i == 0">
                         <div class="diagonal2">
                           <h4 style="margin: 3px;"><img src="../assets/img/fly from  copy.png"> Depature</h4>
                         </div>
@@ -72,7 +90,7 @@
                 <ng-template #OneWayAndRoundTrip>
                   <div class="row padding-0 ">
                     <div class="row margin-0  overflow" style="margin-bottom: -5px;">
-                      <div *ngIf="i=='0';else retunTemplate">
+                      <div *ngIf="i==0;else retunTemplate">
                         <div class="diagonal2">
                           <h4 style="margin: 3px;"><img src="../assets/img/fly from  copy.png"> Depature</h4>
                         </div>
@@ -140,8 +158,8 @@
               </div>
             </div>
             <div id="collapseBasic" [collapse]="!isCollapsed" class="card card-block card-header">
-              <div *ngFor="let Route of this.flightservice.selectedItenartyData[0].Routes; let i = index">
-                <div *ngIf="this.flightservice.flightType=='multiCity';else   OneWayAndRoundTripDetails">
+              <div *ngFor="let Route of this.flightService.selectedItenartyData[0].Routes; let i = index">
+                <div *ngIf="this.flightService.flightType=='multiCity';else   OneWayAndRoundTripDetails">
                   <div class="row margin-0 borderd-top">
                     <div class="col-md-12 ">
 
@@ -192,7 +210,7 @@
                 <ng-template #OneWayAndRoundTripDetails>
                   <div class="row margin-0 borderd-top">
                     <div class="col-md-12 ">
-                      <div *ngIf="i=='0';else retunDetailsTemplate">
+                      <div *ngIf="i==0;else retunDetailsTemplate">
                         <div _ngcontent-c5="">
                           <h4 _ngcontent-c5="" class="fl">
 

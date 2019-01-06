@@ -2,9 +2,9 @@
   <div class="row">
     <div class="col-sm-10">
 
-      <h3 *ngIf="flightservice.flightTypeSearchResult=='roundTrip'" class="dark-gray">Select your departure to {{flightservice.roundTripModel.DestinationCity}} {{flightservice.roundTripModel.Dates[0] | date:'EEE, MMM d'}}</h3>
+      <h3 *ngIf="flightservice.flightTypeSearchResult=='roundTrip'" class="dark-gray">Select your departure to {{flightservice.roundTripModel.DestinationCity}} {{flightservice.roundTripModel.DepartureDate | date:'EEE, MMM d'}}</h3>
 
-        <h3 *ngIf="flightservice.flightTypeSearchResult=='oneWay'" class="dark-gray">Select your departure to {{flightservice.oneWayModel.DestinationCity}} {{flightservice.oneWayModel.Date | date:'EEE, MMM d'}}</h3>
+        <h3 *ngIf="flightservice.flightTypeSearchResult=='oneWay'" class="dark-gray">Select your departure to {{flightservice.oneWayModel.DestinationCity}} {{flightservice.oneWayModel.DepartureDate | date:'EEE, MMM d'}}</h3>
 
       <p class="blue">Prices are roundtrip per person, include al taxes and fees, but do not include baggage fees. </p>
       <div class="col-md-12 visible-sm visible-xs">
@@ -30,7 +30,7 @@
                 <div *ngIf="this.flightservice.flightType=='multiCity';else   OneWayAndRoundTrip">
                   <div class="row padding-0 ">
                     <div class="row margin-0  overflow" style="margin-bottom: -5px;">
-                      <div *ngIf="i=='0'">
+                      <div  *ngIf="i==0">
                         <div class="diagonal2">
                           <h4 style="margin: 3px;"><img src="../assets/img/fly from  copy.png"> Depature</h4>
                         </div>
@@ -79,7 +79,7 @@
                 <ng-template #OneWayAndRoundTrip>
                   <div class="row padding-0 ">
                     <div class="row margin-0  overflow" style="margin-bottom: -5px;">
-                      <div *ngIf="i=='0';else retunTemplate">
+                      <div *ngIf="i==0;else retunTemplate">
                         <div class="diagonal2">
                           <h4 style="margin: 3px;"><img src="../assets/img/fly from  copy.png"> Depature</h4>
                         </div>
@@ -143,8 +143,8 @@
               <div class="col-sm-12">
                   <a type="button " class="btn" type="submit" (click)="item.DetailsCollapse = !item.DetailsCollapse" [attr.aria-expanded]="!item.DetailsCollapse" aria-controls="collapseBasic">
                       <span class=" blue" style="margin:5px;"> <b>FLIGHT DETAILS</b></span>
-                      <span class="glyphicon fr drop-arrow" [class.glyphicon-menu-up]="isCollapsed"
-                          [class.glyphicon-menu-down]="!isCollapsed" aria-hidden="true"  ></span>
+                      <span class="glyphicon fr drop-arrow" [class.glyphicon-menu-up]="item.DetailsCollapse"
+                          [class.glyphicon-menu-down]="!item.DetailsCollapse" aria-hidden="true"  ></span>
                   </a> </div>
           </div>
         </div>
@@ -205,7 +205,7 @@
                 <ng-template #OneWayAndRoundTripDetails>
                     <div class="row margin-0 borderd-top">
                         <div class="col-md-12 ">
-                          <div *ngIf="i=='0';else retunDetailsTemplate">
+                          <div *ngIf="i==0;else retunDetailsTemplate">
                             <div _ngcontent-c5="">
                               <h4 _ngcontent-c5="" class="fl">
                               

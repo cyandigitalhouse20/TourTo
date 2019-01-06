@@ -1,11 +1,10 @@
-<div *ngIf="flightService.isCompleated;else flight_content">
+<div *ngIf="!flightService.isCompleated;else flight_content">
     <app-load></app-load>
 </div>
 
 <ng-template #flight_content>
     <div *ngIf="router.url === '/home' ||router.url === '/';else flight_content" class="container ">
         <app-flight-type-select></app-flight-type-select>
-
     </div>
     <ng-template #flight_content>
         <div class="home-img">

@@ -1,3 +1,6 @@
+import { from } from 'rxjs';
+
+
 // load
 export * from './load/load.component';
 
@@ -31,3 +34,10 @@ export * from './flights-components/flight-round-trip/flight-round-trip.componen
 export * from './flights-components/flights/flights.component';
 export * from './flights-components/flight-type-select/flight-type-select.component';
 export * from './flights-components/flight-trip-summary/flight-trip-summary.component';
+
+
+// profile
+export * from './profile-components/history/history.component';
+export * from './profile-components/login/login.component';
+export * from './profile-components/personal/personal.component';
+export * from './profile-components/register/register.component';

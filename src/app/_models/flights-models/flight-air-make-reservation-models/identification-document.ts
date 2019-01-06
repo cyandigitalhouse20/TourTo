@@ -4,5 +4,7 @@ export class IdentificationDocument {
     IssuingCountry:string;
     PaxNationality:string;
     Type:string;
+
+
 }
 

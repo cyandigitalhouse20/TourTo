@@ -9,10 +9,10 @@ import { FlightService } from 'src/app/_services';
 
 export class FlightDetailsComponent implements OnInit {
   isCollapsed = false;
-  constructor( public flightservice: FlightService) { }
+  constructor( public flightService: FlightService) { }
 
   ngOnInit() {
-    
+    this.flightService.acceptTerms=true;
   }
 
 }

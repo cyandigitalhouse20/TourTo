@@ -13,6 +13,7 @@ import { Router } from '@angular/router';
 export class FlightResultComponent implements OnInit {
   modalRef: BsModalRef;
   p:any;
+  
   constructor(public modalService: BsModalService, public flightservice: FlightService, public router: Router) { }
 
   ngOnInit() {

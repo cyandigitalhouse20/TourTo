@@ -84,11 +84,16 @@
                     NOn Refundable
                 </p>
             </ng-template>
+
+
             <div class="row text-center">
-                <button class="btn btn-orange" (click)="continueBooking()">Continue Booking</button>
+                <div *ngIf="this.flightservice.acceptTerms;else disabledButtton">
+                    <button class="btn btn-orange" (click)="continueBooking()">Continue Booking</button>
+                </div>
+                <ng-template #disabledButtton>
+                    <button class="btn btn-orange" disabled>Continue Booking</button>
+                </ng-template>
             </div>
-
-
         </div>
     </div>
 </div>

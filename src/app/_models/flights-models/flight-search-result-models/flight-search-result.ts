@@ -11,4 +11,6 @@ export class Flightsearchresult {
     MinDuration: string;
     MaxDuration: string;
     AirResultItineraries: AirResultItineraries[];
+
+    DetailsCollapse:boolean;
 }

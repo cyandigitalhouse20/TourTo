@@ -1,5 +1,5 @@
 import { RepositoryService, FlightService, LanguageService, MenuService, StaticDataService } from './_services';
-import { HotelsResultComponent, HotelsComponent, HotelsPaymentComponent, HotleDetailsComponent, HotelsFilterComponent, HeaderComponent, HeaderMobileComponent, HeaderWebComponent, MenuLinksComponent, HomeComponent, FooterComponent, HomeExperienceComponent, HomePackagesComponent, FlightsComponent, FlightMultiCityComponent, FlightRoundTripComponent, FlightOneWayComponent, FlightResultComponent, FlightFilterComponent, FlightDetailsComponent, FlightPaymentComponent, FlightTypeSelectComponent, FlightTripSummaryComponent, LoadComponent } from './_components';
+import { HotelsResultComponent, HotelsComponent, HotelsPaymentComponent, HotleDetailsComponent, HotelsFilterComponent, HeaderComponent, HeaderMobileComponent, HeaderWebComponent, MenuLinksComponent, HomeComponent, FooterComponent, HomeExperienceComponent, HomePackagesComponent, FlightsComponent, FlightMultiCityComponent, FlightRoundTripComponent, FlightOneWayComponent, FlightResultComponent, FlightFilterComponent, FlightDetailsComponent, FlightPaymentComponent, FlightTypeSelectComponent, FlightTripSummaryComponent, LoadComponent, HistoryComponent, LoginComponent, PersonalComponent, RegisterComponent } from './_components';
 import { AppComponent } from './app.component';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
@@ -20,6 +20,8 @@ import { TypeaheadModule } from 'ngx-bootstrap/typeahead';
 import { AppRoutingModule } from './app-routing.module';
 import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
+import { SelectDropDownModule } from 'ngx-select-dropdown';
+import { CustomFormsModule } from 'ng2-validation';
 
 export function HttpLoaderFactory(httpClient: HttpClient) {
   return new TranslateHttpLoader(httpClient);
@@ -51,7 +53,11 @@ export function HttpLoaderFactory(httpClient: HttpClient) {
     FlightPaymentComponent,
     FlightTypeSelectComponent,
     FlightTripSummaryComponent,
-    LoadComponent
+    LoadComponent,
+    HistoryComponent,
+    LoginComponent,
+    PersonalComponent,
+    RegisterComponent
   ],
   imports: [
     TranslateModule.forRoot({
@@ -76,7 +82,8 @@ export function HttpLoaderFactory(httpClient: HttpClient) {
     NgxPaginationModule,
     TypeaheadModule.forRoot(),
     AppRoutingModule,
-
+    SelectDropDownModule,
+    CustomFormsModule
   ],
   providers: [
     RepositoryService,

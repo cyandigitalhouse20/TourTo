@@ -21,6 +21,13 @@ export class FlightTripSummaryComponent implements OnInit {
     if (this.router.url == "/flight/details") {
       this.router.navigate(['/flight/payment']);
     }
+    else 
+    {
+      if(this.flightservice.acceptTerms)
+      alert("Success");
+     
+
+    }
   }
 
 }
