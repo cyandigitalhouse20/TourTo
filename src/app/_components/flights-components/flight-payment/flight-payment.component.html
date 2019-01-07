@@ -34,7 +34,7 @@
         <div class="result-container">
           <div class="row">
        <form>
-            <div *ngFor="let passenger of passengers; let i=index">
+            <div *ngFor="let passenger of flightservice.PassengerViewModel; let i=index">
               <div class="col-md-12">
                 <a type="button" class="btn " (click)="passenger.isCollapsed = !passenger.isCollapsed"
                   [attr.aria-expanded]="!passenger.isCollapsed" aria-controls="collapseBasic" style="width:100%; padding: 15px;"><span
@@ -48,50 +48,100 @@
                 <div id="collapseBasic" [collapse]="!passenger.isCollapsed" class="card card-block card-header">
                   <div class="form-group col-md-4">
 
-                    <ngx-select-dropdown [multiple]="false" [(ngModel)]="passenger.Title" [config]="config" [options]="titleOptions"></ngx-select-dropdown>
+                    <ngx-select-dropdown [multiple]="false" required name="title{{i}}"  #title="ngModel"  [(ngModel)]="passenger.Title" [config]="config" [options]="titleOptions"></ngx-select-dropdown>
+                    <div *ngIf="(title.invalid && (title.dirty || title.touched))|| passenger.Title=='' "
+                    class="alert alert-danger">
+                  <div *ngIf="title.errors.required">
+                      Passanger Title is required.
+                  </div>
+                </div>
                   </div>
                   <div class="form-group col-md-4">
-                    <input [(ngModel)]="passenger.FirstName" name="FirstName" #FirstName="ngModel"  required class="form-control" placeholder="First name">
+
+                    <input [(ngModel)]="passenger.FirstName" name="FirstName{{i}}" #FirstName="ngModel"  required class="form-control" placeholder="First name " > 
                   
-                    <div *ngIf="FirstName.invalid && (FirstName.dirty || FirstName.touched)"
+                    <div *ngIf="(FirstName.invalid && (FirstName.dirty || FirstName.touched)) || passenger.FirstName==''"
                     class="alert alert-danger">
                 
-                  <!-- <div *ngIf="FirstName.errors.required">
+                  <div *ngIf="FirstName.errors.required">
                       FirstName is required.
-                  </div> -->
+                  </div>
                 
                 </div>
                   </div>
 
                   <div class="form-group col-md-4">
-                    <input [(ngModel)]="passenger.LastName" name="LastName" #LastName="ngModel"  required class="form-control" placeholder="Last name">
-                    <div *ngIf="LastName.invalid && (LastName.dirty || LastName.touched)"
+                    <input [(ngModel)]="passenger.LastName" name="LastName{{i}}" #LastName="ngModel"  required class="form-control" placeholder="Last name">
+                    <div *ngIf="(LastName.invalid && (LastName.dirty || LastName.touched))|| passenger.LastName==''"
                     class="alert alert-danger">
                 
-                  <!-- <div *ngIf="LastName.errors.required">
+                  <div *ngIf="LastName.errors.required">
                     LastName is required.
-                  </div> -->
+                  </div>
                 
                 </div>
                   </div>
-                  <div class="form-group col-md-12">
-                    <input [(ngModel)]="passenger.Phone" class="form-control" placeholder="Phone number">
-                  </div>
+
+                  <div *ngIf="i==0 && this.flightservice.flightDetails.offerConfigurationField.contactDetailsField.requiredField; else EmailNotRequiredTemp">
                     <div class="form-group col-md-12">
-                      <input [(ngModel)]="passenger.Email"  class="form-control" placeholder="Email">
+                      <input [(ngModel)]="passenger.Phone" class="form-control" name="Phone{{i}}" #Phone="ngModel" required  placeholder="Phone number">
+                      <div *ngIf="(Phone.invalid && (Phone.dirty || Phone.touched)) || passenger.Phone==''"
+                      class="alert alert-danger">
+                  
+                    <div *ngIf="Phone.errors.required">
+                      Email is required.
                     </div>
+                  </div>
+  
+                    </div>
+                      <div class="form-group col-md-12">
+                        <input [(ngModel)]="passenger.Email"  name="Email{{i}}" #Email="ngModel"  required  class="form-control" placeholder="Email">
+                        <div *ngIf="(Email.invalid && (Email.dirty || Email.touched))|| passenger.Email==''"
+                        class="alert alert-danger">
+                    
+                      <div *ngIf="Email.errors.required">
+                        Phone is required.
+                      </div>
+                    
+                    </div>
+                      </div>
+                  </div>
+                  <ng-template #EmailNotRequiredTemp> 
+                    <div class="form-group col-md-12">
+                      <input [(ngModel)]="passenger.Phone" class="form-control" name="Phone{{i}}"   placeholder="Phone number">
+                  </div>
+  
+            
+                      <div class="form-group col-md-12">
+                        <input [(ngModel)]="passenger.Email"  name="Email{{i}}"   class="form-control" placeholder="Email">
+
+                      </div>
+                  </ng-template>
+                 
+
+
                   <div class="form-group  col-md-3 ">
-                    <input type="text" [(ngModel)]="passenger.BirthDate" name="Date" #Date placeholder="BirthDate"
+                    <input type="text" [(ngModel)]="passenger.BirthDate" required name="Date{{i}}"  #Date="ngModel"  placeholder="BirthDate"
                       class="form-control" bsDatepicker>
+                      <div *ngIf="(Date.invalid && (Date.dirty || Date.touched))|| passenger.BirthDate==''"
+                        class="alert alert-danger">
+                    
+                      <div *ngIf="Date.errors.required">
+                        BirthDate is required.
+                      </div>
+                    
+                    </div>
+
+                      
                   </div>
                   <div class="form-group col-md-4">
-                    <ngx-select-dropdown  name="passgType" #passgType="ngModel" required [multiple]="false" [(ngModel)]="passenger.Type" [config]="config2" [options]="typeOptions"></ngx-select-dropdown>
-                    <div *ngIf="passgType.invalid && (passgType.dirty || passgType.touched)"
+                    <ngx-select-dropdown  required name="Type{{i}}" #passgType="ngModel"  [multiple]="false" [(ngModel)]="passenger.Type" [config]="config2" [options]="typeOptions"></ngx-select-dropdown>
+                    <div *ngIf="(passgType.invalid && (passgType.dirty || passgType.touched))|| passenger.Type==''"
                     class="alert alert-danger">
                 
-                  <!-- <div *ngIf="passgType.errors.required">
-                    Type is required.
-                  </div> -->
+                
+                      Passanger Title is required.
+                
                 
                 </div>
                   </div>
@@ -99,9 +149,8 @@
 
                   <!-- If “IdentificationDocument” has attribute “Required” value “true” -->
 
-
-
-                  <div *ngIf="this.flightservice.flightDetails.offerConfigurationField.identificationDocumentField.requiredField">
+                   <div *ngIf="this.flightservice.flightDetails.offerConfigurationField.identificationDocumentField.requiredField">
+                 
                     <div class="form-group col-md-4">
 
                       <ngx-select-dropdown [multiple]="false" [(ngModel)]="passenger.IdentificationDocument.Type"
@@ -112,7 +161,7 @@
                       <input [(ngModel)]="passenger.IdentificationDocument.Number" class="form-control" placeholder="The number of the identification document">
                     </div>
 
-                    <div class="form-group  col-md-3 padding-rl5">
+                    <div class="form-group  col-md-3 ">
                       <input type="text" [(ngModel)]="passenger.IdentificationDocument.ExpiryDate" name="Date" #Date
                         placeholder="ExpiryDate" class="form-control" bsDatepicker>
                     </div>
@@ -126,8 +175,8 @@
                       <input [(ngModel)]="passenger.IdentificationDocument.PaxNationality" class="form-control"
                         placeholder="PaxNationality">
                     </div>
+                  
                   </div>
-
                   <div class="row" style="padding:15px;">
                     <div class="col-md-12">
                       <label class="check">
@@ -280,7 +329,7 @@
 
             </div>
           </div>
-          <button type="button" class="btn btn-orange" (click)="Resrve()">Test Go</button>
+         
         </div>
       </div>
     </div>

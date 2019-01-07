@@ -7,5 +7,9 @@ export class ServiceConfig {
     Comments:string;
     BackOfficeRemarks:string[];
     ResultCode:string;
+    protected static SInit = (() => {
+        ServiceConfig.prototype.FrequentTravellerCards =[];
+        ServiceConfig.prototype.Passengers = new ServiceConfigPassengers() ;
+    })();
 
 }
