@@ -11,6 +11,7 @@ import { Router } from '@angular/router';
 })
 export class FlightRoundTripComponent implements OnInit {
 
+
   citiesFrom: City[] = [];
   citiesTo: City[] = [];
 
@@ -58,13 +59,27 @@ export class FlightRoundTripComponent implements OnInit {
     }
   }
 
+  changeOption() 
+  {
+    if(this.flightService.roundTripModel.Children==0)
+    {
+      this.flightService.roundTripModel.searchOption=this.flightService.roundTripModel.Adult+" Adult / "+this.flightService.roundTripModel.Class;
+    }
+    else{
+      this.flightService.roundTripModel.searchOption=this.flightService.roundTripModel.Adult+" Adult / "+this.flightService.roundTripModel.Children
+      +" child / "+this.flightService.roundTripModel.Class;
+    }
+   
+  }
+
+
   search() {
     localStorage.removeItem('RequestId');
-     this.flightService.isCompleated = false;
+    this.flightService.isCompleated = false;
     this.flightService.roundTripModel.DepartureDate = new Date(this.flightService.roundTripModel.Dates[0]).toLocaleDateString().toString().replace('/', '-').replace('/', '-');
     this.flightService.roundTripModel.ReturnDate = new Date(this.flightService.roundTripModel.Dates[1]).toLocaleDateString().toString().replace('/', '-').replace('/', '-');
 
-    this.router.navigate(['/flights'+'/1'+'/Economy'+'/false'+'/'+this.flightService.roundTripModel.Adult+'/'+this.flightService.roundTripModel.Children+'/true'+'/'+this.flightService.roundTripModel.OriginCityId+'/'+this.flightService.roundTripModel.DestinationCityId+'/'+this.flightService.roundTripModel.DepartureDate+'/'+ this.flightService.roundTripModel.ReturnDate]);
+    this.router.navigate(['/flights' + '/1' + '/'+this.flightService.roundTripModel.Class + '/false' + '/' + this.flightService.roundTripModel.Adult + '/' + this.flightService.roundTripModel.Children + '/true' + '/' + this.flightService.roundTripModel.OriginCityId + '/' + this.flightService.roundTripModel.DestinationCityId + '/' + this.flightService.roundTripModel.DepartureDate + '/' + this.flightService.roundTripModel.ReturnDate]);
   }
 
 }

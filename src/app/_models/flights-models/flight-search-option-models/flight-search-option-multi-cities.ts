@@ -46,7 +46,7 @@ export class FlightSearchOptionMultiCities {
     Date5:Date;
     DepartureDate5:string;
 
-
+    searchOption: string;
     protected static SInit = (() => {
         FlightSearchOptionMultiCities.prototype.Adult = 1;
         FlightSearchOptionMultiCities.prototype.Children = 0;
@@ -61,5 +61,7 @@ export class FlightSearchOptionMultiCities {
         FlightSearchOptionMultiCities.prototype.Destination4 = "";
         FlightSearchOptionMultiCities.prototype.Origin5 = "";
         FlightSearchOptionMultiCities.prototype.Destination5 = "";
+        FlightSearchOptionMultiCities.prototype.searchOption = "1 Adult / Economy";
+        FlightSearchOptionMultiCities.prototype.Class = "Economy";
     })();
 }

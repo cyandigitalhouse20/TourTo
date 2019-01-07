@@ -5,51 +5,63 @@
     <!-- flight 1 -->
     <div class="row">
       <div class="form-group  col-md-3 padding-rl5">
-        <input [(ngModel)]="flightService.multiCitiesModel.Origin1" name="Origin1" #Origin1 [typeahead]="citiesFrom1"
+        <input autocomplete="off" [(ngModel)]="flightService.multiCitiesModel.Origin1" name="Origin1" #Origin1 [typeahead]="citiesFrom1"
           typeaheadOptionField="Name" class="form-control" placeholder="{{ 'FlightMultiCity.From' | translate }}"
           [typeaheadOptionsLimit]="7" [typeaheadMinLength]="0" (keyup)="updateCitiesFrom1($event)" (typeaheadOnSelect)="selectCity1($event,'from')">
       </div>
       <div class="form-group  col-md-3 padding-rl5">
-        <input [(ngModel)]="flightService.multiCitiesModel.Destination1" name="Destination1" #Destination1 [typeahead]="citiesTo1"
+        <input autocomplete="off"  [(ngModel)]="flightService.multiCitiesModel.Destination1" name="Destination1" #Destination1 [typeahead]="citiesTo1"
           typeaheadOptionField="Name" class="form-control" placeholder="{{ 'FlightMultiCity.To' | translate }}"
           [typeaheadOptionsLimit]="7" [typeaheadMinLength]="0" (keyup)="updateCitiesTo1($event)" (typeaheadOnSelect)="selectCity1($event,'To')">
       </div>
       <div class="form-group  col-md-3 padding-rl5">
-        <input type="text" [(ngModel)]="flightService.multiCitiesModel.Date1" name="Date1" #Date1 placeholder="{{ 'FlightMultiCity.DepartingTime' | translate }}"
+        <input autocomplete="off" type="text" [(ngModel)]="flightService.multiCitiesModel.Date1" name="Date1" #Date1 placeholder="{{ 'FlightMultiCity.DepartingTime' | translate }}"
           class="form-control" bsDatepicker>
       </div>
       <div class="form-group  col-md-3 padding-rl5">
-        <input class="form-control" placeholder="{{ 'FlightMultiCity.AdultEconomy' | translate }}" placement="bottom"
-          [popover]="popTemplate"[outsideClick]="true">
-        <ng-template #popTemplate>
-          <div class="form-group">
-            <label>{{ 'FlightMultiCity.Adult' | translate }}</label>
-            <input type="number" class="form-control plus" name="Adult" [(ngModel)]="flightService.multiCitiesModel.Adult"
-              #Adult placeholder="0">
-          </div>
-          <div class="form-group">
-            <label> {{ 'FlightMultiCity.Children' | translate }}</label>
-            <input type="number" class="form-control plus" name="Child" [(ngModel)]="flightService.multiCitiesModel.Children"
-              #Child placeholder="0">
-          </div>
-        </ng-template>
-      </div>
+
+          <input type="text" class="form-control" readonly placeholder="{{ 'FlightMultiCity.AdultEconomy' | translate }}"
+            [value]="flightService.multiCitiesModel.searchOption" placement="bottom" [popover]="popTemplate" [outsideClick]="true">
+    
+          <ng-template #popTemplate>
+            <div class="form-group">
+              <label>{{ 'FlightMultiCity.Adult' | translate }}</label>
+              <input autocomplete="off" type="number" class="form-control plus" (change)="changeOption()" name="Adult"
+                [(ngModel)]="flightService.multiCitiesModel.Adult" #Adult placeholder="0">
+            </div>
+            <div class="form-group">
+              <label> {{ 'FlightMultiCity.Children' | translate }}</label>
+              <input autocomplete="off" type="number" class="form-control plus" (change)="changeOption()" name="Child"
+                [(ngModel)]="flightService.multiCitiesModel.Children" #Child placeholder="0">
+            </div>
+            <div class="form-group">
+              <label> {{ 'FlightMultiCity.Class' | translate }}</label>
+              <select input class="form-control" (change)="changeOption()" name="Class" [(ngModel)]="flightService.multiCitiesModel.Class"
+                #Class="ngModel">
+                <option *ngFor="let class of flightService.Classes" [value]="class">
+                  {{class}}
+                </option>
+              </select>
+            </div>
+          </ng-template>
+    
+        </div>
     </div>
 
     <!-- flight 2 -->
     <div class="row">
       <div class="form-group  col-md-3 padding-rl5">
-        <input [(ngModel)]="flightService.multiCitiesModel.Origin2" name="Origin2" #Origin2 [typeahead]="citiesFrom2"
+        <input autocomplete="off" [(ngModel)]="flightService.multiCitiesModel.Origin2" name="Origin2" #Origin2 [typeahead]="citiesFrom2"
           typeaheadOptionField="Name" class="form-control" placeholder="{{ 'FlightMultiCity.From' | translate }}"
           [typeaheadOptionsLimit]="7" [typeaheadMinLength]="0" (keyup)="updateCitiesFrom2($event)" (typeaheadOnSelect)="selectCity2($event,'from')">
       </div>
       <div class="form-group  col-md-3 padding-rl5">
-        <input [(ngModel)]="flightService.multiCitiesModel.Destination2" name="Destination2" #Destination2 [typeahead]="citiesTo2"
+        <input autocomplete="off" [(ngModel)]="flightService.multiCitiesModel.Destination2" name="Destination2" #Destination2 [typeahead]="citiesTo2"
           typeaheadOptionField="Name" class="form-control" placeholder="{{ 'FlightMultiCity.To' | translate }}"
           [typeaheadOptionsLimit]="7" [typeaheadMinLength]="0" (keyup)="updateCitiesTo2($event)" (typeaheadOnSelect)="selectCity2($event,'to')">
       </div>
       <div class="form-group  col-md-3 padding-rl5">
-        <input type="text" [(ngModel)]="flightService.multiCitiesModel.Date2" name="Date2" #Date2 placeholder="{{ 'FlightMultiCity.DepartingTime' | translate }}"
+        <input autocomplete="off" type="text" [(ngModel)]="flightService.multiCitiesModel.Date2" name="Date2" #Date2 placeholder="{{ 'FlightMultiCity.DepartingTime' | translate }}"
           class="form-control" bsDatepicker>
       </div>
 
@@ -58,17 +70,17 @@
     <!-- flight 3 -->
     <div *ngIf="flightService.multiCityFlightsNumber > 2" class="row">
       <div class="form-group  col-md-3 padding-rl5">
-        <input [(ngModel)]="flightService.multiCitiesModel.Origin3" name="Origin3" #Origin3 [typeahead]="citiesFrom3"
+        <input autocomplete="off" [(ngModel)]="flightService.multiCitiesModel.Origin3" name="Origin3" #Origin3 [typeahead]="citiesFrom3"
           typeaheadOptionField="Name" class="form-control" placeholder="{{ 'FlightMultiCity.From' | translate }}"
           [typeaheadOptionsLimit]="7" [typeaheadMinLength]="0" (keyup)="updateCitiesFrom3($event)" (typeaheadOnSelect)="selectCity3($event,'from')">
       </div>
       <div class="form-group  col-md-3 padding-rl5">
-        <input [(ngModel)]="flightService.multiCitiesModel.Destination3" name="Destination3" #Destination3 [typeahead]="citiesTo3"
+        <input autocomplete="off" [(ngModel)]="flightService.multiCitiesModel.Destination3" name="Destination3" #Destination3 [typeahead]="citiesTo3"
           typeaheadOptionField="Name" class="form-control" placeholder="{{ 'FlightMultiCity.To' | translate }}"
           [typeaheadOptionsLimit]="7" [typeaheadMinLength]="0" (keyup)="updateCitiesTo3($event)" (typeaheadOnSelect)="selectCity3($event,'to')">
       </div>
       <div class="form-group  col-md-3 padding-rl5">
-        <input type="text" [(ngModel)]="flightService.multiCitiesModel.Date3" name="Date3" #Date3 placeholder="{{ 'FlightMultiCity.DepartingTime' | translate }}"
+        <input autocomplete="off" type="text" [(ngModel)]="flightService.multiCitiesModel.Date3" name="Date3" #Date3 placeholder="{{ 'FlightMultiCity.DepartingTime' | translate }}"
           class="form-control" bsDatepicker>
       </div>
       <div *ngIf="flightService.multiCityFlightsNumber == 3" class="form-group  col-md-3 padding-rl5">
@@ -80,17 +92,17 @@
     <!-- flight 4 -->
     <div *ngIf="flightService.multiCityFlightsNumber > 3" class="row">
       <div class="form-group  col-md-3 padding-rl5">
-        <input [(ngModel)]="flightService.multiCitiesModel.Origin4" name="Origin4" #Origin4 [typeahead]="citiesFrom4"
+        <input autocomplete="off" [(ngModel)]="flightService.multiCitiesModel.Origin4" name="Origin4" #Origin4 [typeahead]="citiesFrom4"
           typeaheadOptionField="Name" class="form-control" placeholder="{{ 'FlightMultiCity.From' | translate }}"
           [typeaheadOptionsLimit]="7" [typeaheadMinLength]="0" (keyup)="updateCitiesFrom4($event)" (typeaheadOnSelect)="selectCity4($event,'from')">
       </div>
       <div class="form-group  col-md-3 padding-rl5">
-        <input [(ngModel)]="flightService.multiCitiesModel.Destination4" name="Destination4" #Destination4 [typeahead]="citiesTo4"
+        <input autocomplete="off" [(ngModel)]="flightService.multiCitiesModel.Destination4" name="Destination4" #Destination4 [typeahead]="citiesTo4"
           typeaheadOptionField="Name" class="form-control" placeholder="{{ 'FlightMultiCity.To' | translate }}"
           [typeaheadOptionsLimit]="7" [typeaheadMinLength]="0" (keyup)="updateCitiesTo4($event)" (typeaheadOnSelect)="selectCity4($event,'to')">
       </div>
       <div class="form-group  col-md-3 padding-rl5">
-        <input type="text" [(ngModel)]="flightService.multiCitiesModel.Date4" name="Date4" #Date4 placeholder="{{ 'FlightMultiCity.DepartingTime' | translate }}"
+        <input autocomplete="off" type="text" [(ngModel)]="flightService.multiCitiesModel.Date4" name="Date4" #Date4 placeholder="{{ 'FlightMultiCity.DepartingTime' | translate }}"
           class="form-control" bsDatepicker>
       </div>
       <div *ngIf="flightService.multiCityFlightsNumber == 4" class="form-group  col-md-3 padding-rl5">
@@ -102,17 +114,17 @@
     <!-- flight 5 -->
     <div *ngIf="flightService.multiCityFlightsNumber > 4" class="row" >
       <div class="form-group  col-md-3 padding-rl5">
-        <input [(ngModel)]="flightService.multiCitiesModel.Origin5" name="Origin5" #Origin5 [typeahead]="citiesFrom5"
+        <input autocomplete="off" [(ngModel)]="flightService.multiCitiesModel.Origin5" name="Origin5" #Origin5 [typeahead]="citiesFrom5"
           typeaheadOptionField="Name" class="form-control" placeholder="{{ 'FlightMultiCity.From' | translate }}"
           [typeaheadOptionsLimit]="7" [typeaheadMinLength]="0" (keyup)="updateCitiesFrom5($event)" (typeaheadOnSelect)="selectCity5($event,'from')">
       </div>
       <div class="form-group  col-md-3 padding-rl5">
-        <input [(ngModel)]="flightService.multiCitiesModel.Destination5" name="Destination5" #Destination5 [typeahead]="citiesTo5"
+        <input autocomplete="off" [(ngModel)]="flightService.multiCitiesModel.Destination5" name="Destination5" #Destination5 [typeahead]="citiesTo5"
           typeaheadOptionField="Name" class="form-control" placeholder="{{ 'FlightMultiCity.To' | translate }}"
           [typeaheadOptionsLimit]="7" [typeaheadMinLength]="0" (keyup)="updateCitiesTo5($event)" (typeaheadOnSelect)="selectCity5($event,'to')">
       </div>
       <div class="form-group  col-md-3 padding-rl5">
-        <input type="text" [(ngModel)]="flightService.multiCitiesModel.Date5" name="Date5" #Date5 placeholder="{{ 'FlightMultiCity.DepartingTime' | translate }}"
+        <input autocomplete="off" type="text" [(ngModel)]="flightService.multiCitiesModel.Date5" name="Date5" #Date5 placeholder="{{ 'FlightMultiCity.DepartingTime' | translate }}"
           class="form-control" bsDatepicker>
       </div>
       <div class="form-group  col-md-3 padding-rl5">

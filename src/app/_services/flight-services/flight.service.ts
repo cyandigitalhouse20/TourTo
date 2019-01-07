@@ -4,8 +4,9 @@ import { RepositoryService } from '..';
 
 @Injectable()
 export class FlightService {
-
-  isCompleated: boolean=true;
+ 
+  Classes: string[];
+  isCompleated: boolean = true;
   showFlightsDetails: boolean;
   multiCityFlightsNumber: number;
   numberOfAdult: number;
@@ -21,10 +22,11 @@ export class FlightService {
   flightDetails: FlightDetails;
   sliderFilters: SliderFilter;
   displayedFlightSearchResult: AirResultItineraries[];
-  acceptTerms:boolean;
-  
+  acceptTerms: boolean;
+
   constructor(private repositoryService: RepositoryService) {
     this.sliderFilters = new SliderFilter();
+    this.Classes = ["First class", "Business", "Economy","Premium Economy"];
   }
 
   airLowFareSearch(model: FlightSearchOptionRoundOne) {
@@ -63,15 +65,15 @@ export class FlightService {
       model.OriginId2 + '/' +
       model.DestinationId2 + '/' +
       model.DepartureDate2 + '/' +
-      'null' + '/' +
-      'null' + '/' +
-      'null' + '/' +
-      'null' + '/' +
-      'null' + '/' +
-      'null' + '/' +
-      'null' + '/' +
-      'null' + '/' +
-      'null';
+      model.OriginId3 + '/' +
+      model.DestinationId3 + '/' +
+      model.DepartureDate3 + '/' +
+      model.OriginId4 + '/' +
+      model.DestinationId4 + '/' +
+      model.DepartureDate4 + '/' +
+      model.OriginId5 + '/' +
+      model.DestinationId5 + '/' +
+      model.DepartureDate5;
     return this.repositoryService.get('FlightService/AirLowFareSearchMultiCity/' + param);
   }
 

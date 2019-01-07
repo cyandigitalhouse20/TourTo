@@ -22,11 +22,15 @@ export class FlightSearchOptionRoundOne{
     //one
     Date:Date;
     
+    searchOption: string;
+
     protected static SInit = (() => {
         FlightSearchOptionRoundOne.prototype.Adult =1;
         FlightSearchOptionRoundOne.prototype.Children = 0;
         FlightSearchOptionRoundOne.prototype.DirectFlight = false;
         FlightSearchOptionRoundOne.prototype.OriginCity = "";
         FlightSearchOptionRoundOne.prototype.DestinationCity = "";
+        FlightSearchOptionRoundOne.prototype.searchOption = "1 Adult / Economy";
+        FlightSearchOptionRoundOne.prototype.Class = "Economy";
     })();
 }

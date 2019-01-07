@@ -57,13 +57,26 @@ export class FlightOneWayComponent implements OnInit {
     }
   }
 
+  changeOption() 
+  {
+    if(this.flightService.oneWayModel.Children==0)
+    {
+      this.flightService.oneWayModel.searchOption=this.flightService.oneWayModel.Adult+" Adult / "+this.flightService.oneWayModel.Class;
+    }
+    else{
+      this.flightService.oneWayModel.searchOption=this.flightService.oneWayModel.Adult+" Adult / "+this.flightService.oneWayModel.Children
+      +" child / "+this.flightService.oneWayModel.Class;
+    }
+   
+  }
+
   search() {
     localStorage.removeItem('RequestId');
     this.flightService.isCompleated = false;
     this.flightService.oneWayModel.DepartureDate = new Date(this.flightService.oneWayModel.Date).toLocaleDateString().toString().replace('/', '-').replace('/', '-');
     this.flightService.oneWayModel.ReturnDate = new Date(this.flightService.oneWayModel.Date).toLocaleDateString().toString().replace('/', '-').replace('/', '-');
 
-    this.router.navigate(['/flights'+'/2'+'/Economy'+'/false'+'/'+this.flightService.oneWayModel.Adult+'/'+this.flightService.oneWayModel.Children+'/true'+'/'+this.flightService.oneWayModel.OriginCityId+'/'+this.flightService.oneWayModel.DestinationCityId+'/'+this.flightService.oneWayModel.DepartureDate]);
+    this.router.navigate(['/flights'+'/2'+'/'+this.flightService.oneWayModel.Class+'/false'+'/'+this.flightService.oneWayModel.Adult+'/'+this.flightService.oneWayModel.Children+'/true'+'/'+this.flightService.oneWayModel.OriginCityId+'/'+this.flightService.oneWayModel.DestinationCityId+'/'+this.flightService.oneWayModel.DepartureDate]);
     
   }
 

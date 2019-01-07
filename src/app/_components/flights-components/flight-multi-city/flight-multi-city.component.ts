@@ -214,36 +214,57 @@ export class FlightMultiCityComponent implements OnInit {
     }
   }
 
+  changeOption() 
+  {
+    if(this.flightService.multiCitiesModel.Children==0)
+    {
+      this.flightService.multiCitiesModel.searchOption=this.flightService.multiCitiesModel.Adult+" Adult / "+this.flightService.multiCitiesModel.Class;
+    }
+    else{
+      this.flightService.multiCitiesModel.searchOption=this.flightService.multiCitiesModel.Adult+" Adult / "+this.flightService.multiCitiesModel.Children
+      +" child / "+this.flightService.multiCitiesModel.Class;
+    }
+   
+  }
 
   search() {
-    this.flightService.isCompleated = true;
-    this.flightService.numberOfChilds=this.flightService.multiCitiesModel.Children;
-    this.flightService.numberOfAdult=this.flightService.multiCitiesModel.Adult;
+    localStorage.removeItem('RequestId');
+    this.flightService.isCompleated = false;
     this.flightService.multiCitiesModel.DepartureDate1 = new Date(this.flightService.multiCitiesModel.Date1).toLocaleDateString().toString().replace('/', '-').replace('/', '-');
     this.flightService.multiCitiesModel.DepartureDate2 = new Date(this.flightService.multiCitiesModel.Date2).toLocaleDateString().toString().replace('/', '-').replace('/', '-');
-    this.flightService.multiCitiesModel.LangId = 2;
-    this.flightService.multiCitiesModel.Page = 0;
-    this.flightService.multiCitiesModel.PageItemCount = 0;
-    this.flightService.multiCitiesModel.FlexDates = true;
-    this.flightService.multiCitiesModel.FlightType = "2";
-    this.flightService.multiCitiesModel.IsNewRequest = true;
-    this.flightService.multiCitiesModel.Class = "Economy";
-    this.flightService.multiCitiesModel.RequestId = "null";
 
-    this.flightService.airLowFareSearchMultiCity(this.flightService.multiCitiesModel).subscribe((data: any) => {
-      this.flightService.flightsearchresult = data;
-      this.flightService.isCompleated = false;
-      this.flightService.displayedFlightSearchResult = data.AirResultItineraries;
-      this.flightService.sliderFilters.setCoastFilter(this.flightService.displayedFlightSearchResult[0].Amount, this.flightService.displayedFlightSearchResult[this.flightService.displayedFlightSearchResult.length - 1].Amount);
-      this.flightService.sliderFilters.setDurationfiltervaliues(this.flightService.displayedFlightSearchResult.map(o => o.Routes).map(s => s.map(l => l.Duration)));
-      if (this.router.url != "/flights") {
-        this.router.navigate(['/flights']);
-      }
-      this.flightService.flightTypeSearchResult="multiCity";
-      this.flightService.showFlightsDetails = true;
-    }, (err: HttpErrorResponse) => {
-      console.log(err.error.Message);
-    });
+    if (this.flightService.multiCityFlightsNumber == 2) {
+      this.router.navigate(['/flights' + '/2' + '/3' + '/'+this.flightService.multiCitiesModel.Class + '/false' + '/' + this.flightService.multiCitiesModel.Adult + '/' + this.flightService.multiCitiesModel.Children + '/true' + '/' + this.flightService.multiCitiesModel.OriginId1 + '/' + this.flightService.multiCitiesModel.DestinationId1 + '/' + this.flightService.multiCitiesModel.DepartureDate1 + '/' + this.flightService.multiCitiesModel.OriginId2 + '/' + this.flightService.multiCitiesModel.DestinationId2 + '/' + this.flightService.multiCitiesModel.DepartureDate2
+        + '/null/null/null/null/null/null/null/null/null']);
+    }
+
+    else if (this.flightService.multiCityFlightsNumber == 3) {
+      this.flightService.multiCitiesModel.DepartureDate3 = new Date(this.flightService.multiCitiesModel.Date3).toLocaleDateString().toString().replace('/', '-').replace('/', '-');
+      this.router.navigate(['/flights' + '/3' + '/3' + '/'+this.flightService.multiCitiesModel.Class  + '/false' + '/' + this.flightService.multiCitiesModel.Adult + '/' + this.flightService.multiCitiesModel.Children + '/true' + '/' + this.flightService.multiCitiesModel.OriginId1 + '/' + this.flightService.multiCitiesModel.DestinationId1 + '/' + this.flightService.multiCitiesModel.DepartureDate1 + '/' + 
+      this.flightService.multiCitiesModel.OriginId2 + '/' + this.flightService.multiCitiesModel.DestinationId2 + '/' + this.flightService.multiCitiesModel.DepartureDate2+'/'+
+      this.flightService.multiCitiesModel.OriginId3 + '/' + this.flightService.multiCitiesModel.DestinationId3 + '/' + this.flightService.multiCitiesModel.DepartureDate3+'/'+
+      'null/null/null/null/null/null']);
+    }
+    else if (this.flightService.multiCityFlightsNumber == 4) {
+      this.flightService.multiCitiesModel.DepartureDate3 = new Date(this.flightService.multiCitiesModel.Date3).toLocaleDateString().toString().replace('/', '-').replace('/', '-');
+      this.flightService.multiCitiesModel.DepartureDate4 = new Date(this.flightService.multiCitiesModel.Date4).toLocaleDateString().toString().replace('/', '-').replace('/', '-');
+      this.router.navigate(['/flights' + '/4' + '/3' + '/'+this.flightService.multiCitiesModel.Class  + '/false' + '/' + this.flightService.multiCitiesModel.Adult + '/' + this.flightService.multiCitiesModel.Children + '/true' + '/' + this.flightService.multiCitiesModel.OriginId1 + '/' + this.flightService.multiCitiesModel.DestinationId1 + '/' + this.flightService.multiCitiesModel.DepartureDate1 + '/' + 
+      this.flightService.multiCitiesModel.OriginId2 + '/' + this.flightService.multiCitiesModel.DestinationId2 + '/' + this.flightService.multiCitiesModel.DepartureDate2+'/'+
+      this.flightService.multiCitiesModel.OriginId3 + '/' + this.flightService.multiCitiesModel.DestinationId3 + '/' + this.flightService.multiCitiesModel.DepartureDate3+'/'+
+      this.flightService.multiCitiesModel.OriginId4 + '/' + this.flightService.multiCitiesModel.DestinationId4 + '/' + this.flightService.multiCitiesModel.DepartureDate4+'/'+
+      'null/null/null']);
+    }
+    else if (this.flightService.multiCityFlightsNumber == 5) {
+      this.flightService.multiCitiesModel.DepartureDate3 = new Date(this.flightService.multiCitiesModel.Date3).toLocaleDateString().toString().replace('/', '-').replace('/', '-');
+      this.flightService.multiCitiesModel.DepartureDate4 = new Date(this.flightService.multiCitiesModel.Date4).toLocaleDateString().toString().replace('/', '-').replace('/', '-');
+      this.flightService.multiCitiesModel.DepartureDate5 = new Date(this.flightService.multiCitiesModel.Date5).toLocaleDateString().toString().replace('/', '-').replace('/', '-');
+      this.router.navigate(['/flights' + '/5' + '/3' + '/'+this.flightService.multiCitiesModel.Class  + '/false' + '/' + this.flightService.multiCitiesModel.Adult + '/' + this.flightService.multiCitiesModel.Children + '/true' + '/' + this.flightService.multiCitiesModel.OriginId1 + '/' + this.flightService.multiCitiesModel.DestinationId1 + '/' + this.flightService.multiCitiesModel.DepartureDate1 + '/' + 
+      this.flightService.multiCitiesModel.OriginId2 + '/' + this.flightService.multiCitiesModel.DestinationId2 + '/' + this.flightService.multiCitiesModel.DepartureDate2+'/'+
+      this.flightService.multiCitiesModel.OriginId3 + '/' + this.flightService.multiCitiesModel.DestinationId3 + '/' + this.flightService.multiCitiesModel.DepartureDate3+'/'+
+      this.flightService.multiCitiesModel.OriginId4 + '/' + this.flightService.multiCitiesModel.DestinationId4 + '/' + this.flightService.multiCitiesModel.DepartureDate4+'/'+
+      this.flightService.multiCitiesModel.OriginId5 + '/' + this.flightService.multiCitiesModel.DestinationId5 + '/' + this.flightService.multiCitiesModel.DepartureDate5]);
+    }
+
   }
 
 }

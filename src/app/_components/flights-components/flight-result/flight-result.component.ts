@@ -34,6 +34,7 @@ export class FlightResultComponent implements OnInit {
       this.router.navigate(['/flight/details']);
     }, (err: HttpErrorResponse) => {
       console.log(err.error.Message);
+      alert("this flight  is not available");
     });
   }
 

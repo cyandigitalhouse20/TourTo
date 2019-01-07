@@ -39,7 +39,8 @@
     "Adult": "Adult",
     "Children": "Children",
     "Search": "Search",
-    "NoneStopFlight": "None stop flight"
+    "NoneStopFlight": "None stop flight",
+    "Class": "Class"
   },
   "FlightOneWay": {
     "From": "From",
@@ -49,7 +50,8 @@
     "Adult": "Adult",
     "Children": "Children",
     "Search": "Search",
-    "NoneStopFlight": "None stop flight"
+    "NoneStopFlight": "None stop flight",
+    "Class": "Class"
   },
   "FlightMultiCity": {
     "From": "From",
@@ -60,6 +62,7 @@
     "Children": "Children",
     "Search": "Search",
     "NoneStopFlight": "None stop flight",
-    "AddFlight": "Add flight"
+    "AddFlight": "Add flight",
+    "Class": "Class"
   }
 }
