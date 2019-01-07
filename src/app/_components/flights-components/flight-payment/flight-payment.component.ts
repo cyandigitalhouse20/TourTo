@@ -4,6 +4,7 @@ import { BsModalService } from 'ngx-bootstrap/modal';
 import { BsModalRef } from 'ngx-bootstrap/modal/bs-modal-ref.service';
 import { Passenger } from 'src/app/_models';
 import { HttpErrorResponse } from '@angular/common/http';
+import { PassangerViewModel } from 'src/app/_models/flights-models/flight-air-make-reservation-models/passanger-view-model';
 
 @Component({
   selector: 'app-flight-payment',
@@ -44,7 +45,7 @@ export class FlightPaymentComponent implements OnInit {
     displayKey:"description", 
     search:true, 
     height: 'auto' ,
-    placeholder:'Select The type of the identification document',
+    placeholder:'Select The type of the identification',
     customComparator: ()=>{} ,
     limitTo: 2 ,
     noResultsFound: 'No results found!' ,
@@ -58,25 +59,26 @@ export class FlightPaymentComponent implements OnInit {
     customComparator: ()=>{} ,
     limitTo: 3 ,
     noResultsFound: 'No results found!' ,
- 
   }
 
   passengers: Passenger[];
   modalRef: BsModalRef;
   constructor(public modalService: BsModalService, public flightservice: FlightService) {
-    if (this.passengers == undefined) {
-      this.passengers = [];
+
+    if (this.flightservice.PassengerViewModel == undefined) {
+      this.flightservice.PassengerViewModel = [];
     }
   }
 
   ngOnInit() {
+   
     this.flightservice.acceptTerms=false;
-    for (var i = 0; i < this.flightservice.numberOfChilds+ this.flightservice.numberOfAdult; i++)
+    let numberofPassengers=parseInt(this.flightservice.numberOfChilds.toString())+ parseInt(this.flightservice.numberOfAdult.toString());
+  
+    for (var i = 0; i < numberofPassengers; i++)
     {
-    this.passengers.push(new Passenger());
-    this.passengers[i].PaxRef=this.makeid();
+    this.flightservice.PassengerViewModel.push(new PassangerViewModel());
     }
-
   }
 
 NextPassanger()
@@ -93,11 +95,11 @@ PreviuosPassanger()
 SetPassengerSeat()
 {
   if(this.selectedSeat=="Any seat")
-  this.passengers[this.PassengerNumber-1].Seat="A";
+  this.flightservice.PassengerViewModel[this.PassengerNumber-1].Seat="A";
   else if(this.selectedSeat=="Window")
-  this.passengers[this.PassengerNumber-1].Seat="W";
+  this.flightservice.PassengerViewModel[this.PassengerNumber-1].Seat="W";
   else if(this.selectedSeat=="Aisle")
-  this.passengers[this.PassengerNumber-1].Seat="A";
+  this.flightservice.PassengerViewModel[this.PassengerNumber-1].Seat="A";
 
 }
 

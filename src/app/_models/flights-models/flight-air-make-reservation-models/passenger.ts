@@ -16,10 +16,6 @@ export class Passenger {
     Type: string;
     PTC: string;
     Lead: boolean;
-    Seat: string;
-    isCollapsed:boolean;
-    haveFrequent:boolean;
-
     protected static SInit = (() => {
         Passenger.prototype.IdentificationDocument = new IdentificationDocument();
         Passenger.prototype.FrequentTravellerCards = new FrequentTravellerCards();

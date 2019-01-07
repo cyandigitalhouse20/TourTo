@@ -1,3 +1,5 @@
+import { PassangerViewModel } from './../../_models/flights-models/flight-air-make-reservation-models/passanger-view-model';
+import { Passenger } from './../../_models/flights-models/flight-air-make-reservation-models/passenger';
 import { Injectable } from '@angular/core';
 import { Flightsearchresult, AirResultItineraries, FlightSearchOptionRoundOne, SliderFilter, FlightSearchOptionMultiCities, FlightDetails, AirMakeReservation, AirSeatMap } from 'src/app/_models';
 import { RepositoryService } from '..';
@@ -12,6 +14,7 @@ export class FlightService {
   numberOfChilds: number;
   selectedItenartyData: AirResultItineraries[];
   flightType: string;
+  PassengerViewModel:PassangerViewModel[];
   flightTypeSearchResult: string;
   selectedItenartyId: string
   roundTripModel: FlightSearchOptionRoundOne;
