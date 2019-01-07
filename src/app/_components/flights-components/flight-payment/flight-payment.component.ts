@@ -83,7 +83,7 @@ export class FlightPaymentComponent implements OnInit {
 
 NextPassanger()
 {
-  if(this.PassengerNumber<this.passengers.length)
+  if(this.PassengerNumber<this.flightservice.PassengerViewModel.length)
   this.PassengerNumber+=1; 
 }
 PreviuosPassanger()
@@ -103,13 +103,6 @@ SetPassengerSeat()
 
 }
 
-Resrve()
-{
-  
-console.log(this.passengers);
-// let data={"ExternalRef":"null","Passengers":["Title": +panse+"","FirstName": "string","LastName": "string","BirthDate": "2019-01-05T10:30:06.781Z","],"",}
-  alert(2);
-}
 
  makeid() {
   var text = "";
