@@ -25,6 +25,13 @@ export class FlightRoundTripComponent implements OnInit {
 
   }
 
+  checkE(key, type) {
+    if (key == '' && type == 'adult')
+      this.flightService.roundTripModel.Adult = 1;
+    else if (key == '' && type == 'child')
+      this.flightService.roundTripModel.Children = 0;
+  }
+
   updateCitiesFrom(event) {
     if (event.code != 'Backspace') {
       if (this.flightService.roundTripModel.OriginCity.length == 1) {
@@ -59,17 +66,15 @@ export class FlightRoundTripComponent implements OnInit {
     }
   }
 
-  changeOption() 
-  {
-    if(this.flightService.roundTripModel.Children==0)
-    {
-      this.flightService.roundTripModel.searchOption=this.flightService.roundTripModel.Adult+" Adult / "+this.flightService.roundTripModel.Class;
+  changeOption() {
+    if (this.flightService.roundTripModel.Children == 0) {
+      this.flightService.roundTripModel.searchOption = this.flightService.roundTripModel.Adult + " Adult / " + this.flightService.roundTripModel.Class;
     }
-    else{
-      this.flightService.roundTripModel.searchOption=this.flightService.roundTripModel.Adult+" Adult / "+this.flightService.roundTripModel.Children
-      +" child / "+this.flightService.roundTripModel.Class;
+    else {
+      this.flightService.roundTripModel.searchOption = this.flightService.roundTripModel.Adult + " Adult / " + this.flightService.roundTripModel.Children
+        + " child / " + this.flightService.roundTripModel.Class;
     }
-   
+
   }
 
 
@@ -79,7 +84,7 @@ export class FlightRoundTripComponent implements OnInit {
     this.flightService.roundTripModel.DepartureDate = new Date(this.flightService.roundTripModel.Dates[0]).toLocaleDateString().toString().replace('/', '-').replace('/', '-');
     this.flightService.roundTripModel.ReturnDate = new Date(this.flightService.roundTripModel.Dates[1]).toLocaleDateString().toString().replace('/', '-').replace('/', '-');
 
-    this.router.navigate(['/flights' + '/1' + '/'+this.flightService.roundTripModel.Class + '/false' + '/' + this.flightService.roundTripModel.Adult + '/' + this.flightService.roundTripModel.Children + '/true' + '/' + this.flightService.roundTripModel.OriginCityId + '/' + this.flightService.roundTripModel.DestinationCityId + '/' + this.flightService.roundTripModel.DepartureDate + '/' + this.flightService.roundTripModel.ReturnDate]);
+    this.router.navigate(['/flights' + '/1' + '/' + this.flightService.roundTripModel.Class + '/false' + '/' + this.flightService.roundTripModel.Adult + '/' + this.flightService.roundTripModel.Children + '/true' + '/' + this.flightService.roundTripModel.OriginCityId + '/' + this.flightService.roundTripModel.DestinationCityId + '/' + this.flightService.roundTripModel.DepartureDate + '/' + this.flightService.roundTripModel.ReturnDate]);
   }
 
 }

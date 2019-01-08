@@ -34,6 +34,13 @@ export class FlightMultiCityComponent implements OnInit {
   ngOnInit() {
   }
 
+  checkE(key, type) {
+    if (key == '' && type == 'adult')
+      this.flightService.multiCitiesModel.Adult = 1;
+    else if (key == '' && type == 'child')
+      this.flightService.multiCitiesModel.Children = 0;
+  }
+
   deleteFlight() {
     this.flightService.multiCityFlightsNumber -= 1;
   }

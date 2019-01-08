@@ -23,6 +23,13 @@ export class FlightOneWayComponent implements OnInit {
   ngOnInit() {
   }
 
+  checkE(key, type) {
+    if (key == '' && type == 'adult')
+      this.flightService.oneWayModel.Adult = 1;
+    else if (key == '' && type == 'child')
+      this.flightService.oneWayModel.Children = 0;
+  }
+
   updateCitiesFrom(event) {
     if (event.code != 'Backspace') {
       if (this.flightService.oneWayModel.OriginCity.length == 1) {

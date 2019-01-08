@@ -14,7 +14,7 @@
     </div>
 
     <div class="form-group  col-md-3 padding-rl5">
-      <input autocomplete="off" [(ngModel)]="flightService.roundTripModel.Dates" name="Dates" #Date placeholder="{{ 'FlightRoundTrip.DepartingArrivalTime' | translate }}"
+      <input autocomplete="off" readonly [(ngModel)]="flightService.roundTripModel.Dates" name="Dates" #Date placeholder="{{ 'FlightRoundTrip.DepartingArrivalTime' | translate }}"
         class="form-control" bsDaterangepicker>
     </div>
     <div class="form-group  col-md-3 padding-rl5">
@@ -25,13 +25,13 @@
       <ng-template #popTemplate>
         <div class="form-group">
           <label>{{ 'FlightRoundTrip.Adult' | translate }}</label>
-          <input autocomplete="off" type="number" class="form-control plus" (change)="changeOption()" name="Adult"
-            [(ngModel)]="flightService.roundTripModel.Adult" #Adult placeholder="0">
+          <input autocomplete="off" (keyup)="checkE($event.target.value,'adult')" type="number" class="form-control plus" (change)="changeOption()" name="Adult"
+            [(ngModel)]="flightService.roundTripModel.Adult" #Adult max="9" min="1" placeholder="0">
         </div>
         <div class="form-group">
           <label> {{ 'FlightRoundTrip.Children' | translate }}</label>
           <input autocomplete="off" type="number" class="form-control plus" (change)="changeOption()" name="Child"
-            [(ngModel)]="flightService.roundTripModel.Children" #Child placeholder="0">
+            [(ngModel)]="flightService.roundTripModel.Children" max="9" min="0" (keyup)="checkE($event.target.value,'child')" #Child placeholder="0">
         </div>
         <div class="form-group">
           <label> {{ 'FlightRoundTrip.Class' | translate }}</label>

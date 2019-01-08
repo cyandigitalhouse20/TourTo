@@ -13,7 +13,7 @@
         </div>
 
     <div class="form-group  col-md-3 padding-rl5">
-      <input autocomplete="off" type="text" [(ngModel)]="flightService.oneWayModel.Date" name="Date" #Date placeholder="{{ 'FlightOneWay.DepartingTime' | translate }}" class="form-control" bsDatepicker>
+      <input autocomplete="off" readonly type="text" [(ngModel)]="flightService.oneWayModel.Date" name="Date" #Date placeholder="{{ 'FlightOneWay.DepartingTime' | translate }}" class="form-control" bsDatepicker>
     </div>
 
     <div class="form-group  col-md-3 padding-rl5">
@@ -25,12 +25,12 @@
           <div class="form-group">
             <label>{{ 'FlightOneWay.Adult' | translate }}</label>
             <input autocomplete="off" type="number" class="form-control plus" (change)="changeOption()" name="Adult"
-              [(ngModel)]="flightService.oneWayModel.Adult" #Adult placeholder="0">
+              [(ngModel)]="flightService.oneWayModel.Adult" #Adult max="9" min="1" (keyup)="checkE($event.target.value,'adult')" placeholder="0">
           </div>
           <div class="form-group">
             <label> {{ 'FlightOneWay.Children' | translate }}</label>
             <input autocomplete="off" type="number" class="form-control plus" (change)="changeOption()" name="Child"
-              [(ngModel)]="flightService.oneWayModel.Children" #Child placeholder="0">
+              [(ngModel)]="flightService.oneWayModel.Children" (keyup)="checkE($event.target.value,'child')" #Child max="9" min="0" placeholder="0">
           </div>
           <div class="form-group">
             <label> {{ 'FlightOneWay.Class' | translate }}</label>

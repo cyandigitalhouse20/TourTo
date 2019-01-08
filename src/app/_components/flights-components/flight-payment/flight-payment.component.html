@@ -38,8 +38,8 @@
               <div class="col-md-12">
                 <a type="button" class="btn " (click)="passenger.isCollapsed = !passenger.isCollapsed"
                   [attr.aria-expanded]="!passenger.isCollapsed" aria-controls="collapseBasic" style="width:100%; padding: 15px;"><span
-                    class="fl blue"> <b>Passenger
-                      {{i+1}}</b></span> <span class="glyphicon fr drop-arrow" [class.glyphicon-menu-up]="!passenger.isCollapsed"
+                    class="fl blue"> <b *ngIf="flightservice.numberOfChilds <= i+1">Passenger{{i+1}} </b>
+                  </span> <span class="glyphicon fr drop-arrow" [class.glyphicon-menu-up]="!passenger.isCollapsed"
                     [class.glyphicon-menu-down]="passenger.isCollapsed" aria-hidden="true"></span>
                 </a>
 
