@@ -64,17 +64,15 @@ export class FlightOneWayComponent implements OnInit {
     }
   }
 
-  changeOption() 
-  {
-    if(this.flightService.oneWayModel.Children==0)
-    {
-      this.flightService.oneWayModel.searchOption=this.flightService.oneWayModel.Adult+" Adult / "+this.flightService.oneWayModel.Class;
+  changeOption() {
+    if (this.flightService.oneWayModel.Children == 0) {
+      this.flightService.oneWayModel.searchOption = this.flightService.oneWayModel.Adult + " Adult / " + this.flightService.oneWayModel.Class;
     }
-    else{
-      this.flightService.oneWayModel.searchOption=this.flightService.oneWayModel.Adult+" Adult / "+this.flightService.oneWayModel.Children
-      +" child / "+this.flightService.oneWayModel.Class;
+    else {
+      this.flightService.oneWayModel.searchOption = this.flightService.oneWayModel.Adult + " Adult / " + this.flightService.oneWayModel.Children
+        + " child / " + this.flightService.oneWayModel.Class;
     }
-   
+
   }
 
   search() {
@@ -83,8 +81,39 @@ export class FlightOneWayComponent implements OnInit {
     this.flightService.oneWayModel.DepartureDate = new Date(this.flightService.oneWayModel.Date).toLocaleDateString().toString().replace('/', '-').replace('/', '-');
     this.flightService.oneWayModel.ReturnDate = new Date(this.flightService.oneWayModel.Date).toLocaleDateString().toString().replace('/', '-').replace('/', '-');
 
-    this.router.navigate(['/flights'+'/2'+'/'+this.flightService.oneWayModel.Class+'/false'+'/'+this.flightService.oneWayModel.Adult+'/'+this.flightService.oneWayModel.Children+'/true'+'/'+this.flightService.oneWayModel.OriginCityId+'/'+this.flightService.oneWayModel.DestinationCityId+'/'+this.flightService.oneWayModel.DepartureDate]);
-    
+    if (this.router.url.includes("/flights") && this.router.url != "/flights") {
+
+      this.flightService.numberOfChilds = this.flightService.oneWayModel.Children;
+      this.flightService.numberOfAdult = this.flightService.oneWayModel.Adult;
+      this.flightService.oneWayModel.LangId = 2;
+      this.flightService.oneWayModel.Page = 0;
+      this.flightService.oneWayModel.PageItemCount = 0;
+      this.flightService.oneWayModel.FlexDates = true;
+      this.flightService.oneWayModel.FlightType = "2";
+      this.flightService.oneWayModel.RequestId = "null";
+      this.flightService.oneWayModel.IsNewRequest = true;
+      this.flightService.oneWayModel.DirectFlight = false;
+
+      this.router.navigate(['/flights' + '/2' + '/' + this.flightService.oneWayModel.Class + '/false' + '/' + this.flightService.oneWayModel.Adult + '/' + this.flightService.oneWayModel.Children + '/true' + '/' + this.flightService.oneWayModel.OriginCityId + '/' + this.flightService.oneWayModel.DestinationCityId + '/' + this.flightService.oneWayModel.DepartureDate]);
+
+      this.flightService.airLowFareSearch(this.flightService.oneWayModel).subscribe((data: any) => {
+        localStorage.setItem('RequestId', data.RequestId);
+        this.flightService.flightsearchresult = data;
+        this.flightService.displayedFlightSearchResult = data.AirResultItineraries;
+        this.flightService.isCompleated = true;
+        this.flightService.sliderFilters.setCoastFilter(this.flightService.displayedFlightSearchResult[0].Amount, this.flightService.displayedFlightSearchResult[this.flightService.displayedFlightSearchResult.length - 1].Amount);
+        this.flightService.sliderFilters.setDurationfiltervaliues(this.flightService.displayedFlightSearchResult.map(o => o.Routes).map(s => s.map(l => l.Duration)));
+
+        this.flightService.flightTypeSearchResult = "oneWay";
+        this.flightService.showFlightsDetails = true;
+      }, (err: HttpErrorResponse) => {
+        this.flightService.isCompleated = true;
+        console.log(err.error.Message);
+      });
+    }
+    else {
+      this.router.navigate(['/flights' + '/2' + '/' + this.flightService.oneWayModel.Class + '/false' + '/' + this.flightService.oneWayModel.Adult + '/' + this.flightService.oneWayModel.Children + '/true' + '/' + this.flightService.oneWayModel.OriginCityId + '/' + this.flightService.oneWayModel.DestinationCityId + '/' + this.flightService.oneWayModel.DepartureDate]);
+    }
   }
 
 }

@@ -77,14 +77,45 @@ export class FlightRoundTripComponent implements OnInit {
 
   }
 
-
   search() {
     localStorage.removeItem('RequestId');
     this.flightService.isCompleated = false;
     this.flightService.roundTripModel.DepartureDate = new Date(this.flightService.roundTripModel.Dates[0]).toLocaleDateString().toString().replace('/', '-').replace('/', '-');
     this.flightService.roundTripModel.ReturnDate = new Date(this.flightService.roundTripModel.Dates[1]).toLocaleDateString().toString().replace('/', '-').replace('/', '-');
 
-    this.router.navigate(['/flights' + '/1' + '/' + this.flightService.roundTripModel.Class + '/false' + '/' + this.flightService.roundTripModel.Adult + '/' + this.flightService.roundTripModel.Children + '/true' + '/' + this.flightService.roundTripModel.OriginCityId + '/' + this.flightService.roundTripModel.DestinationCityId + '/' + this.flightService.roundTripModel.DepartureDate + '/' + this.flightService.roundTripModel.ReturnDate]);
+    if (this.router.url.includes("/flights") && this.router.url != "/flights") {
+
+      this.flightService.numberOfChilds = this.flightService.roundTripModel.Children;
+      this.flightService.numberOfAdult = this.flightService.roundTripModel.Adult;
+      this.flightService.roundTripModel.LangId = 2;
+      this.flightService.roundTripModel.Page = 0;
+      this.flightService.roundTripModel.PageItemCount = 0;
+      this.flightService.roundTripModel.FlexDates = true;
+      this.flightService.roundTripModel.FlightType = "1";
+      this.flightService.roundTripModel.RequestId = "null";
+      this.flightService.roundTripModel.IsNewRequest = true;
+      this.flightService.roundTripModel.DirectFlight = false;
+
+      this.router.navigate(['/flights' + '/1' + '/' + this.flightService.roundTripModel.Class + '/false' + '/' + this.flightService.roundTripModel.Adult + '/' + this.flightService.roundTripModel.Children + '/true' + '/' + this.flightService.roundTripModel.OriginCityId + '/' + this.flightService.roundTripModel.DestinationCityId + '/' + this.flightService.roundTripModel.DepartureDate + '/' + this.flightService.roundTripModel.ReturnDate]);
+
+      this.flightService.airLowFareSearch(this.flightService.roundTripModel).subscribe((data: any) => {
+        localStorage.setItem('RequestId', data.RequestId);
+        this.flightService.flightsearchresult = data;
+        this.flightService.displayedFlightSearchResult = data.AirResultItineraries;
+        this.flightService.isCompleated = true;
+        this.flightService.sliderFilters.setCoastFilter(this.flightService.displayedFlightSearchResult[0].Amount, this.flightService.displayedFlightSearchResult[this.flightService.displayedFlightSearchResult.length - 1].Amount);
+        this.flightService.sliderFilters.setDurationfiltervaliues(this.flightService.displayedFlightSearchResult.map(o => o.Routes).map(s => s.map(l => l.Duration)));
+
+        this.flightService.flightTypeSearchResult = "roundTrip";
+        this.flightService.showFlightsDetails = true;
+      }, (err: HttpErrorResponse) => {
+        this.flightService.isCompleated = true;
+        console.log(err.error.Message);
+      });
+    }
+    else {
+      this.router.navigate(['/flights' + '/1' + '/' + this.flightService.roundTripModel.Class + '/false' + '/' + this.flightService.roundTripModel.Adult + '/' + this.flightService.roundTripModel.Children + '/true' + '/' + this.flightService.roundTripModel.OriginCityId + '/' + this.flightService.roundTripModel.DestinationCityId + '/' + this.flightService.roundTripModel.DepartureDate + '/' + this.flightService.roundTripModel.ReturnDate]);
+    }
   }
 
 }
