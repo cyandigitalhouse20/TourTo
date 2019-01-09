@@ -140,7 +140,7 @@
 
                       <ng-template #child_Birth_content>
                         <input type="text" [(ngModel)]="passenger.BirthDate" required name="Date{{i}}" #Date="ngModel"
-                          placeholder="BirthDatechild" class="form-control" bsDatepicker  [minDate]="minDateChild"
+                          placeholder="BirthDate" class="form-control" bsDatepicker  [minDate]="minDateChild"
                           [maxDate]="maxDateChild">
                           <div *ngIf="(Date.invalid && (Date.dirty || Date.touched))|| passenger.BirthDate==''" class="alert alert-danger">
 

@@ -7,133 +7,166 @@
     <div class="form-group">
       <label class="blue" for="exampleInputEmail1">Sort by</label>
       <select class="form-control" (change)="onsortchange($event.target.value)">
-        <option value="Lowest" >lowest price</option>
-        <option value="hieght" >hieght price</option>
+        <option value="Lowest">lowest price</option>
+        <option value="hieght">hieght price</option>
       </select>
     </div>
+
+    <!-- stop -->
     <div class="">
-      <a type="button" class="btn " (click)="isCollapsed = !isCollapsed" [attr.aria-expanded]="!isCollapsed"
-        aria-controls="collapseBasic" style="width:100%; padding: 10px 0;"><span class="fl blue"> <b>Stops</b></span>   <span class="glyphicon fr drop-arrow" [class.glyphicon-menu-up]="!isCollapsed" [class.glyphicon-menu-down]="isCollapsed" aria-hidden="true"></span>
-    </a>
-      
-      <div id="collapseBasic" [collapse]="isCollapsed" class="card card-block card-header">
-          
-          <div class="checkbox">
-              <label>
-                <input type="checkbox" [(ngModel)]="this.flightservice.allFilters.NoneStop"  (change)="setAllFilter()">
-                None stop
-              </label>
-            </div>
-            <div class="checkbox">
-                <label>
-                  <input type="checkbox" [(ngModel)]="this.flightservice.allFilters.OneStop"  (change)="setAllFilter()">
-                  1 stop
-                </label>
-              </div>
-              <div class="checkbox">
-                  <label>
-                    <input type="checkbox" [(ngModel)]="this.flightservice.allFilters.TwoStop"  (change)="setAllFilter()">
-                    2+ stops
-                  </label>
-                </div>
+      <a type="button" class="btn " (click)="isCollapsedStops = !isCollapsedStops" [attr.aria-expanded]="!isCollapsedStops"
+        aria-controls="collapseBasic" style="width:100%; padding: 10px 0;"><span class="fl blue"> <b>Stops</b></span>
+        <span class="glyphicon fr drop-arrow" [class.glyphicon-menu-up]="!isCollapsedStops" [class.glyphicon-menu-down]="isCollapsedStops"
+          aria-hidden="true"></span>
+      </a>
+
+      <div id="collapseBasic" [collapse]="isCollapsedStops" class="card card-block card-header">
+
+        <div class="checkbox">
+          <label>
+            <input type="checkbox" [(ngModel)]="this.flightservice.allFilters.NoneStop" (change)="setAllFilter()">
+            None stop
+          </label>
+        </div>
+        <div class="checkbox">
+          <label>
+            <input type="checkbox" [(ngModel)]="this.flightservice.allFilters.OneStop" (change)="setAllFilter()">
+            1 stop
+          </label>
+        </div>
+        <div class="checkbox">
+          <label>
+            <input type="checkbox" [(ngModel)]="this.flightservice.allFilters.TwoStop" (change)="setAllFilter()">
+            2+ stops
+          </label>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Cost -->
+    <div class="">
+      <a type="button" class="btn " (click)="isCollapsedCost = !isCollapsedCost" [attr.aria-expanded]="!isCollapsedCost"
+        aria-controls="collapseBasic" style="width:100%; padding: 10px 0;"><span class="fl blue"> <b>Cost</b></span>
+        <span class="glyphicon fr drop-arrow" [class.glyphicon-menu-up]="!isCollapsedCost" [class.glyphicon-menu-down]="isCollapsedCost"
+          aria-hidden="true"></span>
+      </a>
+
+      <div id="collapseBasic" [collapse]="isCollapsedCost" class="card card-block card-header">
+
+        <div style="margin:15px 0;">
+          <ng5-slider (click)="setAllFilter()" [(value)]="this.flightservice.allFilters.sliderFilter.CoastMinvalue"
+            [(highValue)]="this.flightservice.allFilters.sliderFilter.CoastMaxvalue" [(options)]="this.flightservice.allFilters.sliderFilter.Coastoptions"></ng5-slider>
+        </div>
       </div>
     </div>
+
+    <!-- Duration -->
     <div class="">
-        <a type="button" class="btn " (click)="isCollapsed2 = !isCollapsed2" [attr.aria-expanded]="!isCollapsed2"
-          aria-controls="collapseBasic" style="width:100%; padding: 10px 0;"><span class="fl blue"> <b>Coast</b></span>   <span class="glyphicon fr drop-arrow" [class.glyphicon-menu-up]="!isCollapsed2" [class.glyphicon-menu-down]="isCollapsed2" aria-hidden="true"></span>
+      <a type="button" class="btn " (click)="isCollapsedDuration = !isCollapsedDuration" [attr.aria-expanded]="!isCollapsedDuration"
+        aria-controls="collapseBasic" style="width:100%; padding: 10px 0;"><span class="fl blue"> <b>Duration</b></span>
+        <span class="glyphicon fr drop-arrow" [class.glyphicon-menu-up]="!isCollapsedDuration"
+          [class.glyphicon-menu-down]="isCollapsedDuration" aria-hidden="true"></span>
       </a>
-        
-        <div id="collapseBasic" [collapse]="isCollapsed2" class="card card-block card-header">
-          
-            <div style="margin:15px 0;">
-                <ng5-slider (click)="setAllFilter()" [(value)]="this.flightservice.allFilters.sliderFilter.CoastMinvalue" [(highValue)]="this.flightservice.allFilters.sliderFilter.CoastMaxvalue"  [(options)]="this.flightservice.allFilters.sliderFilter.Coastoptions"></ng5-slider>
-            </div>
+
+      <div id="collapseBasic" [collapse]="isCollapsedDuration" class="card card-block card-header">
+
+        <div style="margin:15px 0;">
+          <ng5-slider (click)="setAllFilter()" [(value)]="this.flightservice.allFilters.sliderFilter.DurationMinvalue"
+            [(highValue)]="this.flightservice.allFilters.sliderFilter.DurationMaxvalue" [(options)]="this.flightservice.allFilters.sliderFilter.Durationoptions"></ng5-slider>
         </div>
       </div>
-      <div class="">
-        <a type="button" class="btn " (click)="isCollapsed3 = !isCollapsed3" [attr.aria-expanded]="!isCollapsed3"
-          aria-controls="collapseBasic" style="width:100%; padding: 10px 0;"><span class="fl blue"> <b>Duration</b></span>   <span class="glyphicon fr drop-arrow" [class.glyphicon-menu-up]="!isCollapsed2" [class.glyphicon-menu-down]="isCollapsed2" aria-hidden="true"></span>
-      </a>
-        
-        <div id="collapseBasic" [collapse]="isCollapsed3" class="card card-block card-header">
-          
-            <div style="margin:15px 0;">
-                <ng5-slider (click)="setAllFilter()" [(value)]="this.flightservice.allFilters.sliderFilter.DurationMinvalue" [(highValue)]="this.flightservice.allFilters.sliderFilter.DurationMaxvalue"  [(options)]="this.flightservice.allFilters.sliderFilter.Durationoptions"></ng5-slider>
-            </div>
-        </div>
 
+    </div>
+
+    <!-- Air Lines -->
+    <div class="">
+      <a type="button" class="btn " (click)="isCollapsedAirLines = !isCollapsedAirLines" [attr.aria-expanded]="!isCollapsedAirLines"
+        aria-controls="collapseBasic" style="width:100%; padding: 10px 0;"><span class="fl blue"> <b>Air Lines</b></span>
+        <span class="glyphicon fr drop-arrow" [class.glyphicon-menu-up]="!isCollapsedAirLines" [class.glyphicon-menu-down]="isCollapsedAirLines"
+          aria-hidden="true"></span>
+      </a>
+
+      <div id="collapseBasic" [collapse]="isCollapsedAirLines" class="card card-block card-header">
+
+        <div style="margin:15px 0;">
+
+          <div *ngFor="let role of flightservice.allFilters.airLinesFilter">
+            <input type="checkbox" [value]="role.isChecked" [checked]="role.isChecked" [(ngModel)]="role.isChecked"
+              (change)="setAllFilter2(role)"> {{role.name}}
+          </div>
+
+        </div>
       </div>
 
+    </div>
 
-      <div class="">
-        <a type="button" class="btn " (click)="isCollapsed4 = !isCollapsed4" [attr.aria-expanded]="!isCollapsed4"
-          aria-controls="collapseBasic" style="width:100%; padding: 10px 0;"><span class="fl blue"> <b>Air Lines</b></span>   <span class="glyphicon fr drop-arrow" [class.glyphicon-menu-up]="!isCollapsed2" [class.glyphicon-menu-down]="isCollapsed2" aria-hidden="true"></span>
+    <!-- Air Craft -->
+    <div class="">
+      <a type="button" class="btn " (click)="isCollapsedAirCraft = !isCollapsedAirCraft" [attr.aria-expanded]="!isCollapsedAirCraft"
+        aria-controls="collapseBasic" style="width:100%; padding: 10px 0;"><span class="fl blue"> <b>Air Craft</b></span>
+        <span class="glyphicon fr drop-arrow" [class.glyphicon-menu-up]="!isCollapsedAirCraft" [class.glyphicon-menu-down]="isCollapsedAirCraft"
+          aria-hidden="true"></span>
       </a>
-        
-        <div id="collapseBasic" [collapse]="isCollapsed4" class="card card-block card-header">
-          
-            <div style="margin:15px 0;">
-          
-              <div *ngFor="let role of flightservice.allFilters.airLinesFilter">
-                <input type="checkbox" [value]="role.isChecked" [checked]="role.isChecked" [(ngModel)]="role.isChecked" (change)="setAllFilter2(role)"> {{role.name}}
-            </div>
-          
-            </div>
-        </div>
 
+      <div id="collapseBasic" [collapse]="isCollapsedAirCraft" class="card card-block card-header">
+
+        <div style="margin:15px 0;">
+
+          <div *ngFor="let role of flightservice.allFilters.airCraftsFilter">
+            <input type="checkbox" [value]="role.isChecked" [checked]="role.isChecked" [(ngModel)]="role.isChecked"
+              (change)="setAirlinesFilters(role)"> {{role.name}}
+          </div>
+
+        </div>
       </div>
-      <div class="">
-        <a type="button" class="btn " (click)="isCollapsed5 = !isCollapsed5" [attr.aria-expanded]="!isCollapsed5"
-          aria-controls="collapseBasic" style="width:100%; padding: 10px 0;"><span class="fl blue"> <b>Air Craft</b></span>   <span class="glyphicon fr drop-arrow" [class.glyphicon-menu-up]="!isCollapsed2" [class.glyphicon-menu-down]="isCollapsed2" aria-hidden="true"></span>
+
+    </div>
+
+ <!-- Capin Type -->
+    <div class="">
+      <a type="button" class="btn " (click)="isCollapsedCapinType = !isCollapsedCapinType" [attr.aria-expanded]="!isCollapsedCapinType"
+        aria-controls="collapseBasic" style="width:100%; padding: 10px 0;"><span class="fl blue"> <b>Capin Type</b></span>
+        <span class="glyphicon fr drop-arrow" [class.glyphicon-menu-up]="!isCollapsedCapinType" [class.glyphicon-menu-down]="isCollapsedCapinType"
+          aria-hidden="true"></span>
       </a>
-        
-        <div id="collapseBasic" [collapse]="isCollapsed5" class="card card-block card-header">
-          
-            <div style="margin:15px 0;">
-          
-              <div *ngFor="let role of flightservice.allFilters.airCraftsFilter">
-                <input type="checkbox" [value]="role.isChecked" [checked]="role.isChecked" [(ngModel)]="role.isChecked" (change)="setAirlinesFilters(role)"> {{role.name}}
-            </div>
-          
-            </div>
-        </div>
 
+      <div id="collapseBasic" [collapse]="isCollapsedCapinType" class="card card-block card-header">
+
+        <div style="margin:15px 0;">
+
+          <div *ngFor="let role of flightservice.allFilters.capinTypesFilter">
+            <input type="checkbox" [value]="role.isChecked" [checked]="role.isChecked" [(ngModel)]="role.isChecked"
+              (change)="setAirlinesFilters(role)"> {{role.name}}
+          </div>
+
+        </div>
       </div>
-      <div class="">
-        <a type="button" class="btn " (click)="isCollapsed6 = !isCollapsed6" [attr.aria-expanded]="!isCollapsed6"
-          aria-controls="collapseBasic" style="width:100%; padding: 10px 0;"><span class="fl blue"> <b>Capin Type</b></span>   <span class="glyphicon fr drop-arrow" [class.glyphicon-menu-up]="!isCollapsed2" [class.glyphicon-menu-down]="isCollapsed2" aria-hidden="true"></span>
+
+    </div>
+
+    <!-- AirPort -->
+    <div class="">
+      <a type="button" class="btn " (click)="isCollapsedAirPort = !isCollapsedAirPort" [attr.aria-expanded]="!isCollapsedAirPort"
+        aria-controls="collapseBasic" style="width:100%; padding: 10px 0;"><span class="fl blue"> <b>AirPort</b></span>
+        <span class="glyphicon fr drop-arrow" [class.glyphicon-menu-up]="!isCollapsedAirPort" [class.glyphicon-menu-down]="isCollapsedAirPort"
+          aria-hidden="true"></span>
       </a>
-        
-        <div id="collapseBasic" [collapse]="isCollapsed6" class="card card-block card-header">
-          
-            <div style="margin:15px 0;">
-          
-              <div *ngFor="let role of flightservice.allFilters.capinTypesFilter">
-                <input type="checkbox" [value]="role.isChecked" [checked]="role.isChecked" [(ngModel)]="role.isChecked" (change)="setAirlinesFilters(role)"> {{role.name}}
-            </div>
-          
-            </div>
-        </div>
 
-      </div>
-      <div class="">
-        <a type="button" class="btn " (click)="isCollapsed7 = !isCollapsed7" [attr.aria-expanded]="!isCollapsed7"
-          aria-controls="collapseBasic" style="width:100%; padding: 10px 0;"><span class="fl blue"> <b>AirPort</b></span>   <span class="glyphicon fr drop-arrow" [class.glyphicon-menu-up]="!isCollapsed2" [class.glyphicon-menu-down]="isCollapsed2" aria-hidden="true"></span>
-      </a>
-        
-        <div id="collapseBasic" [collapse]="isCollapsed7" class="card card-block card-header">
-          
-            <div style="margin:15px 0;">
-          
-              <div *ngFor="let role of flightservice.allFilters.AirportsFilter">
-                <input type="checkbox" [value]="role.isChecked" [checked]="role.isChecked" [(ngModel)]="role.isChecked" (change)="setAirlinesFilters(role)"> {{role.name}}
-            </div>
-          
-            </div>
-        </div>
+      <div id="collapseBasic" [collapse]="isCollapsedAirPort" class="card card-block card-header">
 
+        <div style="margin:15px 0;">
+
+          <div *ngFor="let role of flightservice.allFilters.AirportsFilter">
+            <input type="checkbox" [value]="role.isChecked" [checked]="role.isChecked" [(ngModel)]="role.isChecked"
+              (change)="setAirlinesFilters(role)"> {{role.name}}
+          </div>
+
+        </div>
       </div>
-      <!-- <div class="">
+
+    </div>
+    <!-- <div class="">
         <a type="button" class="btn " (click)="isCollapsed3 = !isCollapsed3" [attr.aria-expanded]="!isCollapsed3"
           aria-controls="collapseBasic" style="width:100%; padding: 10px 0;"><span class="fl blue"> <b>Depature Time</b></span>   <span class="glyphicon fr drop-arrow" [class.glyphicon-menu-up]="!isCollapsed2" [class.glyphicon-menu-down]="isCollapsed2" aria-hidden="true"></span>
       </a>
@@ -160,4 +193,3 @@
 
   </div>
 </div>
-

@@ -17,14 +17,17 @@ export class FlightFilterComponent implements OnInit {
   nonchecked: string[] = [];
   SortAsc: boolean = false;
   SortDesc: boolean = false;
-  isCollapsed: boolean;
-  isCollapsed2: boolean;
   AirLinesFilter: any[];
   AirCraftsFilter: any[];
-  isCollapsed3: boolean;
 
-
-
+  isCollapsedStops: boolean;
+  isCollapsedCost: boolean;
+  isCollapsedDuration: boolean;
+  isCollapsedAirLines: boolean;
+  isCollapsedAirCraft: boolean;
+  isCollapsedCapinType: boolean;
+  isCollapsedAirPort: boolean;
+  
   constructor(public flightservice: FlightService) { }
 
   ngOnInit() {
