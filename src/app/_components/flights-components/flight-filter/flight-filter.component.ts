@@ -47,6 +47,9 @@ export class FlightFilterComponent implements OnInit {
     this.CapinTypesFilters();
     this.AirCraftsFilters();
     this.AirPortsFilters();
+    if(this.SortDesc)
+    this.flightservice.displayedFlightSearchResult = this.flightservice.displayedFlightSearchResult.filter(o => o.Amount).sort((a, b) => 0 - (a > b ? -1 : 1));
+
   }
  
 
@@ -95,16 +98,16 @@ export class FlightFilterComponent implements OnInit {
 
 
 
-  onsortchange(v) {
+     onsortchange(v) {
     if (v == "Lowest") {
       this.SortAsc = true;
       this.SortDesc = false;
-      this.flightservice.displayedFlightSearchResult = this.flightservice.displayedFlightSearchResult.filter(o => o.Amount).sort((a, b) => 0 - (a > b ? -1 : 1));
+      this.setAllFilter();
     }
-    else if (v == "hieght") {
+    else if (v == "Highest") {
       this.SortAsc = false;
       this.SortDesc = true;
-      this.flightservice.displayedFlightSearchResult = this.flightservice.displayedFlightSearchResult.filter(o => o.Amount).sort((a, b) => 0 - (a > b ? -1 : 1));
+      this.setAllFilter(); 
     }
   }
 

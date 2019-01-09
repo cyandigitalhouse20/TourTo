@@ -145,15 +145,15 @@
             <div class="row borderd-top" style="padding:15px 0;">
               <div class="col-sm-6">
                 <a class="h5 blue fl" href="javascript:void(0)">
-                  <span class="fl blue" style="margin:5px;"> <b>LUGGAGES DETAILS</b></span> <span class="glyphicon glyphicon-menu-down fr drop-arrow"></span>
+                  <span class="fl blue" style="margin:5px;"> <b>LUGGAGES DETAILS</b></span> <span class="glyphicon glyphicon-menu-up fr drop-arrow"></span>
                 </a>
               </div>
               <div class="col-sm-6">
                 <a type="button " class="btn fr" (click)="isCollapsed = !isCollapsed" [attr.aria-expanded]="!isCollapsed"
                   aria-controls="collapseBasic">
                   <span class=" blue" style="margin:5px;"> <b>FLIGHT DETAILS</b></span>
-                  <span class="glyphicon fr drop-arrow" [class.glyphicon-menu-up]="isCollapsed"
-                    [class.glyphicon-menu-down]="!isCollapsed" aria-hidden="true"></span>
+                  <span class="glyphicon fr drop-arrow" [class.glyphicon-menu-up]="!isCollapsed"
+                    [class.glyphicon-menu-down]="isCollapsed" aria-hidden="true"></span>
                 </a>
               </div>
             </div>

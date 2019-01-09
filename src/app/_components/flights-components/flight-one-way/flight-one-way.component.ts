@@ -100,7 +100,7 @@ export class FlightOneWayComponent implements OnInit {
         localStorage.setItem('RequestId', data.RequestId);
         this.flightService.flightsearchresult = data;
         this.flightService.displayedFlightSearchResult = data.AirResultItineraries;
-        this.setFilters();
+        this.flightService.setFilters();
         this.flightService.isCompleated = true;
         this.flightService.flightTypeSearchResult = "oneWay";
         this.flightService.showFlightsDetails = true;
@@ -114,82 +114,7 @@ export class FlightOneWayComponent implements OnInit {
     }
   }
 
-  setFilters() {
-    const distinct = (value, index, self) => {
-      return self.indexOf(value) === index;
-    }
 
-    this.flightService.allFilters.sliderFilter.setCoastFilter(this.flightService.displayedFlightSearchResult[0].Amount, this.flightService.displayedFlightSearchResult[this.flightService.displayedFlightSearchResult.length - 1].Amount);
-
-    this.flightService.allFilters.sliderFilter.setDurationfiltervaliues(this.flightService.displayedFlightSearchResult.map(o => o.Routes).map(s => s.map(l => l.Duration)));
-
-    // set  AirLine Filters
-    let AirLineInthreeDArry = this.flightService.displayedFlightSearchResult.map(o => o.Routes.map(s => s.Segment.map(i => i.Carrier.Marketing.Value)));
-    let AirLineIntWoDArry = AirLineInthreeDArry.reduce(function (prev, next) {
-      return prev.concat(next);
-    });
-    let AirLineInOneDArry = AirLineIntWoDArry.reduce(function (prev, next) {
-      return prev.concat(next);
-    });
-
-    let distinctAirLineInOneDArry = AirLineInOneDArry.filter(distinct);
-
-    distinctAirLineInOneDArry.forEach(element => {
-      this.flightService.allFilters.airLinesFilter.push({ name: element, isChecked: true });
-    });
-
-    // set AirCraft Filters
-    let AirCraftInthreeDArry = this.flightService.displayedFlightSearchResult.map(o => o.Routes.map(s => s.Segment.map(i => i.Aircraft.Value)));
-    let AirCraftIntWoDArry = AirCraftInthreeDArry.reduce(function (prev, next) {
-      return prev.concat(next);
-    });
-    let AirCraftInOneDArry = AirCraftIntWoDArry.reduce(function (prev, next) {
-      return prev.concat(next);
-    });
-
-    let distinctAirCraftInOneDArry = AirCraftInOneDArry.filter(distinct);
-
-    distinctAirCraftInOneDArry.forEach(element => {
-      this.flightService.allFilters.airCraftsFilter.push({ name: element, isChecked: true });
-    });
-
-
-    // set capinType Filters
-
-    let capinTypeInthreeDArry = this.flightService.displayedFlightSearchResult.map(o => o.Routes.map(s => s.Segment.map(i => i.Flight.CabinType)));
-
-    let capinTypeIntWoDArry = capinTypeInthreeDArry.reduce(function (prev, next) {
-      return prev.concat(next);
-    });
-    let capinTypeInOneDArry = capinTypeIntWoDArry.reduce(function (prev, next) {
-      return prev.concat(next);
-    });
-
-    let distinctcapinTypeInOneDArry = capinTypeInOneDArry.filter(distinct);
-
-    distinctcapinTypeInOneDArry.forEach(element => {
-      this.flightService.allFilters.capinTypesFilter.push({ name: element, isChecked: true });
-    });
-
-    // set Airport Filters
-
-    let AirportInthreeDArry = this.flightService.displayedFlightSearchResult.map(o => o.Routes.map(s => s.Segment.map(i => i.Origin.Airport.Value && i.Destination.Airport.Value)));
-
-
-    let AirportIntWoDArry = AirportInthreeDArry.reduce(function (prev, next) {
-      return prev.concat(next);
-    });
-    let AirportInOneDArry = AirportIntWoDArry.reduce(function (prev, next) {
-      return prev.concat(next);
-    });
-
-    let distinctAirportInOneDArry = AirportInOneDArry.filter(distinct);
-
-    distinctAirportInOneDArry.forEach(element => {
-      this.flightService.allFilters.AirportsFilter.push({ name: element, isChecked: true });
-    });
-
-  }
 
 
 }

@@ -143,8 +143,8 @@
               <div class="col-sm-12">
                   <a type="button " class="btn" type="submit" (click)="item.DetailsCollapse = !item.DetailsCollapse" [attr.aria-expanded]="!item.DetailsCollapse" aria-controls="collapseBasic">
                       <span class=" blue" style="margin:5px;"> <b>FLIGHT DETAILS</b></span>
-                      <span class="glyphicon fr drop-arrow" [class.glyphicon-menu-up]="item.DetailsCollapse"
-                          [class.glyphicon-menu-down]="!item.DetailsCollapse" aria-hidden="true"  ></span>
+                      <span class="glyphicon fr drop-arrow" [class.glyphicon-menu-up]="!item.DetailsCollapse"
+                          [class.glyphicon-menu-down]="item.DetailsCollapse" aria-hidden="true"  ></span>
                   </a> </div>
           </div>
         </div>

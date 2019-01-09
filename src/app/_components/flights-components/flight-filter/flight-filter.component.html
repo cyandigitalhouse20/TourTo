@@ -8,7 +8,7 @@
       <label class="blue" for="exampleInputEmail1">Sort by</label>
       <select class="form-control" (change)="onsortchange($event.target.value)">
         <option value="Lowest">lowest price</option>
-        <option value="hieght">hieght price</option>
+        <option value="Highest">highest price</option>
       </select>
     </div>
 
@@ -87,7 +87,7 @@
           aria-hidden="true"></span>
       </a>
 
-      <div id="collapseBasic" [collapse]="isCollapsedAirLines" class="card card-block card-header">
+      <div id="collapseBasic" [collapse]="!isCollapsedAirLines" class="card card-block card-header">
 
         <div style="margin:15px 0;">
 
@@ -109,7 +109,7 @@
           aria-hidden="true"></span>
       </a>
 
-      <div id="collapseBasic" [collapse]="isCollapsedAirCraft" class="card card-block card-header">
+      <div id="collapseBasic" [collapse]="!isCollapsedAirCraft" class="card card-block card-header">
 
         <div style="margin:15px 0;">
 
@@ -131,7 +131,7 @@
           aria-hidden="true"></span>
       </a>
 
-      <div id="collapseBasic" [collapse]="isCollapsedCapinType" class="card card-block card-header">
+      <div id="collapseBasic" [collapse]="!isCollapsedCapinType" class="card card-block card-header">
 
         <div style="margin:15px 0;">
 
@@ -153,7 +153,7 @@
           aria-hidden="true"></span>
       </a>
 
-      <div id="collapseBasic" [collapse]="isCollapsedAirPort" class="card card-block card-header">
+      <div id="collapseBasic" [collapse]="!isCollapsedAirPort" class="card card-block card-header">
 
         <div style="margin:15px 0;">
 
@@ -166,30 +166,6 @@
       </div>
 
     </div>
-    <!-- <div class="">
-        <a type="button" class="btn " (click)="isCollapsed3 = !isCollapsed3" [attr.aria-expanded]="!isCollapsed3"
-          aria-controls="collapseBasic" style="width:100%; padding: 10px 0;"><span class="fl blue"> <b>Depature Time</b></span>   <span class="glyphicon fr drop-arrow" [class.glyphicon-menu-up]="!isCollapsed2" [class.glyphicon-menu-down]="isCollapsed2" aria-hidden="true"></span>
-      </a>
-        
-        <div id="collapseBasic" [collapse]="isCollapsed3" class="card card-block card-header">
-          
-          <div style="margin:15px 0;">
-            <ng5-slider [(value)]="this.flightservice.sliderFilters.OriginTimeMinvalue" [(highValue)]="this.flightservice.sliderFilters.OriginTimeMaxvalue" [(options)]="this.flightservice.sliderFilters.OriginTimeoptions"></ng5-slider>
-          </div>
-        </div>
-      </div>
-      <div class="">
-        <a type="button" class="btn " (click)="isCollapsed3 = !isCollapsed3" [attr.aria-expanded]="!isCollapsed3"
-          aria-controls="collapseBasic" style="width:100%; padding: 10px 0;"><span class="fl blue"> <b>Arrival Time</b></span>   <span class="glyphicon fr drop-arrow" [class.glyphicon-menu-up]="!isCollapsed2" [class.glyphicon-menu-down]="isCollapsed2" aria-hidden="true"></span>
-      </a>
-        
-        <div id="collapseBasic" [collapse]="isCollapsed3" class="card card-block card-header">
-          
-            <div style="margin:15px 0;">
-                <ng5-slider [(value)]="this.flightservice.sliderFilters.DestinationTimeMinvalue" [(highValue)]="this.flightservice.sliderFilters.DestinationTimeMaxvalue" [(options)]="this.flightservice.sliderFilters.DestinationTimeoptions"></ng5-slider>
-            </div>
-        </div>
-      </div> -->
-
+   
   </div>
 </div>
