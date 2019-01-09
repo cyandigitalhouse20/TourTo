@@ -133,7 +133,10 @@ if(element.Title==undefined||element.Title=="")
           }
 this.Passengers[PassngerNumber].PaxRef=UserId;
 this.Passengers[PassngerNumber].Type=element.Type;
-this.Passengers[PassngerNumber].PTC=element.Type;
+if(element.Type=="adult")
+this.Passengers[PassngerNumber].PTC="ADT";
+else if(element.Type=="child")
+this.Passengers[PassngerNumber].PTC="CHD";
 if(PassngerNumber==0)
 this.Passengers[PassngerNumber].Lead=true;
 else
@@ -176,9 +179,6 @@ PassngerNumber++;
           this.ServiceConfig.BackOfficeRemarks=null;
           this.ServiceConfig.ResultCode=this.flightservice.flightDetails.resultCodeField;
          
-
-
-
 
 
          let airMakeReservation:AirMakeReservation =new AirMakeReservation();

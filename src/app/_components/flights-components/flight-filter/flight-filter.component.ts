@@ -14,7 +14,10 @@ export class FlightFilterComponent implements OnInit {
   DurArr: number[];
   OrigArr: number[];
   DestArr: number[];
-  nonchecked: string[] = [];
+  airLineNonchecked: string[] = [];
+  capinTypeNonchecked: string[] = [];
+  airPortNonchecked: string[] = [];
+  airCraftNonchecked: string[] = [];
   SortAsc: boolean = false;
   SortDesc: boolean = false;
   AirLinesFilter: any[];
@@ -40,12 +43,12 @@ export class FlightFilterComponent implements OnInit {
     this.filterDataOfTranzet();
     this.FilterCoast();
     this.FilterDuration();
+    this.AirlinesFilters();
+    this.CapinTypesFilters();
+    this.AirCraftsFilters();
+    this.AirPortsFilters();
   }
-  setAllFilter2(name) {
-    this.setAllFilter();
-    this.setAirlinesFilters(name);
-  }
-
+ 
 
 
 
@@ -76,14 +79,6 @@ export class FlightFilterComponent implements OnInit {
     else {
       this.flightservice.displayedFlightSearchResult = this.flightservice.flightsearchresult.AirResultItineraries;
     }
-
-    // this.flightservice.sliderFilters.setDepatureFiltervaliues(this.flightservice.displayedFlightSearchResult.map(o => o.Routes).map(s => s.map(l => l.Segment.map(o => o.Origin.Time))));
-    // this.flightservice.sliderFilters.setDestinationFiltervaliues(this.flightservice.displayedFlightSearchResult.map(o => o.Routes).map(s => s.map(l => l.Segment.map(o => o.Destination.Time))));
-    // this.flightservice.sliderFilters.setDurationfiltervaliues(this.flightservice.displayedFlightSearchResult.map(o => o.Routes).map(s => s.map(l => l.Duration)));
-    // this.flightservice.sliderFilters.setCoastFilter(this.flightservice.displayedFlightSearchResult[0].Amount, this.flightservice.displayedFlightSearchResult[this.flightservice.displayedFlightSearchResult.length - 1].Amount);
-    // if (this.SortDesc) {
-    //   this.flightservice.displayedFlightSearchResult = this.flightservice.displayedFlightSearchResult.filter(o => o.Amount).sort((a, b) => 0 - (a > b ? -1 : 1));
-    // }
   }
 
 
@@ -96,6 +91,9 @@ export class FlightFilterComponent implements OnInit {
     this.flightservice.displayedFlightSearchResult = this.flightservice.displayedFlightSearchResult.filter(o => o.Routes.every(a => parseInt(a.Duration.substring(0, 2).toString()) >= this.flightservice.allFilters.sliderFilter.DurationMinvalue && parseInt(a.Duration.substring(0, 2).toString()) <= this.flightservice.allFilters.sliderFilter.DurationMaxvalue));
 
   }
+
+
+
 
   onsortchange(v) {
     if (v == "Lowest") {
@@ -111,23 +109,76 @@ export class FlightFilterComponent implements OnInit {
   }
 
 
-  setAirlinesFilters(airlineName) {
-
-    alert(airlineName.name);
-
-    if (airlineName.isChecked) {
-      const index = this.nonchecked.indexOf(airlineName.name, 0);
+  setAirlinesNonCheckList(airlineName) {
+     if (airlineName.isChecked) {
+      const index = this.airLineNonchecked.indexOf(airlineName.name, 0);
       if (index > -1) {
-        this.nonchecked.splice(index, 1);
+        this.airLineNonchecked.splice(index, 1);
       }
     }
     else
-      this.nonchecked.push(airlineName.name);
+      this.airLineNonchecked.push(airlineName.name); 
 
-
-    this.flightservice.displayedFlightSearchResult = this.flightservice.displayedFlightSearchResult.filter(o => o.Routes.every(o => o.Segment.every(k => this.nonchecked.every(s => s != k.Carrier.Marketing.Value))));
-
+     this.setAllFilter();
 
   }
+
+  setAirCraftsNonCheckList(AirCraftName) {
+    if (AirCraftName.isChecked) {
+      const index = this.airCraftNonchecked.indexOf(AirCraftName.name, 0);
+      if (index > -1) {
+        this.airCraftNonchecked.splice(index, 1);
+      }
+    }
+    else
+      this.airCraftNonchecked.push(AirCraftName.name);
+      this.setAllFilter();
+  }
+  setAirPortsNonCheckList(AirPortName) {
+    if (AirPortName.isChecked) {
+      const index = this.airPortNonchecked.indexOf(AirPortName.name, 0);
+      if (index > -1) {
+        this.airPortNonchecked.splice(index, 1);
+      }
+    }
+    else
+      this.airPortNonchecked.push(AirPortName.name);
+      this.setAllFilter();
+  }
+
+  setCapinTypesNonCheckList(CapinType) {
+    if (CapinType.isChecked) {
+      const index = this.capinTypeNonchecked.indexOf(CapinType.name, 0);
+      if (index > -1) {
+        this.capinTypeNonchecked.splice(index, 1);
+      }
+    }
+    else
+      this.capinTypeNonchecked.push(CapinType.name);
+      this.setAllFilter();
+  }
+
+
+
+  AirlinesFilters() {
+    this.flightservice.displayedFlightSearchResult = this.flightservice.displayedFlightSearchResult.filter(o => o.Routes.every(o => o.Segment.every(k => this.airLineNonchecked.every(s => s != k.Carrier.Marketing.Value))));
+  }
+
+
+  CapinTypesFilters() {
+
+    this.flightservice.displayedFlightSearchResult = this.flightservice.displayedFlightSearchResult.filter(o => o.Routes.every(o => o.Segment.every(k => this.capinTypeNonchecked.every(s => s != k.Flight.CabinType))));
+  }
+
+  AirPortsFilters() {
+
+    this.flightservice.displayedFlightSearchResult = this.flightservice.displayedFlightSearchResult.filter(o => o.Routes.every(o => o.Segment.every(k => this.airPortNonchecked.every(s => s != k.Origin.Airport.Value))));
+  }
+
+  AirCraftsFilters() {
+    this.flightservice.displayedFlightSearchResult = this.flightservice.displayedFlightSearchResult.filter(o => o.Routes.every(o => o.Segment.every(k => this.airCraftNonchecked.every(s => s != k.Aircraft.Value))));
+  }
+
+
 }
 

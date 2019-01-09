@@ -93,7 +93,7 @@
 
           <div *ngFor="let role of flightservice.allFilters.airLinesFilter">
             <input type="checkbox" [value]="role.isChecked" [checked]="role.isChecked" [(ngModel)]="role.isChecked"
-              (change)="setAllFilter2(role)"> {{role.name}}
+              (change)="setAirlinesNonCheckList(role)"> {{role.name}}
           </div>
 
         </div>
@@ -115,7 +115,7 @@
 
           <div *ngFor="let role of flightservice.allFilters.airCraftsFilter">
             <input type="checkbox" [value]="role.isChecked" [checked]="role.isChecked" [(ngModel)]="role.isChecked"
-              (change)="setAirlinesFilters(role)"> {{role.name}}
+              (change)="setAirCraftsNonCheckList(role)"> {{role.name}}
           </div>
 
         </div>
@@ -137,7 +137,7 @@
 
           <div *ngFor="let role of flightservice.allFilters.capinTypesFilter">
             <input type="checkbox" [value]="role.isChecked" [checked]="role.isChecked" [(ngModel)]="role.isChecked"
-              (change)="setAirlinesFilters(role)"> {{role.name}}
+              (change)="setCapinTypesNonCheckList(role)"> {{role.name}}
           </div>
 
         </div>
@@ -159,7 +159,7 @@
 
           <div *ngFor="let role of flightservice.allFilters.AirportsFilter">
             <input type="checkbox" [value]="role.isChecked" [checked]="role.isChecked" [(ngModel)]="role.isChecked"
-              (change)="setAirlinesFilters(role)"> {{role.name}}
+              (change)="setAirPortsNonCheckList(role)"> {{role.name}}
           </div>
 
         </div>
