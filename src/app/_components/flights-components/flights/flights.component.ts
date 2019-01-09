@@ -38,7 +38,7 @@ export class FlightsComponent implements OnInit {
           if (this.flightService.multiCitiesModel == undefined) {
             this.flightService.multiCitiesModel = new FlightSearchOptionMultiCities();
           }
-          this.getMultiCityResult(params.get("multiCityFlightsNumber"),params.get("flightType"), params.get("class"), params.get("directFlight"), params.get("adult"), params.get("children"), params.get("flexDates"), params.get("originId1"), params.get("destinationId1"), params.get("departureDate1"), params.get("originId2"), params.get("destinationId2"), params.get("departureDate2"), params.get("originId3"), params.get("destinationId3"), params.get("departureDate3"), params.get("originId4"), params.get("destinationId4"), params.get("departureDate4"), params.get("originId5"), params.get("destinationId5"), params.get("departureDate5"));
+          this.getMultiCityResult(params.get("multiCityFlightsNumber"), params.get("flightType"), params.get("class"), params.get("directFlight"), params.get("adult"), params.get("children"), params.get("flexDates"), params.get("originId1"), params.get("destinationId1"), params.get("departureDate1"), params.get("originId2"), params.get("destinationId2"), params.get("departureDate2"), params.get("originId3"), params.get("destinationId3"), params.get("departureDate3"), params.get("originId4"), params.get("destinationId4"), params.get("departureDate4"), params.get("originId5"), params.get("destinationId5"), params.get("departureDate5"));
         }
         else {
           alert("error");
@@ -122,8 +122,80 @@ export class FlightsComponent implements OnInit {
       this.flightService.flightsearchresult = data;
       this.flightService.displayedFlightSearchResult = data.AirResultItineraries;
       this.flightService.isCompleated = true;
-      this.flightService.sliderFilters.setCoastFilter(this.flightService.displayedFlightSearchResult[0].Amount, this.flightService.displayedFlightSearchResult[this.flightService.displayedFlightSearchResult.length - 1].Amount);
-      this.flightService.sliderFilters.setDurationfiltervaliues(this.flightService.displayedFlightSearchResult.map(o => o.Routes).map(s => s.map(l => l.Duration)));
+      this.flightService.allFilters.sliderFilter.setCoastFilter(this.flightService.displayedFlightSearchResult[0].Amount, this.flightService.displayedFlightSearchResult[this.flightService.displayedFlightSearchResult.length - 1].Amount);
+     
+      this.flightService.allFilters.sliderFilter.setDurationfiltervaliues(this.flightService.displayedFlightSearchResult.map(o => o.Routes).map(s => s.map(l => l.Duration)));
+
+
+// set  AirLine Filters
+      let AirLineInthreeDArry = this.flightService.displayedFlightSearchResult.map(o => o.Routes.map(s => s.Segment.map(i => i.Carrier.Marketing.Value)));
+      let AirLineIntWoDArry = AirLineInthreeDArry.reduce(function (prev, next) {
+        return prev.concat(next);
+      });
+      let AirLineInOneDArry = AirLineIntWoDArry.reduce(function (prev, next) {
+        return prev.concat(next);
+      });
+      const distinct = (value, index, self) => {
+        return self.indexOf(value) === index;
+      }
+      let distinctAirLineInOneDArry = AirLineInOneDArry.filter(distinct);
+
+      distinctAirLineInOneDArry.forEach(element => {
+        this.flightService.allFilters.airLinesFilter.push({ name: element,isChecked:true });
+      });
+
+// set AirCraft Filters
+      let AirCraftInthreeDArry = this.flightService.displayedFlightSearchResult.map(o => o.Routes.map(s => s.Segment.map(i => i.Aircraft.Value)));
+ let AirCraftIntWoDArry = AirCraftInthreeDArry.reduce(function (prev, next) {
+        return prev.concat(next);
+      });
+      let AirCraftInOneDArry = AirCraftIntWoDArry.reduce(function (prev, next) {
+        return prev.concat(next);
+      });
+   
+      let distinctAirCraftInOneDArry = AirCraftInOneDArry.filter(distinct);
+
+      distinctAirCraftInOneDArry.forEach(element => {
+        this.flightService.allFilters.airCraftsFilter.push({ name: element,isChecked:true });
+      });
+
+
+// set capinType Filters
+
+      let capinTypeInthreeDArry = this.flightService.displayedFlightSearchResult.map(o => o.Routes.map(s => s.Segment.map(i => i.Flight.CabinType)));
+
+      let capinTypeIntWoDArry = capinTypeInthreeDArry.reduce(function (prev, next) {
+             return prev.concat(next);
+           });
+           let capinTypeInOneDArry = capinTypeIntWoDArry.reduce(function (prev, next) {
+             return prev.concat(next);
+           });
+        
+           let distinctcapinTypeInOneDArry = capinTypeInOneDArry.filter(distinct);
+     
+           distinctcapinTypeInOneDArry.forEach(element => {
+             this.flightService.allFilters.capinTypesFilter.push({ name: element,isChecked:true });
+           });
+
+// set Airport Filters
+
+let AirportInthreeDArry = this.flightService.displayedFlightSearchResult.map(o => o.Routes.map(s => s.Segment.map(i => i.Origin.Airport.Value&&i.Destination.Airport.Value)));
+
+debugger;
+let AirportIntWoDArry = AirportInthreeDArry.reduce(function (prev, next) {
+       return prev.concat(next);
+     });
+     let AirportInOneDArry = AirportIntWoDArry.reduce(function (prev, next) {
+       return prev.concat(next);
+     });
+  
+     let distinctAirportInOneDArry = AirportInOneDArry.filter(distinct);
+     debugger;
+     distinctAirportInOneDArry.forEach(element => {
+       this.flightService.allFilters.AirportsFilter.push({ name: element,isChecked:true });
+     });
+
+
       this.flightService.flightTypeSearchResult = "oneWay";
       this.flightService.showFlightsDetails = true;
     }, (err: HttpErrorResponse) => {

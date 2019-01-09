@@ -129,7 +129,7 @@ if(element.Title==undefined||element.Title=="")
           {
             this.Passengers[PassngerNumber].FrequentTravellerCards.AirlineCode="null";
             this.Passengers[PassngerNumber].FrequentTravellerCards.Number="null";
-            this.Passengers[PassngerNumber].FrequentTravellerCards.PaxRef=UserId;
+            this.Passengers[PassngerNumber].FrequentTravellerCards.PaxRef="null";
           }
 this.Passengers[PassngerNumber].PaxRef=UserId;
 this.Passengers[PassngerNumber].Type=element.Type;
@@ -185,10 +185,13 @@ PassngerNumber++;
          airMakeReservation.Passengers=this.Passengers;
          airMakeReservation.ServiceConfig=this.ServiceConfig;
          airMakeReservation.ServiceConfig.FrequentTravellerCards= this.ServiceConfig.FrequentTravellerCards;
+
          airMakeReservation.ServiceConfig.Passengers= this.ServiceConfig.Passengers;
+         airMakeReservation.ServiceConfig.Passengers.PaxRef=this.ServiceConfig.Passengers.PaxRef;
+         airMakeReservation.ServiceConfig.Passengers.SeatRequests=this.ServiceConfig.Passengers.SeatRequests;
+
          airMakeReservation.ExternalRef="";
        console.log(JSON.stringify(airMakeReservation));
-       alert( JSON.stringify(airMakeReservation));
           alert("success");
         }
 

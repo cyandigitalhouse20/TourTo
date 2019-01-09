@@ -20,19 +20,19 @@
           
           <div class="checkbox">
               <label>
-                <input type="checkbox" [(ngModel)]="NoneStop"  (change)="onFilterChange()">
+                <input type="checkbox" [(ngModel)]="this.flightservice.allFilters.NoneStop"  (change)="setAllFilter()">
                 None stop
               </label>
             </div>
             <div class="checkbox">
                 <label>
-                  <input type="checkbox" [(ngModel)]="OneStop"  (change)="onOneStopFilterChange()">
+                  <input type="checkbox" [(ngModel)]="this.flightservice.allFilters.OneStop"  (change)="setAllFilter()">
                   1 stop
                 </label>
               </div>
               <div class="checkbox">
                   <label>
-                    <input type="checkbox" [(ngModel)]="TwoStop"  (change)="onTwoStopFilterChange()">
+                    <input type="checkbox" [(ngModel)]="this.flightservice.allFilters.TwoStop"  (change)="setAllFilter()">
                     2+ stops
                   </label>
                 </div>
@@ -46,7 +46,7 @@
         <div id="collapseBasic" [collapse]="isCollapsed2" class="card card-block card-header">
           
             <div style="margin:15px 0;">
-                <ng5-slider (click)="FilterCoast()" [(value)]="this.flightservice.sliderFilters.CoastMinvalue" [(highValue)]="this.flightservice.sliderFilters.CoastMaxvalue"  [(options)]="this.flightservice.sliderFilters.Coastoptions"></ng5-slider>
+                <ng5-slider (click)="setAllFilter()" [(value)]="this.flightservice.allFilters.sliderFilter.CoastMinvalue" [(highValue)]="this.flightservice.allFilters.sliderFilter.CoastMaxvalue"  [(options)]="this.flightservice.allFilters.sliderFilter.Coastoptions"></ng5-slider>
             </div>
         </div>
       </div>
@@ -58,9 +58,80 @@
         <div id="collapseBasic" [collapse]="isCollapsed3" class="card card-block card-header">
           
             <div style="margin:15px 0;">
-                <ng5-slider (click)="FilterDuration()" [(value)]="this.flightservice.sliderFilters.DurationMinvalue" [(highValue)]="this.flightservice.sliderFilters.DurationMaxvalue"  [(options)]="this.flightservice.sliderFilters.Durationoptions"></ng5-slider>
+                <ng5-slider (click)="setAllFilter()" [(value)]="this.flightservice.allFilters.sliderFilter.DurationMinvalue" [(highValue)]="this.flightservice.allFilters.sliderFilter.DurationMaxvalue"  [(options)]="this.flightservice.allFilters.sliderFilter.Durationoptions"></ng5-slider>
             </div>
         </div>
+
+      </div>
+
+
+      <div class="">
+        <a type="button" class="btn " (click)="isCollapsed4 = !isCollapsed4" [attr.aria-expanded]="!isCollapsed4"
+          aria-controls="collapseBasic" style="width:100%; padding: 10px 0;"><span class="fl blue"> <b>Air Lines</b></span>   <span class="glyphicon fr drop-arrow" [class.glyphicon-menu-up]="!isCollapsed2" [class.glyphicon-menu-down]="isCollapsed2" aria-hidden="true"></span>
+      </a>
+        
+        <div id="collapseBasic" [collapse]="isCollapsed4" class="card card-block card-header">
+          
+            <div style="margin:15px 0;">
+          
+              <div *ngFor="let role of flightservice.allFilters.airLinesFilter">
+                <input type="checkbox" [value]="role.isChecked" [checked]="role.isChecked" [(ngModel)]="role.isChecked" (change)="setAllFilter2(role)"> {{role.name}}
+            </div>
+          
+            </div>
+        </div>
+
+      </div>
+      <div class="">
+        <a type="button" class="btn " (click)="isCollapsed5 = !isCollapsed5" [attr.aria-expanded]="!isCollapsed5"
+          aria-controls="collapseBasic" style="width:100%; padding: 10px 0;"><span class="fl blue"> <b>Air Craft</b></span>   <span class="glyphicon fr drop-arrow" [class.glyphicon-menu-up]="!isCollapsed2" [class.glyphicon-menu-down]="isCollapsed2" aria-hidden="true"></span>
+      </a>
+        
+        <div id="collapseBasic" [collapse]="isCollapsed5" class="card card-block card-header">
+          
+            <div style="margin:15px 0;">
+          
+              <div *ngFor="let role of flightservice.allFilters.airCraftsFilter">
+                <input type="checkbox" [value]="role.isChecked" [checked]="role.isChecked" [(ngModel)]="role.isChecked" (change)="setAirlinesFilters(role)"> {{role.name}}
+            </div>
+          
+            </div>
+        </div>
+
+      </div>
+      <div class="">
+        <a type="button" class="btn " (click)="isCollapsed6 = !isCollapsed6" [attr.aria-expanded]="!isCollapsed6"
+          aria-controls="collapseBasic" style="width:100%; padding: 10px 0;"><span class="fl blue"> <b>Capin Type</b></span>   <span class="glyphicon fr drop-arrow" [class.glyphicon-menu-up]="!isCollapsed2" [class.glyphicon-menu-down]="isCollapsed2" aria-hidden="true"></span>
+      </a>
+        
+        <div id="collapseBasic" [collapse]="isCollapsed6" class="card card-block card-header">
+          
+            <div style="margin:15px 0;">
+          
+              <div *ngFor="let role of flightservice.allFilters.capinTypesFilter">
+                <input type="checkbox" [value]="role.isChecked" [checked]="role.isChecked" [(ngModel)]="role.isChecked" (change)="setAirlinesFilters(role)"> {{role.name}}
+            </div>
+          
+            </div>
+        </div>
+
+      </div>
+      <div class="">
+        <a type="button" class="btn " (click)="isCollapsed7 = !isCollapsed7" [attr.aria-expanded]="!isCollapsed7"
+          aria-controls="collapseBasic" style="width:100%; padding: 10px 0;"><span class="fl blue"> <b>AirPort</b></span>   <span class="glyphicon fr drop-arrow" [class.glyphicon-menu-up]="!isCollapsed2" [class.glyphicon-menu-down]="isCollapsed2" aria-hidden="true"></span>
+      </a>
+        
+        <div id="collapseBasic" [collapse]="isCollapsed7" class="card card-block card-header">
+          
+            <div style="margin:15px 0;">
+          
+              <div *ngFor="let role of flightservice.allFilters.AirportsFilter">
+                <input type="checkbox" [value]="role.isChecked" [checked]="role.isChecked" [(ngModel)]="role.isChecked" (change)="setAirlinesFilters(role)"> {{role.name}}
+            </div>
+          
+            </div>
+        </div>
+
       </div>
       <!-- <div class="">
         <a type="button" class="btn " (click)="isCollapsed3 = !isCollapsed3" [attr.aria-expanded]="!isCollapsed3"

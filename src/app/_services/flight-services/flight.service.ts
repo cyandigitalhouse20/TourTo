@@ -1,3 +1,4 @@
+import { AllFilters } from './../../_models/flights-models/flight-filter-models/all-filters';
 import { PassangerViewModel } from './../../_models/flights-models/flight-air-make-reservation-models/passanger-view-model';
 import { Injectable } from '@angular/core';
 import { Flightsearchresult, AirResultItineraries, FlightSearchOptionRoundOne, SliderFilter, FlightSearchOptionMultiCities, FlightDetails, AirMakeReservation, AirSeatMap } from 'src/app/_models';
@@ -21,13 +22,17 @@ export class FlightService {
   oneWayModel: FlightSearchOptionRoundOne;
   multiCitiesModel: FlightSearchOptionMultiCities;
   flightsearchresult: Flightsearchresult;
+  allFilters:AllFilters;
   flightDetails: FlightDetails;
   sliderFilters: SliderFilter;
+
   displayedFlightSearchResult: AirResultItineraries[];
   acceptTerms: boolean;
 
   constructor(private repositoryService: RepositoryService) {
     this.sliderFilters = new SliderFilter();
+    this.allFilters=new AllFilters();
+    
     this.Classes = ["First class", "Business", "Economy","Premium Economy"];
   }
 
