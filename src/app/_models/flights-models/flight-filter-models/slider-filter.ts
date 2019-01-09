@@ -13,6 +13,7 @@ export class SliderFilter {
     OriginTimeMaxvalue: number;
     DestinationTimeMinvalue: number;
     DestinationTimeMaxvalue: number;
+    
     Coastoptions: Options = {
         floor: 0,
         ceil: 100
@@ -29,47 +30,7 @@ export class SliderFilter {
         floor: 50,
         ceil: 200
     };
-    // setDepatureFiltervaliues(OriginTimeTwoD) {
-    //     let origintimeArray = [];
-    //     let OriginTimeOneD = OriginTimeTwoD.reduce(function (prev, next) {
-    //         return prev.concat(next);
-    //     });
-    //     OriginTimeOneD.forEach(element => {
-    //         origintimeArray.push(element.toString().substr(11, 2));
-    //     });
-    //     this.OrigArr = origintimeArray.map(Number);
-
-    //     this.OriginTimeoptions = {
-    //         floor: this.OrigArr.reduce(function (a, b) {
-    //             return Math.min(a, b);
-    //         }),
-    //         ceil: this.OrigArr.reduce(function (a, b) {
-    //             return Math.max(a, b);
-    //         })
-    //     };
-    //     this.OriginTimeMinvalue = this.OriginTimeoptions.floor;
-    //     this.OriginTimeMaxvalue = this.OriginTimeoptions.ceil;
-    // }
-    // setDestinationFiltervaliues(DestinationTimeTwoD) {
-    //     let destinationtimeArray = [];
-    //     let DestinationTimeOneD = DestinationTimeTwoD.reduce(function (prev, next) {
-    //         return prev.concat(next);
-    //     });
-    //     DestinationTimeOneD.forEach(element => {
-    //         destinationtimeArray.push(element.toString().substr(11, 2));
-    //     });
-    //     this.DestArr = destinationtimeArray.map(Number);
-    //     this.DestinationTimeoptions = {
-    //         floor: this.DestArr.reduce(function (a, b) {
-    //             return Math.min(a, b);
-    //         }),
-    //         ceil: this.DestArr.reduce(function (a, b) {
-    //             return Math.max(a, b);
-    //         })
-    //     };
-    //     this.DestinationTimeMinvalue = this.DestinationTimeoptions.floor;
-    //     this.DestinationTimeMaxvalue = this.DestinationTimeoptions.ceil;
-    // }
+   
     setDurationfiltervaliues(DurationTwoD) {
         let durationArray = [];
         let DurationInOneD = DurationTwoD.reduce(function (prev, next) {
