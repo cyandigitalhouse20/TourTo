@@ -93,9 +93,7 @@ export class FlightOneWayComponent implements OnInit {
       this.flightService.oneWayModel.RequestId = "null";
       this.flightService.oneWayModel.IsNewRequest = true;
       this.flightService.oneWayModel.DirectFlight = false;
-
       this.router.navigate(['/flights' + '/2' + '/' + this.flightService.oneWayModel.Class + '/false' + '/' + this.flightService.oneWayModel.Adult + '/' + this.flightService.oneWayModel.Children + '/true' + '/' + this.flightService.oneWayModel.OriginCityId + '/' + this.flightService.oneWayModel.DestinationCityId + '/' + this.flightService.oneWayModel.DepartureDate]);
-
       this.flightService.airLowFareSearch(this.flightService.oneWayModel).subscribe((data: any) => {
         localStorage.setItem('RequestId', data.RequestId);
         this.flightService.flightsearchresult = data;

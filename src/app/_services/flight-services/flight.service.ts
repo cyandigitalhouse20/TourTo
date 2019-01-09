@@ -42,7 +42,7 @@ export class FlightService {
     }
     this.allFilters.airLinesFilter=[];
     this.allFilters.airCraftsFilter=[];
-    this.allFilters.airLinesFilter=[];
+    this.allFilters.AirportsFilter=[];
     this.allFilters.capinTypesFilter=[];
     
     this.allFilters.sliderFilter.setCoastFilter(this.displayedFlightSearchResult[0].Amount, this.displayedFlightSearchResult[this.displayedFlightSearchResult.length - 1].Amount);
@@ -98,8 +98,8 @@ export class FlightService {
 
     // set Airport Filters
 
-    let AirportInthreeDArry = this.displayedFlightSearchResult.map(o => o.Routes.map(s => s.Segment.map(i => i.Origin.Airport.Value && i.Destination.Airport.Value)));
-
+    let AirportInthreeDArry = this.displayedFlightSearchResult.map(o => o.Routes.map(s => s.Segment.map(i => i.Origin.Airport.Value || i.Destination.Airport.Value)));
+  
 
     let AirportIntWoDArry = AirportInthreeDArry.reduce(function (prev, next) {
       return prev.concat(next);

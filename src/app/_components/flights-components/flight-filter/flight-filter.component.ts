@@ -59,6 +59,7 @@ export class FlightFilterComponent implements OnInit {
 
 
   filterDataOfTranzet() {
+    debugger;
     if (this.flightservice.allFilters.NoneStop && this.flightservice.allFilters.OneStop == false && this.flightservice.allFilters.TwoStop == false) {
       this.flightservice.displayedFlightSearchResult = this.flightservice.flightsearchresult.AirResultItineraries.filter(o => o.Routes.every(seg => seg.Segment.length == 1))
     }
@@ -169,7 +170,6 @@ export class FlightFilterComponent implements OnInit {
 
 
   CapinTypesFilters() {
-
     this.flightservice.displayedFlightSearchResult = this.flightservice.displayedFlightSearchResult.filter(o => o.Routes.every(o => o.Segment.every(k => this.capinTypeNonchecked.every(s => s != k.Flight.CabinType))));
   }
 
